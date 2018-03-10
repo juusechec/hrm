@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.0-alpha1" last-position="1010,1360" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="examen_medico">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Es el examen médico]]></comment>
+	<position x="1580" y="1600"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="fecha">
+		<type name="date" length="1"/>
+	</column>
+	<column name="recomendaciones">
+		<type name="text" length="1"/>
+	</column>
+	<constraint name="examen_medico_id_pkey" type="pk-constr" table="public.examen_medico">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_concepto_examen_medico" index="6"/>
+		<object name="id_persona" index="3"/>
+		<object name="id_tipo_examen_medico" index="4"/>
+		<object name="id_tipo_programa_examen_medico" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="concepto_examen_medico_fk" index="3"/>
+		<object name="persona_fk" index="4"/>
+		<object name="tipo_examen_medico_fk" index="1"/>
+		<object name="tipo_programa_examen_medico_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="persona">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Entidad que define todos los atributos de las personas que intervienen en la organizacion directa o indirectamente]]></comment>
+	<position x="2060" y="1500"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="primer_nombre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Primer Nombre de la persona]]></comment>
+	</column>
+	<column name="otro_nombre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Segundos y terceros nombres de la persona]]></comment>
+	</column>
+	<column name="primer_apellido">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Primer Apellido de la Persona]]></comment>
+	</column>
+	<column name="segundo_apellido">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Segundo Apellido de la persona]]></comment>
+	</column>
+	<column name="fecha_nacimiento">
+		<type name="date" length="1"/>
+		<comment><![CDATA[Fecha de nacimiento de la persona en el formato dd-mm-aaaa]]></comment>
+	</column>
+	<column name="tipo_documento">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Identifica el tipo de documento de la persona solo admite los siguientes valores RC = Registro Civil, TI = Targeta de identidad, CC=Cedula de Ciudadania, CE = Cedula de Extrangeria]]></comment>
+	</column>
+	<column name="numero_documento">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Solo admite datos tipos numericos para los casos RC, TI, CC, Para la cedula de extrangeria admite segun formato de la registraduria civil]]></comment>
+	</column>
+	<column name="fecha_expedicion_documento">
+		<type name="date" length="1"/>
+	</column>
+	<column name="lugar_especion_documento">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Lugar en donde se expide el documento de identidad]]></comment>
+	</column>
+	<column name="tipo_sangre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Se ingresa el grupo sanguineo y el Factor del RH ]]></comment>
+	</column>
+	<column name="direccion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Direccion donde reside la persona]]></comment>
+	</column>
+	<column name="telefono_fijo">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Telefono fijo donde reside la persona]]></comment>
+	</column>
+	<column name="telefono_movil1">
+		<type name="text" length="1"/>
+		<comment><![CDATA[Telefono movil de la personacon indicativo del pais si reside fuera de colombia]]></comment>
+	</column>
+	<column name="telefono_movil2">
+		<type name="text" length="1"/>
+		<comment><![CDATA[numero telefono movil alterno, solo admite valores numericos]]></comment>
+	</column>
+	<column name="correo_electronico1">
+		<type name="text" length="1"/>
+		<comment><![CDATA[correo electronico principal de contacto, en caso de ser diligenciado es obligatio el caracter @ seguido de texto y el caracter "."]]></comment>
+	</column>
+	<column name="correo_electronico2">
+		<type name="text" length="1"/>
+		<comment><![CDATA[correo electronico secundario de contacto, en caso de ser diligenciado es obligatio el caracter @ seguido de texto y el caracter "."]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+		<comment><![CDATA[valor booleano que permite retratar si el ususario se encentra activo dentro de la base de datos, y permite incluirlo en busquedas segun clasificaciones propias de toda la base de datos]]></comment>
+	</column>
+	<constraint name="persona_id_pkey" type="pk-constr" table="public.persona">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_entidad" index="20"/>
+		<object name="id_estado_civil" index="19"/>
+		<object name="id_genero" index="18"/>
+		<object name="id_proceso_gestion_integral" index="21"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="entidad_fk" index="3"/>
+		<object name="estado_civil_fk" index="1"/>
+		<object name="genero_fk" index="4"/>
+		<object name="proceso_gestion_integral_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="tipo_examen_medico">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1260" y="1460"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+	</column>
+	<constraint name="tipo_examen_medico_id_pkey" type="pk-constr" table="public.tipo_examen_medico">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_examen_medico_has_many_examen_medico" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#22c5c2"
+	 src-table="public.tipo_examen_medico"
+	 dst-table="public.examen_medico"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-114.03" y="-2.66066"/>
+	</label>
+</relationship>
+
+<table name="tipo_programa_examen_medico">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1200" y="1680"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+	</column>
+	<constraint name="tipo_programa_id_pkey" type="pk-constr" table="public.tipo_programa_examen_medico">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_programa_has_many_examen_medico" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#bfe8f0"
+	 src-table="public.tipo_programa_examen_medico"
+	 dst-table="public.examen_medico"
+	 src-required="false" dst-required="false"/>
+
+<table name="concepto_examen_medico">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1300" y="1820"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+	</column>
+	<constraint name="concepto_id_pkey" type="pk-constr" table="public.concepto_examen_medico">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="concepto_has_many_examen_medico" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#382ad2"
+	 src-table="public.concepto_examen_medico"
+	 dst-table="public.examen_medico"
+	 src-required="false" dst-required="false"/>
+
+<table name="contrato">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabla de los posibles contratos celebrados con los usuarios de organziacion en dodne se enlaza los tipos de contratos ]]></comment>
+	<position x="1780" y="2140"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[primry key, tabla de contratos]]></comment>
+	</column>
+	<column name="objeto">
+		<type name="text" length="0"/>
+		<comment><![CDATA[texto donde se espesifica el objeto del contrato a celebrar]]></comment>
+	</column>
+	<column name="obra_o_labor">
+		<type name="text" length="0"/>
+		<comment><![CDATA[texto que se describe obra a labor en la firma del contrato]]></comment>
+	</column>
+	<column name="fecha_inicio">
+		<type name="date" length="1"/>
+		<comment><![CDATA[fecha en la que se inicia el contrato]]></comment>
+	</column>
+	<column name="fecha_fin">
+		<type name="date" length="1"/>
+		<comment><![CDATA[fecha en la que finaliza elc ontrato]]></comment>
+	</column>
+	<column name="salario_base">
+		<type name="bigint" length="0"/>
+		<comment><![CDATA[salario base a debengar el contratante]]></comment>
+	</column>
+	<column name="salario_auxilio">
+		<type name="bigint" length="0"/>
+		<comment><![CDATA[salario que se asigna ]]></comment>
+	</column>
+	<column name="dias_periodo_prueba">
+		<type name="integer" length="1"/>
+		<comment><![CDATA[valor entero de los dias que se da un periodo de prueva al contratante]]></comment>
+	</column>
+	<constraint name="contrato_id_pkey" type="pk-constr" table="public.contrato">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_cargo" index="10"/>
+		<object name="id_otrosi" index="11"/>
+		<object name="id_persona" index="8"/>
+		<object name="id_prorroga_contrato" index="12"/>
+		<object name="id_tipo_contrato" index="9"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="cargo_fk" index="3"/>
+		<object name="otrosi_fk" index="5"/>
+		<object name="persona_fk" index="4"/>
+		<object name="prorroga_contrato_fk" index="2"/>
+		<object name="tipo_contrato_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="tipo_contrato">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[coleccion de datos, permite cualificar los tipos de contrato que existen]]></comment>
+	<position x="1400" y="2320"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[primary key, tipo de contrato]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[enuncia el nombre de la modalidad de contrato]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[descripcion de la tipologia del contacto]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[abreviatura de tres letras del tipo de contrato]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+		<comment><![CDATA[entero que se asigna para la visualizacion del tipo de contrato]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+		<comment><![CDATA[valor booleano, valida que el tipo de contrato este activo ]]></comment>
+	</column>
+	<constraint name="tipo_contrato_id_pkey" type="pk-constr" table="public.tipo_contrato">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_contrato_has_many_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cc3531"
+	 src-table="public.tipo_contrato"
+	 dst-table="public.contrato"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-46.7303" y="-57.6607"/>
+	</label>
+</relationship>
+
+<table name="concepto_otrosi">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[coleccion de datos, se enuncia los posibles conceptos de otrosi en los contratos ]]></comment>
+	<position x="1020" y="2480"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[primary key, conceptos otrosi]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[nombre del concepto de otrosi]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[describe el concepto de otro si en el contrato]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[abreviacion de tres letras, del concepto de otro si]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+		<comment><![CDATA[numero entero, que muestra el orden en que se visualiza los conceptos de otro si al momento de visualizarlos]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+		<comment><![CDATA[valor booleano, indica si el concepto esta activo en los conceptos de otros si en la organizacion para aplicarlo  en el contrato]]></comment>
+	</column>
+	<constraint name="concepto_otrosi_id_pkey" type="pk-constr" table="public.concepto_otrosi">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="prorroga_contrato">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2240" y="2420"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="fecha_inicio">
+		<type name="date" length="1"/>
+	</column>
+	<column name="fecha_fin">
+		<type name="date" length="1"/>
+	</column>
+	<constraint name="prorroga_contrato_id_pkey" type="pk-constr" table="public.prorroga_contrato">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="prorroga_contrato_has_many_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5f05bb"
+	 src-table="public.prorroga_contrato"
+	 dst-table="public.contrato"
+	 src-required="false" dst-required="false"/>
+
+<table name="cargo">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[catalogo de datos, tabla de cargos de la organizacion]]></comment>
+	<position x="2240" y="2300"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[primary key, tabla de dargos]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[nombre del cargo ]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[descripcion de las funciones adjuntas al cargo]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[abreviacion con tres letras del cargo]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+		<comment><![CDATA[numero entero, en que orden se desea mostrar los cargos  al momentos de ser asignados a un contrato]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+		<comment><![CDATA[valor booleano, identifica si el cargo se encuentra activo en la organizacion o no]]></comment>
+	</column>
+	<constraint name="cargo_id_pkey" type="pk-constr" table="public.cargo">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="cargo_has_many_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b7e4f8"
+	 src-table="public.cargo"
+	 dst-table="public.contrato"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="22.2697" y="5.33934"/>
+	</label>
+</relationship>
+
+<relationship name="persona_has_many_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#38055b"
+	 src-table="public.persona"
+	 dst-table="public.contrato"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="persona_has_many_examen_medico" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#982d90"
+	 src-table="public.persona"
+	 dst-table="public.examen_medico"
+	 src-required="false" dst-required="false"/>
+
+<table name="profesion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[catalogo de profesiones]]></comment>
+	<position x="3060" y="1340"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[llave orimaria de las profesiones]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="1"/>
+		<comment><![CDATA[nombre de la profesion]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[descripcion, y area de aplicacion de la carrera]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="1"/>
+		<comment><![CDATA[abreviatura para la profesion tamaño del campo de tres caracteres]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="1"/>
+		<comment><![CDATA[campo tipo entero donde se organiza el orden de visualizacion ]]></comment>
+	</column>
+	<column name="codigo_snies">
+		<type name="smallint" length="1"/>
+		<comment><![CDATA[codigo de la profesion segun el ministerio de educacion nacional]]></comment>
+	</column>
+	<column name="modalidad_academica">
+		<type name="text" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="1"/>
+	</column>
+	<constraint name="profresion_id_pkey" type="pk-constr" table="public.profesion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="entidad">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[catalogo de entidades ]]></comment>
+	<position x="2740" y="1840"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="entidad_id_pkey" type="pk-constr" table="public.entidad">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_tipo_entidad" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="tipo_entidad_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="tipo_entidad">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[EPS, AFP, CCF, CESANTIAS]]></comment>
+	<position x="3140" y="1920"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[primari key del ipo de entidad]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+		<comment><![CDATA[nombre del tipo de la entidad]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="inet" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="tipo_entidad_id_pkey" type="pk-constr" table="public.tipo_entidad">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="estado_civil">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Catalogo de opciones donde se anotaran las posibles opcines del estado civil que puedan tener las personas y que sean recnocidas por la ley]]></comment>
+	<position x="2720" y="1700"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[llave primaria del estado civil]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+		<comment><![CDATA[nombre breve del tio de estado civil]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[se eneuncia cua es la caracteristica de ste estado, y como se soporta ante entidad competente]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[abreviatura de cada estado civil]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[orden en le que se va a mostrar los tipos de estado civil al usuario final]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[permite acutar opciones en el caso que la ]]></comment>
+	</column>
+	<constraint name="estado_civil_id_pkey" type="pk-constr" table="public.estado_civil">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="proceso_gestion_integral">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2760" y="1980"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="proceso_gestion_integral_id_pkey" type="pk-constr" table="public.proceso_gestion_integral">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="estado_civil_has_many_persona" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#07bac0"
+	 src-table="public.estado_civil"
+	 dst-table="public.persona"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="proceso_gestion_integral_has_many_persona" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d8e80f"
+	 src-table="public.proceso_gestion_integral"
+	 dst-table="public.persona"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="entidad_has_many_persona" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#141058"
+	 src-table="public.entidad"
+	 dst-table="public.persona"
+	 src-required="false" dst-required="false"/>
+
+<table name="otrosi">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabla que registra otros casos en el contrato]]></comment>
+	<position x="1400" y="2440"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[primary key, tabla otro_si]]></comment>
+	</column>
+	<column name="fecha_inicio">
+		<type name="date" length="1"/>
+		<comment><![CDATA[fecha en la que entra en vigencia  el otro si al contrato]]></comment>
+	</column>
+	<constraint name="otro_si_id_pkey" type="pk-constr" table="public.otrosi">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_concepto_otrosi" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="concepto_otrosi_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="otro_si_has_many_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3dd485"
+	 src-table="public.otrosi"
+	 dst-table="public.contrato"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="52.7697" y="8.33934"/>
+	</label>
+</relationship>
+
+<relationship name="concepto_contrato_has_many_otro_si" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e80baf"
+	 src-table="public.concepto_otrosi"
+	 dst-table="public.otrosi"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="63.7697" y="1.33934"/>
+	</label>
+</relationship>
+
+<table name="vivienda">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1760" y="1080"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="direccion">
+		<type name="text" length="1"/>
+	</column>
+	<column name="barrio">
+		<type name="text" length="0"/>
+	</column>
+	<column name="departamento">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="municipio">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="estrato">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="vivienda_id_pkey" type="pk-constr" table="public.vivienda">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="educacion_superior">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Enlasa a los usuarios de la base de datos con la catalogo de profesiones que maneja el modelo de negocio]]></comment>
+	<position x="2500" y="1280"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[llave primaria para tabal que relaciona usuario con listado profesiones ]]></comment>
+	</column>
+	<column name="numero_semestre_aprobados">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[En caso de haber nilizado sus estudios superiores, indica la cantidad de semestres cursados, campo de tipo numerico]]></comment>
+	</column>
+	<column name="graduado">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[variable booleana que indica si logoro o no el grado en dicha profesion]]></comment>
+	</column>
+	<column name="fecha_terminacion">
+		<type name="date" length="0"/>
+		<comment><![CDATA[fecha en a que recibio el grado del tipo dd-mm-aaaa]]></comment>
+	</column>
+	<column name="numero_tarjeta_profesional">
+		<type name="text" length="0"/>
+		<comment><![CDATA[numero de l atargeta profesional otorgado por la entidad reguladora]]></comment>
+	</column>
+	<constraint name="educacion_superior_id_pkey" type="pk-constr" table="public.educacion_superior">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_persona" index="6"/>
+		<object name="id_profesion" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="persona_fk" index="2"/>
+		<object name="profesion_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="educacion_basica_media">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Enuncia a informacion de la educacion basica de los empleados de la organizacion]]></comment>
+	<position x="2480" y="1160"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[identificador primario tabla de educacion basica]]></comment>
+	</column>
+	<column name="ultimo_grado">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[ultimo grado aprobado, en caso de no haber finalziado indicar hasta que grado se alcanzo a llegar campo de texto]]></comment>
+	</column>
+	<column name="titulo_obtenido">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Titulo obtenido al momento de culminar los estudios basicos]]></comment>
+	</column>
+	<column name="fecha_grado">
+		<type name="date" length="0"/>
+		<comment><![CDATA[decha en la que recibio el grado de la forma dd-mm-aaaa]]></comment>
+	</column>
+	<constraint name="educacion_basica_media" type="pk-constr" table="public.educacion_basica_media">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_persona" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="educacion_basica_media_uq" index="2"/>
+		<object name="persona_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="profesion_has_many_educacion_superior" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7f1fae"
+	 src-table="public.profesion"
+	 dst-table="public.educacion_superior"
+	 src-required="false" dst-required="false"/>
+
+<table name="genero">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[coleccion de datos,  listado de generos posibles]]></comment>
+	<position x="2540" y="2120"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[primary key, listado de genero]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+		<comment><![CDATA[nombre del genero ]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[realiza unactersitics del genero,  breve caracteristica del genero, y posible caracteristicas  del mismo, y como sustentar medicamente esta condición]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[abreviatura de tres letras para el genero]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[numero de orden en las que se visualisara al momento de desplegarlas]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[valor booleano que indica si st en vigencia o no la base de datos]]></comment>
+	</column>
+	<constraint name="genero_id_pkey" type="pk-constr" table="public.genero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="genero_has_many_persona" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1a162c"
+	 src-table="public.genero"
+	 dst-table="public.persona"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="7.26967" y="19.3393"/>
+	</label>
+</relationship>
+
+<table name="tipo_vacuna">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[catalogo de vacunas]]></comment>
+	<position x="3080" y="1480"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="1"/>
+		<comment><![CDATA[llave primaria, catalogo de vacunas]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+		<comment><![CDATA[nombre de la vacuna]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Descripcion de que compone la vacua,  dosificación ]]></comment>
+	</column>
+	<column name="patologia">
+		<type name="text" length="0"/>
+		<comment><![CDATA[patologia y enfermedades para la cual sirve la vacuna]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[abreviacion de la vacuna maximo tres caracteres]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[valor entenro en cual se asigna en que orden een que se visualizara]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[valor booleano que nos indica si la vacuna se encuentra activa o inactiva]]></comment>
+	</column>
+	<constraint name="vacunas_id_pk" type="pk-constr" table="public.tipo_vacuna">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tipo_vivienda">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1520" y="900"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="tipo_vivienda_id_pkey" type="pk-constr" table="public.tipo_vivienda">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_vivienda_has_many_vivienda" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#313d7a"
+	 src-table="public.tipo_vivienda"
+	 dst-table="public.vivienda"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="122.27" y="-36.6607"/>
+	</label>
+</relationship>
+
+<relationship name="many_persona_has_many_vivienda" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#3ab644"
+	 src-table="public.persona"
+	 dst-table="public.vivienda"
+	 src-required="false" dst-required="false"
+	 table-name="muchos_persona_tiene_muchos_vivienda">
+	<label ref-type="name-label">
+		<position x="83.3697" y="0.73934"/>
+	</label>
+</relationship>
+
+<relationship name="tipo_entidad_has_many_entidad" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a31ed8"
+	 src-table="public.tipo_entidad"
+	 dst-table="public.entidad"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="educacion_basica_media_has_one_persona" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7fa9fc"
+	 src-table="public.persona"
+	 dst-table="public.educacion_basica_media"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-58.2303" y="-2.66066"/>
+	</label>
+</relationship>
+
+<relationship name="persona_has_many_educacion_superior" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cc1283"
+	 src-table="public.persona"
+	 dst-table="public.educacion_superior"
+	 src-required="false" dst-required="false"/>
+
+<table name="registro_vacuna">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabla que registra la fecha de la vacucna , con el usuario]]></comment>
+	<position x="2600" y="1420"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[llave primaria,  registro de la vaunacion]]></comment>
+	</column>
+	<column name="fecha_dosis">
+		<type name="date" length="0"/>
+		<comment><![CDATA[fecha en la que se aplico la dosis]]></comment>
+	</column>
+	<constraint name="registro_vacuna_id_pkey" type="pk-constr" table="public.registro_vacuna">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_persona" index="2"/>
+		<object name="id_tipo_vacuna" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="persona_fk" index="1"/>
+		<object name="tipo_vacuna_fk" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="persona_has_many_registro_vacuna" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#284275"
+	 src-table="public.persona"
+	 dst-table="public.registro_vacuna"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="62.7697" y="1.33934"/>
+	</label>
+</relationship>
+
+<relationship name="tipo_vacuna_has_many_registro_vacuna" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ee7998"
+	 src-table="public.tipo_vacuna"
+	 dst-table="public.registro_vacuna"
+	 src-required="false" dst-required="false"/>
+
+<table name="relacion_personas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Tabla que relaciona a un usuario con la posible relacion filial de hecho o familiar que pueda tener  con otros usuarios de la organizaicon]]></comment>
+	<position x="2480" y="1040"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[llave primaria de la tabla relacion personas]]></comment>
+	</column>
+	<column name="id_persona1">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[es la llave forania de la tabla persona]]></comment>
+	</column>
+	<column name="id_persona2">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Es la llave forania con la tabla persona]]></comment>
+	</column>
+	<constraint name="relacion_de_persona_id_pkey" type="pk-constr" table="public.relacion_personas">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_tipo_relacion_personas" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="tipo_relacion_personas_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="tipo_relacion_personas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Tabla tipo catalogo que indica los tipos de realciones que existen entre personas]]></comment>
+	<position x="3100" y="1080"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[llave primaria de la tabla relacion de las personas]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+		<comment><![CDATA[se enuciara el tipo de relaicon de las personas ]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Se realizara una breve descripcion de deficion del nombre de la relacion]]></comment>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+		<comment><![CDATA[se notara una abreviatura para el tipo de relación]]></comment>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[valor numerico variable que permitira dar un orden al momento de presentacion de los datos ]]></comment>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano que denotara si la relacion estrablecida es vigente o si ya no puede ser mas considerada como una relacion entre personas]]></comment>
+	</column>
+	<constraint name="tipo_relacion_pkey" type="pk-constr" table="public.tipo_relacion_personas">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_relacion_personas_has_many_relacion_personas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ad8448"
+	 src-table="public.tipo_relacion_personas"
+	 dst-table="public.relacion_personas"
+	 src-required="false" dst-required="false"/>
+
+<table name="talla_vestimenta">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Tabla que relaciona las tallas en las que ]]></comment>
+	<position x="2620" y="1540"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[llave primaria de  talla de vestimenta]]></comment>
+	</column>
+	<column name="talla">
+		<type name="text" length="0"/>
+		<comment><![CDATA[unidad de medida de la tallla que se esta midiendo]]></comment>
+	</column>
+	<column name="fecha_creacion">
+		<type name="date" length="0"/>
+		<comment><![CDATA[feha en la que se toma la medida de la talla]]></comment>
+	</column>
+	<constraint name="tallas_vestimenta_pky" type="pk-constr" table="public.talla_vestimenta">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_persona" index="3"/>
+		<object name="id_tipo_vestimenta" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="persona_fk" index="1"/>
+		<object name="tipo_vestimenta_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="entrega_elemento_dotacion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1680" y="1260"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<constraint name="entrega_dotacion_pky" type="pk-constr" table="public.entrega_elemento_dotacion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_elemento_dotacion" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="elemento_dotacion_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="elemento_dotacion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1340" y="1140"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="fecha_entrega_dotacion">
+		<type name="date" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="entrega_dotacion_pky" type="pk-constr" table="public.elemento_dotacion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_tipo_elemento_dotacion" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="elemento_dotacion_uq" index="2"/>
+		<object name="tipo_elemento_dotacion_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="tipo_elemento_dotacion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1080" y="900"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="elementos_proteccion_personal_pky" type="pk-constr" table="public.tipo_elemento_dotacion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="elemento_dotacion_has_many_dotacion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#49f333"
+	 src-table="public.elemento_dotacion"
+	 dst-table="public.entrega_elemento_dotacion"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="134.77" y="-11.6607"/>
+	</label>
+</relationship>
+
+<table name="tipo_vestimenta">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3080" y="1640"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="tipo_medidas_vestiment_pky" type="pk-constr" table="public.tipo_vestimenta">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="persona_tiene_muchos_talla_vestimenta" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5a7fba"
+	 src-table="public.persona"
+	 dst-table="public.talla_vestimenta"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="tipo_vestimenta_tiene_muchos_talla_vestimenta" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e32f9e"
+	 src-table="public.tipo_vestimenta"
+	 dst-table="public.talla_vestimenta"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="persona_have_many_entrega_elemento_dotacion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#f6e05e"
+	 src-table="public.persona"
+	 dst-table="public.entrega_elemento_dotacion"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-134.23" y="1.33934"/>
+	</label>
+</relationship>
+
+<relationship name="elemento_dotacion_has-one_tipo_elemento_dotacion" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#17d675"
+	 src-table="public.tipo_elemento_dotacion"
+	 dst-table="public.elemento_dotacion"
+	 src-required="false" dst-required="false"/>
+
+<table name="cuenta_bancaria">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2160" y="940"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="numero">
+		<type name="text" length="0"/>
+	</column>
+	<column name="principal">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="id" type="pk-constr" table="public.cuenta_bancaria">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_entidad_financiera" index="5"/>
+		<object name="id_persona" index="3"/>
+		<object name="id_tipo_cuenta_bancaria" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="entidad_financiera_fk" index="2"/>
+		<object name="persona_fk" index="1"/>
+		<object name="tipo_cuenta_bancaria_fk" index="3"/>
+	</customidxs>
+</table>
+
+<relationship name="persona_has_many_cuenta_bancaria" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e61a39"
+	 src-table="public.persona"
+	 dst-table="public.cuenta_bancaria"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<table name="tipo_cuenta_bancaria">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2600" y="760"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="id" type="pk-constr" table="public.tipo_cuenta_bancaria">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_cuenta_has_many_cuenta_bancaria" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#79a78c"
+	 src-table="public.tipo_cuenta_bancaria"
+	 dst-table="public.cuenta_bancaria"
+	 src-required="false" dst-required="false"/>
+
+<table name="entidad_financiera">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2840" y="860"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="id" type="pk-constr" table="public.entidad_financiera">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="banco_cuenta_has_many_cuenta_bancaria" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#428dc7"
+	 src-table="public.entidad_financiera"
+	 dst-table="public.cuenta_bancaria"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<constraint name="relacion_personas_id_persona1_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.persona" table="public.relacion_personas">
+	<columns names="id_persona1" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="relacion_personas_id_persona2_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.persona" table="public.relacion_personas">
+	<columns names="id_persona2" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="persona_has_many_relacion_personas" type="relfk"
+	 src-table="public.relacion_personas"
+	 dst-table="public.persona"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-51.1243" y="-4.94853"/>
+	</label>
+</relationship>
+
+</dbmodel>
