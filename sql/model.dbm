@@ -89,9 +89,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="tipo_sangre">
 		<type name="text" length="1"/>
-		<comment><![CDATA[Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras e el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH "+", "-"]]></comment>
+		<comment><![CDATA[Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH "+", "-" ejemplo "O+", "O-", "AB-]]></comment>
 	</column>
-	<column name="dirección">
+	<column name="direccion">
 		<type name="text" length="1"/>
 		<comment><![CDATA[Dirección donde reside la persona]]></comment>
 	</column>
@@ -101,15 +101,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="telefono_movil1">
 		<type name="text" length="1"/>
-		<comment><![CDATA[Teléfono móvil de la persona con indicativo del país si reside fuera de Colombia]]></comment>
+		<comment><![CDATA[Teléfono móvil de la persona con indicativo del país si reside fuera de Colombia, ejemplo (+57) 310 208 3828]]></comment>
 	</column>
 	<column name="telefono_movil2">
 		<type name="text" length="1"/>
-		<comment><![CDATA[numero telefono movil alterno]]></comment>
+		<comment><![CDATA[numeró teléfono móvil alterno, ejemplo (+57) 310 208 3828]]></comment>
 	</column>
 	<column name="correo_electronico1">
 		<type name="text" length="1"/>
-		<comment><![CDATA[correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter "."]]></comment>
+		<comment><![CDATA[correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter Ejemplo  (+57) 310 208 3828"."]]></comment>
 	</column>
 	<column name="correo_electronico2">
 		<type name="text" length="1"/>
@@ -117,7 +117,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="activo">
 		<type name="boolean" length="1"/>
-		<comment><![CDATA[valor booleano que permite retratar si el usuario se encentra activo dentro de la base de datos, y permite incluirlo en busquedas según clasificaciones propias de toda la base de datos]]></comment>
+		<comment><![CDATA[valor booleano que permite retratar si el usuario se encuentra activo dentro de la base de datos, y permite incluirlo en busquedas según clasificaciones propias de toda la base de datos]]></comment>
 	</column>
 	<constraint name="persona_id_pkey" type="pk-constr" table="public.persona">
 		<columns names="id" ref-type="src-columns"/>
@@ -261,7 +261,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="objeto">
 		<type name="text" length="0"/>
-		<comment><![CDATA[texto donde se especifica el objeto del contrato a celebrar]]></comment>
+		<comment><![CDATA[texto donde se especifíca el objeto del contrato a celebrar]]></comment>
 	</column>
 	<column name="obra_o_labor">
 		<type name="text" length="0"/>
@@ -378,7 +378,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="orden">
 		<type name="integer" length="1"/>
-		<comment><![CDATA[numero entero, que muestra el orden en que se visualiza los conceptos de otro si al momento de visualizarlos]]></comment>
+		<comment><![CDATA[nùmero entero, que muestra el orden en que se visualiza los conceptos de otro si al momento de visualizarlos]]></comment>
 	</column>
 	<column name="activo">
 		<type name="boolean" length="1"/>
@@ -419,7 +419,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="cargo">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[catalogo de datos, tabla de cargos de la organización]]></comment>
+	<comment><![CDATA[catálogo de datos, tabla de cargos de la organización]]></comment>
 	<position x="2240" y="2300"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="1"/>
@@ -439,7 +439,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="orden">
 		<type name="integer" length="1"/>
-		<comment><![CDATA[numero entero, en que orden se desea mostrar los cargos  al momentos de ser asignados a un contrato]]></comment>
+		<comment><![CDATA[número entero, en que orden se desea mostrar los cargos  al momentos de ser asignados a un contrato]]></comment>
 	</column>
 	<column name="activo">
 		<type name="boolean" length="1"/>
@@ -484,7 +484,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="profesion">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[catalogo de profesiones]]></comment>
+	<comment><![CDATA[catálogo de profesiones]]></comment>
 	<position x="3060" y="1340"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="1"/>
@@ -524,7 +524,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="entidad">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[catalogo de entidades ]]></comment>
+	<comment><![CDATA[catálogo de entidades ]]></comment>
 	<position x="2740" y="1840"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="1"/>
@@ -564,7 +564,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<position x="3140" y="1920"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="0"/>
-		<comment><![CDATA[primari key del tipo de entidad]]></comment>
+		<comment><![CDATA[primary key del tipo de entidad]]></comment>
 	</column>
 	<column name="nombre">
 		<type name="text" length="0"/>
@@ -590,7 +590,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="estado_civil">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[Catalogo de opciones donde se anotaran las posibles opciones del estado civil que puedan tener las personas y que sean relacionadas por la ley]]></comment>
+	<comment><![CDATA[Catálogo de opciones donde se anotaran las posibles opciones del estado civil que puedan tener las personas y que sean relacionadas por la ley]]></comment>
 	<position x="2720" y="1700"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="1"/>
@@ -602,7 +602,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="descripcion">
 		<type name="text" length="0"/>
-		<comment><![CDATA[se enuncia cual es la característica de este estado, y como se soporta ante entidad competente]]></comment>
+		<comment><![CDATA[se enuncia cuál es la característica de éste estado, y como se soporta ante entidad competente]]></comment>
 	</column>
 	<column name="abreviacion">
 		<type name="text" length="0"/>
@@ -761,11 +761,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="educacion_superior">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[Enlaza a los usuarios de la base de datos con la catalogo de profesiones que maneja el modelo de negocio]]></comment>
+	<comment><![CDATA[Enlaza a los usuarios de la base de datos con la catálogo de profesiones que maneja el modelo de negocio]]></comment>
 	<position x="2500" y="1280"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="1"/>
-		<comment><![CDATA[llave primaria para tabla que relaciona usuario con listado profesiones ]]></comment>
+		<comment><![CDATA[llave primaria para tabla que relaciona usuario con listado profesiones]]></comment>
 	</column>
 	<column name="numero_semestre_aprobados">
 		<type name="integer" length="0"/>
@@ -781,7 +781,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="numero_tarjeta_profesional">
 		<type name="text" length="0"/>
-		<comment><![CDATA[numero de la tarjeta profesional otorgado por la entidad reguladora]]></comment>
+		<comment><![CDATA[número de la tarjeta profesional otorgado por la entidad reguladora]]></comment>
 	</column>
 	<constraint name="educacion_superior_id_pkey" type="pk-constr" table="public.educacion_superior">
 		<columns names="id" ref-type="src-columns"/>
@@ -813,11 +813,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="titulo_obtenido">
 		<type name="text" length="0"/>
-		<comment><![CDATA[Titulo obtenido al momento de culminar los estudios básicos]]></comment>
+		<comment><![CDATA[titulo obtenido al momento de culminar los estudios básicos]]></comment>
 	</column>
 	<column name="fecha_grado">
 		<type name="date" length="0"/>
-		<comment><![CDATA[decha en la que recibio el grado de la forma aaaa-mm-dd]]></comment>
+		<comment><![CDATA[fecha en la que recibio el grado de la forma aaaa-mm-dd]]></comment>
 	</column>
 	<constraint name="educacion_basica_media" type="pk-constr" table="public.educacion_basica_media">
 		<columns names="id" ref-type="src-columns"/>
@@ -865,7 +865,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="orden">
 		<type name="integer" length="0"/>
-		<comment><![CDATA[numero de orden en las que se visualizaraal momento de desplegarlas]]></comment>
+		<comment><![CDATA[número de orden en las que se visualizaran al momento de desplegarlas]]></comment>
 	</column>
 	<column name="activo">
 		<type name="boolean" length="0"/>
@@ -892,11 +892,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="tipo_vacuna">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[catalogo de vacunas]]></comment>
+	<comment><![CDATA[catálogo de vacunas]]></comment>
 	<position x="3080" y="1480"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="1"/>
-		<comment><![CDATA[llave primaria, catalogo de vacunas]]></comment>
+		<comment><![CDATA[llave primaria, catálogo de vacunas]]></comment>
 	</column>
 	<column name="nombre">
 		<type name="text" length="0"/>
@@ -1096,7 +1096,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="tipo_relacion_personas">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<comment><![CDATA[Tabla tipo catalogo que indica los tipos de relaciones que existen entre personas]]></comment>
+	<comment><![CDATA[Tabla tipo catálogo que indica los tipos de relaciones que existen entre personas]]></comment>
 	<position x="3100" y="1080"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="0"/>
@@ -1104,11 +1104,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="nombre">
 		<type name="text" length="0"/>
-		<comment><![CDATA[se enunciara el tipo de relación de las personas ]]></comment>
+		<comment><![CDATA[se enunciará el tipo de relación de las personas ]]></comment>
 	</column>
 	<column name="descripcion">
 		<type name="text" length="0"/>
-		<comment><![CDATA[Se realizara una breve descripción de defición del nombre de la relación]]></comment>
+		<comment><![CDATA[Descripción breve del tipo de relación]]></comment>
 	</column>
 	<column name="abreviacion">
 		<type name="text" length="0"/>
@@ -1120,7 +1120,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="activo">
 		<type name="boolean" length="0"/>
-		<comment><![CDATA[Valor booleano que denotara si la relación establecida es vigente o si ya no puede ser mas considerada como una relación entre personas]]></comment>
+		<comment><![CDATA[Valor booleano que denotará si la relación establecida es vigente o si ya no puede ser mas considerada como una relación entre personas]]></comment>
 	</column>
 	<constraint name="tipo_relacion_pkey" type="pk-constr" table="public.tipo_relacion_personas">
 		<columns names="id" ref-type="src-columns"/>
