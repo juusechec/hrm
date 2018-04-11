@@ -24,7 +24,7 @@ CREATE TABLE public.examen_medico(
 	id_tipo_examen_medico integer,
 	id_tipo_programa_examen_medico integer,
 	id_concepto_examen_medico integer,
-	CONSTRAINT examen_medico_id_pkey PRIMARY KEY (id)
+	CONSTRAINT examen_medico__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -58,9 +58,43 @@ CREATE TABLE public.persona(
 	id_estado_civil integer,
 	id_entidad integer,
 	id_proceso_gestion_integral integer,
-	CONSTRAINT persona_id_pkey PRIMARY KEY (id)
+	CONSTRAINT persona__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.persona IS 'Entidad que define todos los atributos de las personas que intervienen en la organización directa o indirectamente';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.primer_nombre IS 'Primer Nombre de la persona';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.otro_nombre IS 'Segundos y terceros nombres de la persona';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.primer_apellido IS 'Primer Apellido de la Persona';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.segundo_apellido IS 'Segundo Apellido de la persona';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.fecha_nacimiento IS 'Fecha de nacimiento de la persona en el formato aaaa-mm-dd';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.tipo_documento IS 'Identifica el tipo de documento de la persona solo admite los siguientes valores RC = Registro Civil, TI = Tarjeta de identidad, CC=Cedula de Ciudadania, CE = Cedula de Extranjeria';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.numero_documento IS 'Solo admite datos tipos numéricos para los casos RC, TI, CC, Para la cedula de extranjería admite según formato de la registraduria civil';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.lugar_especion_documento IS 'Lugar en donde se expide el documento de identidad';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.tipo_sangre IS 'Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH "+", "-" ejemplo "O+", "O-", "AB-';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.direccion IS 'Dirección donde reside la persona';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.telefono_fijo IS 'Telefono fijo donde reside la persona';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.telefono_movil1 IS 'Teléfono móvil de la persona con indicativo del país si reside fuera de Colombia, ejemplo (+57) 310 208 3828';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.telefono_movil2 IS 'numeró teléfono móvil alterno, ejemplo (+57) 310 208 3828';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.correo_electronico1 IS 'correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter Ejemplo  (+57) 310 208 3828"."';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.correo_electronico2 IS 'correo electrónico secundario de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter "."';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.activo IS 'valor booleano que permite retratar si el usuario se encuentra activo dentro de la base de datos, y permite incluirlo en busquedas según clasificaciones propias de toda la base de datos';
 -- ddl-end --
 ALTER TABLE public.persona OWNER TO postgres;
 -- ddl-end --
@@ -74,7 +108,7 @@ CREATE TABLE public.tipo_examen_medico(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT tipo_examen_medico_id_pkey PRIMARY KEY (id)
+	CONSTRAINT tipo_examen_medico__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -97,7 +131,7 @@ CREATE TABLE public.tipo_programa_examen_medico(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT tipo_programa_id_pkey PRIMARY KEY (id)
+	CONSTRAINT tipo_programa__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -120,7 +154,7 @@ CREATE TABLE public.concepto_examen_medico(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT concepto_id_pkey PRIMARY KEY (id)
+	CONSTRAINT concepto__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -150,9 +184,27 @@ CREATE TABLE public.contrato(
 	id_cargo integer,
 	id_otrosi integer,
 	id_prorroga_contrato integer,
-	CONSTRAINT contrato_id_pkey PRIMARY KEY (id)
+	CONSTRAINT contrato__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.contrato IS 'tabla de los posibles contratos celebrados con los usuarios de organización en donde se enlaza los tipos de contratos ';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.id IS 'primry key, tabla de contratos';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.objeto IS 'texto donde se especifíca el objeto del contrato a celebrar';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.obra_o_labor IS 'texto que se describe obra a labor en la firma del contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.fecha_inicio IS 'fecha en la que se inicia el contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.fecha_fin IS 'fecha en la que finaliza el contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.salario_base IS 'salario base a devengar el contratante';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.salario_auxilio IS 'salario que se asigna ';
+-- ddl-end --
+COMMENT ON COLUMN public.contrato.dias_periodo_prueba IS 'valor entero de los días que se da un periodo de prueba al contratante';
 -- ddl-end --
 ALTER TABLE public.contrato OWNER TO postgres;
 -- ddl-end --
@@ -166,9 +218,23 @@ CREATE TABLE public.tipo_contrato(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT tipo_contrato_id_pkey PRIMARY KEY (id)
+	CONSTRAINT tipo_contrato__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.tipo_contrato IS 'colección de datos, permite cualificar los tipos de contrato que existen';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_contrato.id IS 'primary key, tipo de contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_contrato.nombre IS 'enuncia el nombre de la modalidad de contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_contrato.descripcion IS 'Descripción de la tipología del contacto';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_contrato.abreviacion IS 'Abreviatura de tres letras del tipo de contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_contrato.orden IS 'Entero que se asigna para la visualización del tipo de contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_contrato.activo IS 'Valor booleano, valida que el tipo de contrato este activo ';
 -- ddl-end --
 ALTER TABLE public.tipo_contrato OWNER TO postgres;
 -- ddl-end --
@@ -189,9 +255,23 @@ CREATE TABLE public.concepto_otrosi(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT concepto_otrosi_id_pkey PRIMARY KEY (id)
+	CONSTRAINT concepto_otrosi__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.concepto_otrosi IS 'Colección de datos, se enuncia los posibles conceptos de otro si en los contratos ';
+-- ddl-end --
+COMMENT ON COLUMN public.concepto_otrosi.id IS 'primary key, conceptos otro si';
+-- ddl-end --
+COMMENT ON COLUMN public.concepto_otrosi.nombre IS 'nombre del concepto de otro si';
+-- ddl-end --
+COMMENT ON COLUMN public.concepto_otrosi.descripcion IS 'describe el concepto de otro si en el contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.concepto_otrosi.abreviacion IS 'Abreviación de tres letras, del concepto de otro si';
+-- ddl-end --
+COMMENT ON COLUMN public.concepto_otrosi.orden IS 'nùmero entero, que muestra el orden en que se visualiza los conceptos de otro si al momento de visualizarlos';
+-- ddl-end --
+COMMENT ON COLUMN public.concepto_otrosi.activo IS 'valor booleano, indica si el concepto esta activo en los conceptos de otros si en la organización para aplicarlo  en el contrato';
 -- ddl-end --
 ALTER TABLE public.concepto_otrosi OWNER TO postgres;
 -- ddl-end --
@@ -202,7 +282,7 @@ CREATE TABLE public.prorroga_contrato(
 	id serial NOT NULL,
 	fecha_inicio date,
 	fecha_fin date,
-	CONSTRAINT prorroga_contrato_id_pkey PRIMARY KEY (id)
+	CONSTRAINT prorroga_contrato__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -225,9 +305,23 @@ CREATE TABLE public.cargo(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT cargo_id_pkey PRIMARY KEY (id)
+	CONSTRAINT cargo__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.cargo IS 'catálogo de datos, tabla de cargos de la organización';
+-- ddl-end --
+COMMENT ON COLUMN public.cargo.id IS 'primary key, tabla de dargos';
+-- ddl-end --
+COMMENT ON COLUMN public.cargo.nombre IS 'nombre del cargo ';
+-- ddl-end --
+COMMENT ON COLUMN public.cargo.descripcion IS 'descripción de las funciones adjuntas al cargo';
+-- ddl-end --
+COMMENT ON COLUMN public.cargo.abreviacion IS 'abreviación con tres letras del cargo';
+-- ddl-end --
+COMMENT ON COLUMN public.cargo.orden IS 'número entero, en que orden se desea mostrar los cargos  al momentos de ser asignados a un contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.cargo.activo IS 'valor booleano, identifica si el cargo se encuentra activo en la organización o no';
 -- ddl-end --
 ALTER TABLE public.cargo OWNER TO postgres;
 -- ddl-end --
@@ -264,9 +358,23 @@ CREATE TABLE public.profesion(
 	codigo_snies smallint,
 	modalidad_academica text,
 	activo boolean,
-	CONSTRAINT profresion_id_pkey PRIMARY KEY (id)
+	CONSTRAINT profesion__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.profesion IS 'catálogo de profesiones';
+-- ddl-end --
+COMMENT ON COLUMN public.profesion.id IS 'llave primaria de las profesiones';
+-- ddl-end --
+COMMENT ON COLUMN public.profesion.nombre IS 'nombre de la profesión';
+-- ddl-end --
+COMMENT ON COLUMN public.profesion.descripcion IS 'descripción, y área de aplicación de la carrera';
+-- ddl-end --
+COMMENT ON COLUMN public.profesion.abreviacion IS 'abreviatura para la profesión tamaño del campo de tres caracteres';
+-- ddl-end --
+COMMENT ON COLUMN public.profesion.orden IS 'campo tipo entero donde se organiza el orden de visualización ';
+-- ddl-end --
+COMMENT ON COLUMN public.profesion.codigo_snies IS 'Código de la profesión según el ministerio de educación nacional';
 -- ddl-end --
 ALTER TABLE public.profesion OWNER TO postgres;
 -- ddl-end --
@@ -281,9 +389,11 @@ CREATE TABLE public.entidad(
 	orden integer,
 	activo boolean,
 	id_tipo_entidad integer,
-	CONSTRAINT entidad_id_pkey PRIMARY KEY (id)
+	CONSTRAINT entidad__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.entidad IS 'catálogo de entidades ';
 -- ddl-end --
 ALTER TABLE public.entidad OWNER TO postgres;
 -- ddl-end --
@@ -297,11 +407,15 @@ CREATE TABLE public.tipo_entidad(
 	abreviacion text,
 	orden inet,
 	activo boolean,
-	CONSTRAINT tipo_entidad_id_pkey PRIMARY KEY (id)
+	CONSTRAINT tipo_entidad__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
 COMMENT ON TABLE public.tipo_entidad IS 'EPS, AFP, CCF, CESANTIAS';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_entidad.id IS 'primary key del tipo de entidad';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_entidad.nombre IS 'nombre del tipo de la entidad';
 -- ddl-end --
 ALTER TABLE public.tipo_entidad OWNER TO postgres;
 -- ddl-end --
@@ -315,9 +429,23 @@ CREATE TABLE public.estado_civil(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT estado_civil_id_pkey PRIMARY KEY (id)
+	CONSTRAINT estado_civil__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.estado_civil IS 'Catálogo de opciones donde se anotaran las posibles opciones del estado civil que puedan tener las personas y que sean relacionadas por la ley';
+-- ddl-end --
+COMMENT ON COLUMN public.estado_civil.id IS 'llave primaria del estado civil';
+-- ddl-end --
+COMMENT ON COLUMN public.estado_civil.nombre IS 'nombre breve del tipo de estado civil';
+-- ddl-end --
+COMMENT ON COLUMN public.estado_civil.descripcion IS 'se enuncia cuál es la característica de éste estado, y como se soporta ante entidad competente';
+-- ddl-end --
+COMMENT ON COLUMN public.estado_civil.abreviacion IS 'abreviatura de cada estado civil';
+-- ddl-end --
+COMMENT ON COLUMN public.estado_civil.orden IS 'orden en le que se va a mostrar los tipos de estado civil al usuario final';
+-- ddl-end --
+COMMENT ON COLUMN public.estado_civil.activo IS 'permite activar opciones en el caso que hay activas de los posibles estados civiles ';
 -- ddl-end --
 ALTER TABLE public.estado_civil OWNER TO postgres;
 -- ddl-end --
@@ -331,7 +459,7 @@ CREATE TABLE public.proceso_gestion_integral(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT proceso_gestion_integral_id_pkey PRIMARY KEY (id)
+	CONSTRAINT proceso_gestion_integral__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -365,9 +493,15 @@ CREATE TABLE public.otrosi(
 	id serial NOT NULL,
 	fecha_inicio date,
 	id_concepto_otrosi integer,
-	CONSTRAINT otro_si_id_pkey PRIMARY KEY (id)
+	CONSTRAINT otrosi__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.otrosi IS 'Tabla que registra otros casos en el contrato';
+-- ddl-end --
+COMMENT ON COLUMN public.otrosi.id IS 'primary key, tabla otro_si';
+-- ddl-end --
+COMMENT ON COLUMN public.otrosi.fecha_inicio IS 'fecha en la que entra en vigencia  el otro si al contrato';
 -- ddl-end --
 ALTER TABLE public.otrosi OWNER TO postgres;
 -- ddl-end --
@@ -396,7 +530,7 @@ CREATE TABLE public.vivienda(
 	municipio integer,
 	estrato integer,
 	id_tipo_vivienda integer,
-	CONSTRAINT vivienda_id_pkey PRIMARY KEY (id)
+	CONSTRAINT vivienda__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -413,9 +547,21 @@ CREATE TABLE public.educacion_superior(
 	numero_tarjeta_profesional text,
 	id_profesion integer,
 	id_persona integer,
-	CONSTRAINT educacion_superior_id_pkey PRIMARY KEY (id)
+	CONSTRAINT educacion_superior__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.educacion_superior IS 'Enlaza a los usuarios de la base de datos con la catálogo de profesiones que maneja el modelo de negocio';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_superior.id IS 'llave primaria para tabla que relaciona usuario con listado profesiones';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_superior.numero_semestre_aprobados IS 'En caso de haber finalizado sus estudios superiores, indica la cantidad de semestres cursados, campo de tipo numérico';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_superior.graduado IS 'variable booleana que indica si logro o no el grado en dicha profesión';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_superior.fecha_terminacion IS 'fecha en a que recibió el grado del tipo aaaa-mm-dd';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_superior.numero_tarjeta_profesional IS 'número de la tarjeta profesional otorgado por la entidad reguladora';
 -- ddl-end --
 ALTER TABLE public.educacion_superior OWNER TO postgres;
 -- ddl-end --
@@ -428,9 +574,19 @@ CREATE TABLE public.educacion_basica_media(
 	titulo_obtenido text,
 	fecha_grado date,
 	id_persona integer,
-	CONSTRAINT educacion_basica_media PRIMARY KEY (id)
+	CONSTRAINT educacion_basica_media__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.educacion_basica_media IS 'Enuncia a información de la educación básica de los empleados de la organización';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_basica_media.id IS 'identificador primario tabla de educacion basica';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_basica_media.ultimo_grado IS 'ultimo grado aprobado, en caso de no haber finalizado indicar hasta que grado se alcanzo a llegar campo de texto';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_basica_media.titulo_obtenido IS 'titulo obtenido al momento de culminar los estudios básicos';
+-- ddl-end --
+COMMENT ON COLUMN public.educacion_basica_media.fecha_grado IS 'fecha en la que recibio el grado de la forma aaaa-mm-dd';
 -- ddl-end --
 ALTER TABLE public.educacion_basica_media OWNER TO postgres;
 -- ddl-end --
@@ -451,9 +607,23 @@ CREATE TABLE public.genero(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT genero_id_pkey PRIMARY KEY (id)
+	CONSTRAINT genero__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.genero IS 'colección de datos,  listado de géneros posibles';
+-- ddl-end --
+COMMENT ON COLUMN public.genero.id IS 'primary key, listado de genero';
+-- ddl-end --
+COMMENT ON COLUMN public.genero.nombre IS 'nombre del genero ';
+-- ddl-end --
+COMMENT ON COLUMN public.genero.descripcion IS 'breve característica del genero, y posible características  del mismo, y como sustentar médicamente esta condición';
+-- ddl-end --
+COMMENT ON COLUMN public.genero.abreviacion IS 'abreviatura de tres letras para el genero';
+-- ddl-end --
+COMMENT ON COLUMN public.genero.orden IS 'número de orden en las que se visualizaran al momento de desplegarlas';
+-- ddl-end --
+COMMENT ON COLUMN public.genero.activo IS 'valor booleano que indica si esta en vigencia o no la base de datos';
 -- ddl-end --
 ALTER TABLE public.genero OWNER TO postgres;
 -- ddl-end --
@@ -475,9 +645,25 @@ CREATE TABLE public.tipo_vacuna(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT vacunas_id_pk PRIMARY KEY (id)
+	CONSTRAINT tipo_vacuna__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.tipo_vacuna IS 'catálogo de vacunas';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.id IS 'llave primaria, catálogo de vacunas';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.nombre IS 'nombre de la vacuna';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.descripcion IS 'Descripción de que compone la vacua,  dosificación ';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.patologia IS 'patología y enfermedades para la cual sirve la vacuna';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.abreviacion IS 'abreviación de la vacuna máximo tres caracteres';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.orden IS 'valor entero en cual se asigna en que orden en que se visualizara';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_vacuna.activo IS 'valor booleano que nos indica si la vacuna se encuentra activa o inactiva';
 -- ddl-end --
 ALTER TABLE public.tipo_vacuna OWNER TO postgres;
 -- ddl-end --
@@ -491,7 +677,7 @@ CREATE TABLE public.tipo_vivienda(
 	abreviacion text,
 	activo boolean,
 	orden integer,
-	CONSTRAINT tipo_vivienda_id_pkey PRIMARY KEY (id)
+	CONSTRAINT tipo_vivienda__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -562,9 +748,15 @@ CREATE TABLE public.registro_vacuna(
 	fecha_dosis date,
 	id_persona integer,
 	id_tipo_vacuna integer,
-	CONSTRAINT registro_vacuna_id_pkey PRIMARY KEY (id)
+	CONSTRAINT registro_vacuna__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.registro_vacuna IS 'tabla que registra la fecha de la vacuna , con el usuario';
+-- ddl-end --
+COMMENT ON COLUMN public.registro_vacuna.id IS 'llave primaria,  registro de la vacunación';
+-- ddl-end --
+COMMENT ON COLUMN public.registro_vacuna.fecha_dosis IS 'fecha en la que se aplico la dosis';
 -- ddl-end --
 ALTER TABLE public.registro_vacuna OWNER TO postgres;
 -- ddl-end --
@@ -590,9 +782,17 @@ CREATE TABLE public.relacion_personas(
 	id_persona1 integer,
 	id_persona2 integer,
 	id_tipo_relacion_personas integer,
-	CONSTRAINT relacion_de_persona_id_pkey PRIMARY KEY (id)
+	CONSTRAINT relacion_personas__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.relacion_personas IS 'Tabla que relaciona a un usuario con la posible relación filial de hecho o familiar que pueda tener  con otros usuarios de la organizacional';
+-- ddl-end --
+COMMENT ON COLUMN public.relacion_personas.id IS 'llave primaria de la tabla relación personas';
+-- ddl-end --
+COMMENT ON COLUMN public.relacion_personas.id_persona1 IS 'es la llave forania de la tabla persona';
+-- ddl-end --
+COMMENT ON COLUMN public.relacion_personas.id_persona2 IS 'Es la llave forania con la tabla persona';
 -- ddl-end --
 ALTER TABLE public.relacion_personas OWNER TO postgres;
 -- ddl-end --
@@ -606,9 +806,23 @@ CREATE TABLE public.tipo_relacion_personas(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT tipo_relacion_pkey PRIMARY KEY (id)
+	CONSTRAINT tipo_relacion_personas__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.tipo_relacion_personas IS 'Tabla tipo catálogo que indica los tipos de relaciones que existen entre personas';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_relacion_personas.id IS 'llave primaria de la tabla relación de las personas';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_relacion_personas.nombre IS 'se enunciará el tipo de relación de las personas ';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_relacion_personas.descripcion IS 'Descripción breve del tipo de relación';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_relacion_personas.abreviacion IS 'se notara una abreviatura para el tipo de relación';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_relacion_personas.orden IS 'valor numérico variable que permitirá dar un orden al momento de presentación de los datos ';
+-- ddl-end --
+COMMENT ON COLUMN public.tipo_relacion_personas.activo IS 'Valor booleano que denotará si la relación establecida es vigente o si ya no puede ser mas considerada como una relación entre personas';
 -- ddl-end --
 ALTER TABLE public.tipo_relacion_personas OWNER TO postgres;
 -- ddl-end --
@@ -628,9 +842,17 @@ CREATE TABLE public.talla_vestimenta(
 	fecha_creacion date,
 	id_persona integer,
 	id_tipo_vestimenta integer,
-	CONSTRAINT tallas_vestimenta_pky PRIMARY KEY (id)
+	CONSTRAINT talla_vestimenta__id__pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.talla_vestimenta IS 'Tabla que relaciona las tallas en las que ';
+-- ddl-end --
+COMMENT ON COLUMN public.talla_vestimenta.id IS 'llave primaria de  talla de vestimenta';
+-- ddl-end --
+COMMENT ON COLUMN public.talla_vestimenta.talla IS 'unidad de medida de la talla que se esta midiendo';
+-- ddl-end --
+COMMENT ON COLUMN public.talla_vestimenta.fecha_creacion IS 'feha en la que se toma la medida de la talla';
 -- ddl-end --
 ALTER TABLE public.talla_vestimenta OWNER TO postgres;
 -- ddl-end --
@@ -641,7 +863,7 @@ CREATE TABLE public.entrega_elemento_dotacion(
 	id serial NOT NULL,
 	id_elemento_dotacion integer,
 	id_persona integer,
-	CONSTRAINT entrega_dotacion_pky PRIMARY KEY (id)
+	CONSTRAINT entrega_dotacion__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -659,7 +881,7 @@ CREATE TABLE public.elemento_dotacion(
 	orden integer,
 	activo boolean,
 	id_tipo_elemento_dotacion integer,
-	CONSTRAINT entrega_dotacion_pky PRIMARY KEY (id)
+	CONSTRAINT elemento_dotacion__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -675,7 +897,7 @@ CREATE TABLE public.tipo_elemento_dotacion(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT elementos_proteccion_personal_pky PRIMARY KEY (id)
+	CONSTRAINT tipo_elemento_dotacion__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -698,7 +920,7 @@ CREATE TABLE public.tipo_vestimenta(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT tipo_medidas_vestiment_pky PRIMARY KEY (id)
+	CONSTRAINT tipo_vestimenta__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -747,7 +969,7 @@ CREATE TABLE public.cuenta_bancaria(
 	id_persona integer,
 	id_tipo_cuenta_bancaria integer,
 	id_entidad_financiera integer,
-	CONSTRAINT id PRIMARY KEY (id)
+	CONSTRAINT cuenta_bancaria__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -770,7 +992,7 @@ CREATE TABLE public.tipo_cuenta_bancaria(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT id PRIMARY KEY (id)
+	CONSTRAINT tipo_cuenta_bancaria__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -793,7 +1015,7 @@ CREATE TABLE public.entidad_financiera(
 	abreviacion text,
 	orden integer,
 	activo boolean,
-	CONSTRAINT id PRIMARY KEY (id)
+	CONSTRAINT entidad_financiera__id__pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -807,16 +1029,16 @@ REFERENCES public.entidad_financiera (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: relacion_personas_id_persona1_fkey | type: CONSTRAINT --
--- ALTER TABLE public.relacion_personas DROP CONSTRAINT IF EXISTS relacion_personas_id_persona1_fkey CASCADE;
-ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas_id_persona1_fkey FOREIGN KEY (id_persona1)
+-- object: relacion_personas__id_persona1__fk | type: CONSTRAINT --
+-- ALTER TABLE public.relacion_personas DROP CONSTRAINT IF EXISTS relacion_personas__id_persona1__fk CASCADE;
+ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas__id_persona1__fk FOREIGN KEY (id_persona1)
 REFERENCES public.persona (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
--- object: relacion_personas_id_persona2_fkey | type: CONSTRAINT --
--- ALTER TABLE public.relacion_personas DROP CONSTRAINT IF EXISTS relacion_personas_id_persona2_fkey CASCADE;
-ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas_id_persona2_fkey FOREIGN KEY (id_persona2)
+-- object: relacion_personas__id_persona2__fk | type: CONSTRAINT --
+-- ALTER TABLE public.relacion_personas DROP CONSTRAINT IF EXISTS relacion_personas__id_persona2__fk CASCADE;
+ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas__id_persona2__fk FOREIGN KEY (id_persona2)
 REFERENCES public.persona (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
