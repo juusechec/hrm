@@ -7,11 +7,10 @@ services:
       - SCRIPT_ON_RUN=/sql/populate_database.sh # optional
       #- DATABASE_HOST="localhost"
       # Configure the same at /src/app/config/parameters.yml
-      - DATABASE_PORT=5432
-      - DATABASE_NAME=sigma4c
-      - DATABASE_USER=sigma4c
-      - DATABASE_PASSWORD=abc123
-      - DATABASE_TEST_TABLE=public.parametro
+      - DATABASE_PORT=$DATABASE_PORT
+      - DATABASE_NAME=$DATABASE_NAME
+      - DATABASE_USER=$DATABASE_USER
+      - DATABASE_PASSWORD=$DATABASE_PASSWORD
       - WEBSERVER_PORT=8008
       - WEBSERVER_PATH=/htdocs/web/
       - VARNISH_PORT=8009
