@@ -52,6 +52,8 @@ los campos de las tablas paramétricas
 # Docker 
 ```sh
 cp .env-example .env
+./run
+docker-compose exec app bash
 ```
 
 # Symfony
@@ -64,4 +66,6 @@ php bin/console doctrine:mapping:import 'App\Entity' annotation --path=src/Entit
 php bin/console doctrine:query:sql 'SELECT * FROM persona'
 php bin/console server:start 0.0.0.0:8000
 php bin/console server:run 0.0.0.0:8000
+# crear crud
+composer require form validator twig-bundle security-csrf
 ```

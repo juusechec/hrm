@@ -89,7 +89,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="tipo_sangre">
 		<type name="text" length="1"/>
-		<comment><![CDATA[Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH "+", "-" ejemplo "O+", "O-", "AB-]]></comment>
+		<comment><![CDATA[Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH +, - ejemplo O+, O-, AB-]]></comment>
 	</column>
 	<column name="telefono_fijo">
 		<type name="text" length="1"/>
@@ -105,11 +105,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="correo_electronico1">
 		<type name="text" length="1"/>
-		<comment><![CDATA[correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter Ejemplo  (+57) 310 208 3828"."]]></comment>
+		<comment><![CDATA[correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter Ejemplo  (+57) 310 208 3828.]]></comment>
 	</column>
 	<column name="correo_electronico2">
 		<type name="text" length="1"/>
-		<comment><![CDATA[correo electrónico secundario de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter "."]]></comment>
+		<comment><![CDATA[correo electrónico secundario de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter .]]></comment>
 	</column>
 	<column name="activo">
 		<type name="boolean" length="1"/>
