@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vivienda{% endblock %}
+
+{% block body %}
+    <h1>Vivienda</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vivienda.id }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ vivienda.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Barrio</th>
+                <td>{{ vivienda.barrio }}</td>
+            </tr>
+            <tr>
+                <th>Estrato</th>
+                <td>{{ vivienda.estrato }}</td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td>{{ vivienda.pais }}</td>
+            </tr>
+            <tr>
+                <th>Departamento</th>
+                <td>{{ vivienda.departamento }}</td>
+            </tr>
+            <tr>
+                <th>Municipio</th>
+                <td>{{ vivienda.municipio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('vivienda_index') }}">back to list</a>
+
+    <a href="{{ path('vivienda_edit', {'id': vivienda.id}) }}">edit</a>
+
+    {{ include('vivienda/_delete_form.html.twig') }}
+{% endblock %}

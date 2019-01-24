@@ -52,5 +52,46 @@ class RelacionPersonas
      */
     private $idPersona2;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getIdTipoRelacionPersonas(): ?TipoRelacionPersonas
+    {
+        return $this->idTipoRelacionPersonas;
+    }
+
+    public function setIdTipoRelacionPersonas(?TipoRelacionPersonas $idTipoRelacionPersonas): self
+    {
+        $this->idTipoRelacionPersonas = $idTipoRelacionPersonas;
+
+        return $this;
+    }
+
+    public function getIdPersona1(): ?Persona
+    {
+        return $this->idPersona1;
+    }
+
+    public function setIdPersona1(?Persona $idPersona1): self
+    {
+        $this->idPersona1 = $idPersona1;
+
+        return $this;
+    }
+
+    public function getIdPersona2(): ?Persona
+    {
+        return $this->idPersona2;
+    }
+
+    public function setIdPersona2(?Persona $idPersona2): self
+    {
+        $this->idPersona2 = $idPersona2;
+
+        return $this;
+    }
+
 
 }

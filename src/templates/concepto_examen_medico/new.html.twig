@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ConceptoExamenMedico{% endblock %}
+
+{% block body %}
+    <h1>Create new ConceptoExamenMedico</h1>
+
+    {{ include('concepto_examen_medico/_form.html.twig') }}
+
+    <a href="{{ path('concepto_examen_medico_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RelacionPersonaEntidad index{% endblock %}
+
+{% block body %}
+    <h1>RelacionPersonaEntidad index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FechaInicio</th>
+                <th>FechaFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for relacion_persona_entidad in relacion_persona_entidads %}
+            <tr>
+                <td>{{ relacion_persona_entidad.id }}</td>
+                <td>{{ relacion_persona_entidad.fechaInicio ? relacion_persona_entidad.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ relacion_persona_entidad.fechaFin ? relacion_persona_entidad.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('relacion_persona_entidad_show', {'id': relacion_persona_entidad.id}) }}">show</a>
+                    <a href="{{ path('relacion_persona_entidad_edit', {'id': relacion_persona_entidad.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('relacion_persona_entidad_new') }}">Create new</a>
+{% endblock %}

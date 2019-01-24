@@ -23,6 +23,13 @@ class EntregaElementoDotacion
     private $id;
 
     /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="fecha_entrega_dotacion", type="date", nullable=true)
+     */
+    private $fechaEntregaDotacion;
+
+    /**
      * @var \ElementoDotacion
      *
      * @ORM\ManyToOne(targetEntity="ElementoDotacion")
@@ -41,6 +48,47 @@ class EntregaElementoDotacion
      * })
      */
     private $idPersona;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFechaEntregaDotacion(): ?\DateTimeInterface
+    {
+        return $this->fechaEntregaDotacion;
+    }
+
+    public function setFechaEntregaDotacion(?\DateTimeInterface $fechaEntregaDotacion): self
+    {
+        $this->fechaEntregaDotacion = $fechaEntregaDotacion;
+
+        return $this;
+    }
+
+    public function getIdElementoDotacion(): ?ElementoDotacion
+    {
+        return $this->idElementoDotacion;
+    }
+
+    public function setIdElementoDotacion(?ElementoDotacion $idElementoDotacion): self
+    {
+        $this->idElementoDotacion = $idElementoDotacion;
+
+        return $this;
+    }
+
+    public function getIdPersona(): ?Persona
+    {
+        return $this->idPersona;
+    }
+
+    public function setIdPersona(?Persona $idPersona): self
+    {
+        $this->idPersona = $idPersona;
+
+        return $this;
+    }
 
 
 }

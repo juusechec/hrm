@@ -30,6 +30,20 @@ class RegistroVacuna
     private $fechaDosis;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="fecha_vencimiento_dosis", type="smallint", nullable=true)
+     */
+    private $fechaVencimientoDosis;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="observacion", type="text", nullable=true)
+     */
+    private $observacion;
+
+    /**
      * @var \Persona
      *
      * @ORM\ManyToOne(targetEntity="Persona")
@@ -48,6 +62,71 @@ class RegistroVacuna
      * })
      */
     private $idTipoVacuna;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFechaDosis(): ?\DateTimeInterface
+    {
+        return $this->fechaDosis;
+    }
+
+    public function setFechaDosis(?\DateTimeInterface $fechaDosis): self
+    {
+        $this->fechaDosis = $fechaDosis;
+
+        return $this;
+    }
+
+    public function getFechaVencimientoDosis(): ?int
+    {
+        return $this->fechaVencimientoDosis;
+    }
+
+    public function setFechaVencimientoDosis(?int $fechaVencimientoDosis): self
+    {
+        $this->fechaVencimientoDosis = $fechaVencimientoDosis;
+
+        return $this;
+    }
+
+    public function getObservacion(): ?string
+    {
+        return $this->observacion;
+    }
+
+    public function setObservacion(?string $observacion): self
+    {
+        $this->observacion = $observacion;
+
+        return $this;
+    }
+
+    public function getIdPersona(): ?Persona
+    {
+        return $this->idPersona;
+    }
+
+    public function setIdPersona(?Persona $idPersona): self
+    {
+        $this->idPersona = $idPersona;
+
+        return $this;
+    }
+
+    public function getIdTipoVacuna(): ?TipoVacuna
+    {
+        return $this->idTipoVacuna;
+    }
+
+    public function setIdTipoVacuna(?TipoVacuna $idTipoVacuna): self
+    {
+        $this->idTipoVacuna = $idTipoVacuna;
+
+        return $this;
+    }
 
 
 }

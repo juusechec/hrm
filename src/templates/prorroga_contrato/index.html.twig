@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProrrogaContrato index{% endblock %}
+
+{% block body %}
+    <h1>ProrrogaContrato index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FechaInicio</th>
+                <th>FechaFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prorroga_contrato in prorroga_contratos %}
+            <tr>
+                <td>{{ prorroga_contrato.id }}</td>
+                <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">show</a>
+                    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('prorroga_contrato_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ElementoDotacion{% endblock %}
+
+{% block body %}
+    <h1>Create new ElementoDotacion</h1>
+
+    {{ include('elemento_dotacion/_form.html.twig') }}
+
+    <a href="{{ path('elemento_dotacion_index') }}">back to list</a>
+{% endblock %}

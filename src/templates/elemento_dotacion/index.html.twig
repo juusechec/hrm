@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ElementoDotacion index{% endblock %}
+
+{% block body %}
+    <h1>ElementoDotacion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for elemento_dotacion in elemento_dotacions %}
+            <tr>
+                <td>{{ elemento_dotacion.id }}</td>
+                <td>{{ elemento_dotacion.nombre }}</td>
+                <td>{{ elemento_dotacion.descripcion }}</td>
+                <td>{{ elemento_dotacion.abreviacion }}</td>
+                <td>{{ elemento_dotacion.orden }}</td>
+                <td>{{ elemento_dotacion.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('elemento_dotacion_show', {'id': elemento_dotacion.id}) }}">show</a>
+                    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('elemento_dotacion_new') }}">Create new</a>
+{% endblock %}

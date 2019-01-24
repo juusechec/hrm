@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TituloAcademico{% endblock %}
+
+{% block body %}
+    <h1>Edit TituloAcademico</h1>
+
+    {{ include('titulo_academico/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('titulo_academico_index') }}">back to list</a>
+
+    {{ include('titulo_academico/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoExamenMedico{% endblock %}
+
+{% block body %}
+    <h1>TipoExamenMedico</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tipo_examen_medico.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ tipo_examen_medico.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ tipo_examen_medico.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Abreviacion</th>
+                <td>{{ tipo_examen_medico.abreviacion }}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ tipo_examen_medico.orden }}</td>
+            </tr>
+            <tr>
+                <th>Activo</th>
+                <td>{{ tipo_examen_medico.activo ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_examen_medico_index') }}">back to list</a>
+
+    <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">edit</a>
+
+    {{ include('tipo_examen_medico/_delete_form.html.twig') }}
+{% endblock %}

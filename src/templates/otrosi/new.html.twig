@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Otrosi{% endblock %}
+
+{% block body %}
+    <h1>Create new Otrosi</h1>
+
+    {{ include('otrosi/_form.html.twig') }}
+
+    <a href="{{ path('otrosi_index') }}">back to list</a>
+{% endblock %}

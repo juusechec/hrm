@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ProcesoGestionIntegral{% endblock %}
+
+{% block body %}
+    <h1>Create new ProcesoGestionIntegral</h1>
+
+    {{ include('proceso_gestion_integral/_form.html.twig') }}
+
+    <a href="{{ path('proceso_gestion_integral_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ConceptoExamenMedico{% endblock %}
+
+{% block body %}
+    <h1>Edit ConceptoExamenMedico</h1>
+
+    {{ include('concepto_examen_medico/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('concepto_examen_medico_index') }}">back to list</a>
+
+    {{ include('concepto_examen_medico/_delete_form.html.twig') }}
+{% endblock %}

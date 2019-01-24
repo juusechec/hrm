@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RegistroVacuna index{% endblock %}
+
+{% block body %}
+    <h1>RegistroVacuna index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FechaDosis</th>
+                <th>FechaVencimientoDosis</th>
+                <th>Observacion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for registro_vacuna in registro_vacunas %}
+            <tr>
+                <td>{{ registro_vacuna.id }}</td>
+                <td>{{ registro_vacuna.fechaDosis ? registro_vacuna.fechaDosis|date('Y-m-d') : '' }}</td>
+                <td>{{ registro_vacuna.fechaVencimientoDosis }}</td>
+                <td>{{ registro_vacuna.observacion }}</td>
+                <td>
+                    <a href="{{ path('registro_vacuna_show', {'id': registro_vacuna.id}) }}">show</a>
+                    <a href="{{ path('registro_vacuna_edit', {'id': registro_vacuna.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('registro_vacuna_new') }}">Create new</a>
+{% endblock %}

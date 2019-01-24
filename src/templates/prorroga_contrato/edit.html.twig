@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ProrrogaContrato{% endblock %}
+
+{% block body %}
+    <h1>Edit ProrrogaContrato</h1>
+
+    {{ include('prorroga_contrato/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('prorroga_contrato_index') }}">back to list</a>
+
+    {{ include('prorroga_contrato/_delete_form.html.twig') }}
+{% endblock %}

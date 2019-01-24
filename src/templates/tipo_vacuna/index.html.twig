@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoVacuna index{% endblock %}
+
+{% block body %}
+    <h1>TipoVacuna index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Patologia</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_vacuna in tipo_vacunas %}
+            <tr>
+                <td>{{ tipo_vacuna.id }}</td>
+                <td>{{ tipo_vacuna.nombre }}</td>
+                <td>{{ tipo_vacuna.descripcion }}</td>
+                <td>{{ tipo_vacuna.patologia }}</td>
+                <td>{{ tipo_vacuna.abreviacion }}</td>
+                <td>{{ tipo_vacuna.orden }}</td>
+                <td>{{ tipo_vacuna.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tipo_vacuna_show', {'id': tipo_vacuna.id}) }}">show</a>
+                    <a href="{{ path('tipo_vacuna_edit', {'id': tipo_vacuna.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_vacuna_new') }}">Create new</a>
+{% endblock %}

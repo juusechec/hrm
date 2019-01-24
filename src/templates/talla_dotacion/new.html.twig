@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TallaDotacion{% endblock %}
+
+{% block body %}
+    <h1>Create new TallaDotacion</h1>
+
+    {{ include('talla_dotacion/_form.html.twig') }}
+
+    <a href="{{ path('talla_dotacion_index') }}">back to list</a>
+{% endblock %}

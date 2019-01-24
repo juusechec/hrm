@@ -76,5 +76,82 @@ class ExamenMedico
      */
     private $idPersona;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFecha(): ?\DateTimeInterface
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha(?\DateTimeInterface $fecha): self
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    public function getRecomendaciones(): ?string
+    {
+        return $this->recomendaciones;
+    }
+
+    public function setRecomendaciones(?string $recomendaciones): self
+    {
+        $this->recomendaciones = $recomendaciones;
+
+        return $this;
+    }
+
+    public function getIdTipoExamenMedico(): ?TipoExamenMedico
+    {
+        return $this->idTipoExamenMedico;
+    }
+
+    public function setIdTipoExamenMedico(?TipoExamenMedico $idTipoExamenMedico): self
+    {
+        $this->idTipoExamenMedico = $idTipoExamenMedico;
+
+        return $this;
+    }
+
+    public function getIdTipoProgramaExamenMedico(): ?TipoProgramaExamenMedico
+    {
+        return $this->idTipoProgramaExamenMedico;
+    }
+
+    public function setIdTipoProgramaExamenMedico(?TipoProgramaExamenMedico $idTipoProgramaExamenMedico): self
+    {
+        $this->idTipoProgramaExamenMedico = $idTipoProgramaExamenMedico;
+
+        return $this;
+    }
+
+    public function getIdConceptoExamenMedico(): ?ConceptoExamenMedico
+    {
+        return $this->idConceptoExamenMedico;
+    }
+
+    public function setIdConceptoExamenMedico(?ConceptoExamenMedico $idConceptoExamenMedico): self
+    {
+        $this->idConceptoExamenMedico = $idConceptoExamenMedico;
+
+        return $this;
+    }
+
+    public function getIdPersona(): ?Persona
+    {
+        return $this->idPersona;
+    }
+
+    public function setIdPersona(?Persona $idPersona): self
+    {
+        $this->idPersona = $idPersona;
+
+        return $this;
+    }
+
 
 }

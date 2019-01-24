@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TipoRelacionPersonas{% endblock %}
+
+{% block body %}
+    <h1>Create new TipoRelacionPersonas</h1>
+
+    {{ include('tipo_relacion_personas/_form.html.twig') }}
+
+    <a href="{{ path('tipo_relacion_personas_index') }}">back to list</a>
+{% endblock %}

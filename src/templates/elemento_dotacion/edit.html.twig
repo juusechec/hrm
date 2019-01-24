@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ElementoDotacion{% endblock %}
+
+{% block body %}
+    <h1>Edit ElementoDotacion</h1>
+
+    {{ include('elemento_dotacion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('elemento_dotacion_index') }}">back to list</a>
+
+    {{ include('elemento_dotacion/_delete_form.html.twig') }}
+{% endblock %}

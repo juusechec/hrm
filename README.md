@@ -63,9 +63,43 @@ composer require symfony/web-server-bundle --dev
 composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
 php bin/console doctrine:mapping:import 'App\Entity' annotation --path=src/Entity
+php bin/console make:entity --regenerate App
 php bin/console doctrine:query:sql 'SELECT * FROM persona'
 php bin/console server:start 0.0.0.0:8000
 php bin/console server:run 0.0.0.0:8000
 # crear crud
 composer require form validator twig-bundle security-csrf
+php bin/console make:crud Otrosi
+php bin/console make:crud Contrato
+php bin/console make:crud TipoElementoDotacion
+php bin/console make:crud TallaDotacion
+php bin/console make:crud RegistroVacuna
+php bin/console make:crud TipoRelacionPersonas
+php bin/console make:crud RelacionPersonas
+php bin/console make:crud Genero
+php bin/console make:crud TipoContrato
+php bin/console make:crud TipoProgramaExamenMedico
+php bin/console make:crud TipoVacuna
+php bin/console make:crud ElementoDotacion
+php bin/console make:crud Vivienda
+php bin/console make:crud ConceptoOtrosi
+php bin/console make:crud RelacionPersonaEntidad
+php bin/console make:crud Persona
+php bin/console make:crud EstadoCivil
+php bin/console make:crud TituloAcademico
+php bin/console make:crud ProcesoGestionIntegral
+php bin/console make:crud EntregaElementoDotacion
+php bin/console make:crud Cargo
+php bin/console make:crud EducacionBasicaMedia
+php bin/console make:crud ProrrogaContrato
+php bin/console make:crud TipoEntidad
+php bin/console make:crud ExamenMedico
+php bin/console make:crud TipoExamenMedico
+php bin/console make:crud CuentaBancaria
+php bin/console make:crud EducacionContinuada
+php bin/console make:crud ConceptoExamenMedico
+php bin/console make:crud TipoVivienda
+php bin/console make:crud TituloEducacionContinuada
+php bin/console make:crud EducacionSuperior
+php bin/console make:crud Entidad
 ```

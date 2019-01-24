@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TallaDotacion index{% endblock %}
+
+{% block body %}
+    <h1>TallaDotacion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Unidades</th>
+                <th>FechaRegistro</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for talla_dotacion in talla_dotacions %}
+            <tr>
+                <td>{{ talla_dotacion.id }}</td>
+                <td>{{ talla_dotacion.numero }}</td>
+                <td>{{ talla_dotacion.unidades }}</td>
+                <td>{{ talla_dotacion.fechaRegistro ? talla_dotacion.fechaRegistro|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('talla_dotacion_show', {'id': talla_dotacion.id}) }}">show</a>
+                    <a href="{{ path('talla_dotacion_edit', {'id': talla_dotacion.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('talla_dotacion_new') }}">Create new</a>
+{% endblock %}

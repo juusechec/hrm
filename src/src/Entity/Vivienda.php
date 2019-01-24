@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Vivienda
  *
- * @ORM\Table(name="vivienda", indexes={@ORM\Index(name="IDX_2DFFABDE45122072", columns={"id_tipo_vivienda"})})
+ * @ORM\Table(name="vivienda", indexes={@ORM\Index(name="IDX_2DFFABDE45122072", columns={"id_tipo_vivienda"}), @ORM\Index(name="IDX_2DFFABDE8F781FEB", columns={"id_persona"})})
  * @ORM\Entity
  */
 class Vivienda
@@ -39,6 +39,20 @@ class Vivienda
     /**
      * @var int|null
      *
+     * @ORM\Column(name="estrato", type="integer", nullable=true)
+     */
+    private $estrato;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="pais", type="integer", nullable=true)
+     */
+    private $pais;
+
+    /**
+     * @var int|null
+     *
      * @ORM\Column(name="departamento", type="integer", nullable=true)
      */
     private $departamento;
@@ -51,13 +65,6 @@ class Vivienda
     private $municipio;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="estrato", type="integer", nullable=true)
-     */
-    private $estrato;
-
-    /**
      * @var \TipoVivienda
      *
      * @ORM\ManyToOne(targetEntity="TipoVivienda")
@@ -68,18 +75,115 @@ class Vivienda
     private $idTipoVivienda;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Persona
      *
-     * @ORM\ManyToMany(targetEntity="Persona", mappedBy="idVivienda")
+     * @ORM\ManyToOne(targetEntity="Persona")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_persona", referencedColumnName="id")
+     * })
      */
     private $idPersona;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getId(): ?int
     {
-        $this->idPersona = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
+
+    public function getDireccion(): ?string
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion(?string $direccion): self
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    public function getBarrio(): ?string
+    {
+        return $this->barrio;
+    }
+
+    public function setBarrio(?string $barrio): self
+    {
+        $this->barrio = $barrio;
+
+        return $this;
+    }
+
+    public function getEstrato(): ?int
+    {
+        return $this->estrato;
+    }
+
+    public function setEstrato(?int $estrato): self
+    {
+        $this->estrato = $estrato;
+
+        return $this;
+    }
+
+    public function getPais(): ?int
+    {
+        return $this->pais;
+    }
+
+    public function setPais(?int $pais): self
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    public function getDepartamento(): ?int
+    {
+        return $this->departamento;
+    }
+
+    public function setDepartamento(?int $departamento): self
+    {
+        $this->departamento = $departamento;
+
+        return $this;
+    }
+
+    public function getMunicipio(): ?int
+    {
+        return $this->municipio;
+    }
+
+    public function setMunicipio(?int $municipio): self
+    {
+        $this->municipio = $municipio;
+
+        return $this;
+    }
+
+    public function getIdTipoVivienda(): ?TipoVivienda
+    {
+        return $this->idTipoVivienda;
+    }
+
+    public function setIdTipoVivienda(?TipoVivienda $idTipoVivienda): self
+    {
+        $this->idTipoVivienda = $idTipoVivienda;
+
+        return $this;
+    }
+
+    public function getIdPersona(): ?Persona
+    {
+        return $this->idPersona;
+    }
+
+    public function setIdPersona(?Persona $idPersona): self
+    {
+        $this->idPersona = $idPersona;
+
+        return $this;
+    }
+
 
 }

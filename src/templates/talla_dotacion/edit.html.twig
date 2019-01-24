@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TallaDotacion{% endblock %}
+
+{% block body %}
+    <h1>Edit TallaDotacion</h1>
+
+    {{ include('talla_dotacion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('talla_dotacion_index') }}">back to list</a>
+
+    {{ include('talla_dotacion/_delete_form.html.twig') }}
+{% endblock %}

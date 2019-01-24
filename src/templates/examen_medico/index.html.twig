@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExamenMedico index{% endblock %}
+
+{% block body %}
+    <h1>ExamenMedico index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Recomendaciones</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for examen_medico in examen_medicos %}
+            <tr>
+                <td>{{ examen_medico.id }}</td>
+                <td>{{ examen_medico.fecha ? examen_medico.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_medico.recomendaciones }}</td>
+                <td>
+                    <a href="{{ path('examen_medico_show', {'id': examen_medico.id}) }}">show</a>
+                    <a href="{{ path('examen_medico_edit', {'id': examen_medico.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('examen_medico_new') }}">Create new</a>
+{% endblock %}

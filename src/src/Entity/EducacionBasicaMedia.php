@@ -25,9 +25,9 @@ class EducacionBasicaMedia
     /**
      * @var int|null
      *
-     * @ORM\Column(name="ultimo_grado", type="integer", nullable=true, options={"comment"="ultimo grado aprobado, en caso de no haber finalizado indicar hasta que grado se alcanzo a llegar campo de texto"})
+     * @ORM\Column(name="ultimo_grado_aprobado", type="integer", nullable=true, options={"comment"="ultimo grado aprobado, en caso de no haber finalizado indicar hasta que grado se alcanzo a llegar campo de texto"})
      */
-    private $ultimoGrado;
+    private $ultimoGradoAprobado;
 
     /**
      * @var string|null
@@ -52,6 +52,59 @@ class EducacionBasicaMedia
      * })
      */
     private $idPersona;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUltimoGradoAprobado(): ?int
+    {
+        return $this->ultimoGradoAprobado;
+    }
+
+    public function setUltimoGradoAprobado(?int $ultimoGradoAprobado): self
+    {
+        $this->ultimoGradoAprobado = $ultimoGradoAprobado;
+
+        return $this;
+    }
+
+    public function getTituloObtenido(): ?string
+    {
+        return $this->tituloObtenido;
+    }
+
+    public function setTituloObtenido(?string $tituloObtenido): self
+    {
+        $this->tituloObtenido = $tituloObtenido;
+
+        return $this;
+    }
+
+    public function getFechaGrado(): ?\DateTimeInterface
+    {
+        return $this->fechaGrado;
+    }
+
+    public function setFechaGrado(?\DateTimeInterface $fechaGrado): self
+    {
+        $this->fechaGrado = $fechaGrado;
+
+        return $this;
+    }
+
+    public function getIdPersona(): ?Persona
+    {
+        return $this->idPersona;
+    }
+
+    public function setIdPersona(?Persona $idPersona): self
+    {
+        $this->idPersona = $idPersona;
+
+        return $this;
+    }
 
 
 }

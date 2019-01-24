@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ConceptoOtrosi{% endblock %}
+
+{% block body %}
+    <h1>Create new ConceptoOtrosi</h1>
+
+    {{ include('concepto_otrosi/_form.html.twig') }}
+
+    <a href="{{ path('concepto_otrosi_index') }}">back to list</a>
+{% endblock %}

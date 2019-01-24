@@ -1326,7 +1326,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="tipo">
 		<type name="text" length="0"/>
-		<comment><![CDATA[Pueden ir los textos en mayúsculas "AHORROS" o "CORRIENTE", no se necesitan más, por eso no se hace otra tabla.]]></comment>
+		<comment><![CDATA[Pueden ir los textos en mayúsculas AHORROS o CORRIENTE, no se necesitan más, por eso no se hace otra tabla.]]></comment>
 	</column>
 	<column name="principal">
 		<type name="boolean" length="0"/>

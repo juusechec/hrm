@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cargo index{% endblock %}
+
+{% block body %}
+    <h1>Cargo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cargo in cargos %}
+            <tr>
+                <td>{{ cargo.id }}</td>
+                <td>{{ cargo.nombre }}</td>
+                <td>{{ cargo.descripcion }}</td>
+                <td>{{ cargo.abreviacion }}</td>
+                <td>{{ cargo.orden }}</td>
+                <td>{{ cargo.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('cargo_show', {'id': cargo.id}) }}">show</a>
+                    <a href="{{ path('cargo_edit', {'id': cargo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cargo_new') }}">Create new</a>
+{% endblock %}

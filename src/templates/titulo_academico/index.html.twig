@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TituloAcademico index{% endblock %}
+
+{% block body %}
+    <h1>TituloAcademico index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>CodigoSnies</th>
+                <th>ModalidadAcademica</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for titulo_academico in titulo_academicos %}
+            <tr>
+                <td>{{ titulo_academico.id }}</td>
+                <td>{{ titulo_academico.nombre }}</td>
+                <td>{{ titulo_academico.codigoSnies }}</td>
+                <td>{{ titulo_academico.modalidadAcademica }}</td>
+                <td>{{ titulo_academico.descripcion }}</td>
+                <td>{{ titulo_academico.abreviacion }}</td>
+                <td>{{ titulo_academico.orden }}</td>
+                <td>{{ titulo_academico.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('titulo_academico_show', {'id': titulo_academico.id}) }}">show</a>
+                    <a href="{{ path('titulo_academico_edit', {'id': titulo_academico.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('titulo_academico_new') }}">Create new</a>
+{% endblock %}

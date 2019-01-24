@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Persona
  *
- * @ORM\Table(name="persona", indexes={@ORM\Index(name="IDX_51E5B69BD7E358F6", columns={"id_estado_civil"}), @ORM\Index(name="IDX_51E5B69B115F934D", columns={"id_proceso_gestion_integral"}), @ORM\Index(name="IDX_51E5B69B9B1A19BB", columns={"id_entidad"}), @ORM\Index(name="IDX_51E5B69B86373DD7", columns={"id_genero"})})
+ * @ORM\Table(name="persona", indexes={@ORM\Index(name="IDX_51E5B69BD7E358F6", columns={"id_estado_civil"}), @ORM\Index(name="IDX_51E5B69B115F934D", columns={"id_proceso_gestion_integral"}), @ORM\Index(name="IDX_51E5B69B86373DD7", columns={"id_genero"})})
  * @ORM\Entity
  */
 class Persona
@@ -88,16 +88,9 @@ class Persona
     /**
      * @var string|null
      *
-     * @ORM\Column(name="tipo_sangre", type="text", nullable=true, options={"comment"="Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH "+", "-" ejemplo "O+", "O-", "AB-"})
+     * @ORM\Column(name="tipo_sangre", type="text", nullable=true, options={"comment"="Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH +, - ejemplo O+, O-, AB-"})
      */
     private $tipoSangre;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="direccion", type="text", nullable=true, options={"comment"="Dirección donde reside la persona"})
-     */
-    private $direccion;
 
     /**
      * @var string|null
@@ -123,14 +116,14 @@ class Persona
     /**
      * @var string|null
      *
-     * @ORM\Column(name="correo_electronico1", type="text", nullable=true, options={"comment"="correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter Ejemplo  (+57) 310 208 3828".""})
+     * @ORM\Column(name="correo_electronico1", type="text", nullable=true, options={"comment"="correo electrónico principal de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter Ejemplo  (+57) 310 208 3828."})
      */
     private $correoElectronico1;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="correo_electronico2", type="text", nullable=true, options={"comment"="correo electrónico secundario de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter ".""})
+     * @ORM\Column(name="correo_electronico2", type="text", nullable=true, options={"comment"="correo electrónico secundario de contacto, en caso de ser diligenciado es obligatorio el carácter @ seguido de texto y el caracter ."})
      */
     private $correoElectronico2;
 
@@ -162,16 +155,6 @@ class Persona
     private $idProcesoGestionIntegral;
 
     /**
-     * @var \Entidad
-     *
-     * @ORM\ManyToOne(targetEntity="Entidad")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_entidad", referencedColumnName="id")
-     * })
-     */
-    private $idEntidad;
-
-    /**
      * @var \Genero
      *
      * @ORM\ManyToOne(targetEntity="Genero")
@@ -181,27 +164,238 @@ class Persona
      */
     private $idGenero;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Vivienda", inversedBy="idPersona")
-     * @ORM\JoinTable(name="muchos_persona_tiene_muchos_vivienda",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_persona", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_vivienda", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idVivienda;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getId(): ?int
     {
-        $this->idVivienda = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
+
+    public function getPrimerNombre(): ?string
+    {
+        return $this->primerNombre;
+    }
+
+    public function setPrimerNombre(?string $primerNombre): self
+    {
+        $this->primerNombre = $primerNombre;
+
+        return $this;
+    }
+
+    public function getOtroNombre(): ?string
+    {
+        return $this->otroNombre;
+    }
+
+    public function setOtroNombre(?string $otroNombre): self
+    {
+        $this->otroNombre = $otroNombre;
+
+        return $this;
+    }
+
+    public function getPrimerApellido(): ?string
+    {
+        return $this->primerApellido;
+    }
+
+    public function setPrimerApellido(?string $primerApellido): self
+    {
+        $this->primerApellido = $primerApellido;
+
+        return $this;
+    }
+
+    public function getSegundoApellido(): ?string
+    {
+        return $this->segundoApellido;
+    }
+
+    public function setSegundoApellido(?string $segundoApellido): self
+    {
+        $this->segundoApellido = $segundoApellido;
+
+        return $this;
+    }
+
+    public function getFechaNacimiento(): ?\DateTimeInterface
+    {
+        return $this->fechaNacimiento;
+    }
+
+    public function setFechaNacimiento(?\DateTimeInterface $fechaNacimiento): self
+    {
+        $this->fechaNacimiento = $fechaNacimiento;
+
+        return $this;
+    }
+
+    public function getTipoDocumento(): ?string
+    {
+        return $this->tipoDocumento;
+    }
+
+    public function setTipoDocumento(?string $tipoDocumento): self
+    {
+        $this->tipoDocumento = $tipoDocumento;
+
+        return $this;
+    }
+
+    public function getNumeroDocumento(): ?string
+    {
+        return $this->numeroDocumento;
+    }
+
+    public function setNumeroDocumento(?string $numeroDocumento): self
+    {
+        $this->numeroDocumento = $numeroDocumento;
+
+        return $this;
+    }
+
+    public function getFechaExpedicionDocumento(): ?\DateTimeInterface
+    {
+        return $this->fechaExpedicionDocumento;
+    }
+
+    public function setFechaExpedicionDocumento(?\DateTimeInterface $fechaExpedicionDocumento): self
+    {
+        $this->fechaExpedicionDocumento = $fechaExpedicionDocumento;
+
+        return $this;
+    }
+
+    public function getLugarEspecionDocumento(): ?string
+    {
+        return $this->lugarEspecionDocumento;
+    }
+
+    public function setLugarEspecionDocumento(?string $lugarEspecionDocumento): self
+    {
+        $this->lugarEspecionDocumento = $lugarEspecionDocumento;
+
+        return $this;
+    }
+
+    public function getTipoSangre(): ?string
+    {
+        return $this->tipoSangre;
+    }
+
+    public function setTipoSangre(?string $tipoSangre): self
+    {
+        $this->tipoSangre = $tipoSangre;
+
+        return $this;
+    }
+
+    public function getTelefonoFijo(): ?string
+    {
+        return $this->telefonoFijo;
+    }
+
+    public function setTelefonoFijo(?string $telefonoFijo): self
+    {
+        $this->telefonoFijo = $telefonoFijo;
+
+        return $this;
+    }
+
+    public function getTelefonoMovil1(): ?string
+    {
+        return $this->telefonoMovil1;
+    }
+
+    public function setTelefonoMovil1(?string $telefonoMovil1): self
+    {
+        $this->telefonoMovil1 = $telefonoMovil1;
+
+        return $this;
+    }
+
+    public function getTelefonoMovil2(): ?string
+    {
+        return $this->telefonoMovil2;
+    }
+
+    public function setTelefonoMovil2(?string $telefonoMovil2): self
+    {
+        $this->telefonoMovil2 = $telefonoMovil2;
+
+        return $this;
+    }
+
+    public function getCorreoElectronico1(): ?string
+    {
+        return $this->correoElectronico1;
+    }
+
+    public function setCorreoElectronico1(?string $correoElectronico1): self
+    {
+        $this->correoElectronico1 = $correoElectronico1;
+
+        return $this;
+    }
+
+    public function getCorreoElectronico2(): ?string
+    {
+        return $this->correoElectronico2;
+    }
+
+    public function setCorreoElectronico2(?string $correoElectronico2): self
+    {
+        $this->correoElectronico2 = $correoElectronico2;
+
+        return $this;
+    }
+
+    public function getActivo(): ?bool
+    {
+        return $this->activo;
+    }
+
+    public function setActivo(?bool $activo): self
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    public function getIdEstadoCivil(): ?EstadoCivil
+    {
+        return $this->idEstadoCivil;
+    }
+
+    public function setIdEstadoCivil(?EstadoCivil $idEstadoCivil): self
+    {
+        $this->idEstadoCivil = $idEstadoCivil;
+
+        return $this;
+    }
+
+    public function getIdProcesoGestionIntegral(): ?ProcesoGestionIntegral
+    {
+        return $this->idProcesoGestionIntegral;
+    }
+
+    public function setIdProcesoGestionIntegral(?ProcesoGestionIntegral $idProcesoGestionIntegral): self
+    {
+        $this->idProcesoGestionIntegral = $idProcesoGestionIntegral;
+
+        return $this;
+    }
+
+    public function getIdGenero(): ?Genero
+    {
+        return $this->idGenero;
+    }
+
+    public function setIdGenero(?Genero $idGenero): self
+    {
+        $this->idGenero = $idGenero;
+
+        return $this;
+    }
+
 
 }

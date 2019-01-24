@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TituloEducacionContinuada{% endblock %}
+
+{% block body %}
+    <h1>TituloEducacionContinuada</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ titulo_educacion_continuada.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ titulo_educacion_continuada.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ titulo_educacion_continuada.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Horas</th>
+                <td>{{ titulo_educacion_continuada.horas }}</td>
+            </tr>
+            <tr>
+                <th>Abreviacion</th>
+                <td>{{ titulo_educacion_continuada.abreviacion }}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ titulo_educacion_continuada.orden }}</td>
+            </tr>
+            <tr>
+                <th>Activo</th>
+                <td>{{ titulo_educacion_continuada.activo ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('titulo_educacion_continuada_index') }}">back to list</a>
+
+    <a href="{{ path('titulo_educacion_continuada_edit', {'id': titulo_educacion_continuada.id}) }}">edit</a>
+
+    {{ include('titulo_educacion_continuada/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ConceptoOtrosi index{% endblock %}
+
+{% block body %}
+    <h1>ConceptoOtrosi index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for concepto_otrosi in concepto_otrosis %}
+            <tr>
+                <td>{{ concepto_otrosi.id }}</td>
+                <td>{{ concepto_otrosi.nombre }}</td>
+                <td>{{ concepto_otrosi.descripcion }}</td>
+                <td>{{ concepto_otrosi.abreviacion }}</td>
+                <td>{{ concepto_otrosi.orden }}</td>
+                <td>{{ concepto_otrosi.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('concepto_otrosi_show', {'id': concepto_otrosi.id}) }}">show</a>
+                    <a href="{{ path('concepto_otrosi_edit', {'id': concepto_otrosi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('concepto_otrosi_new') }}">Create new</a>
+{% endblock %}

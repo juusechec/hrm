@@ -39,5 +39,34 @@ class Otrosi
      */
     private $idConceptoOtrosi;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFechaInicio(): ?\DateTimeInterface
+    {
+        return $this->fechaInicio;
+    }
+
+    public function setFechaInicio(?\DateTimeInterface $fechaInicio): self
+    {
+        $this->fechaInicio = $fechaInicio;
+
+        return $this;
+    }
+
+    public function getIdConceptoOtrosi(): ?ConceptoOtrosi
+    {
+        return $this->idConceptoOtrosi;
+    }
+
+    public function setIdConceptoOtrosi(?ConceptoOtrosi $idConceptoOtrosi): self
+    {
+        $this->idConceptoOtrosi = $idConceptoOtrosi;
+
+        return $this;
+    }
+
 
 }

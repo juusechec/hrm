@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoRelacionPersonas{% endblock %}
+
+{% block body %}
+    <h1>TipoRelacionPersonas</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tipo_relacion_persona.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ tipo_relacion_persona.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ tipo_relacion_persona.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Abreviacion</th>
+                <td>{{ tipo_relacion_persona.abreviacion }}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ tipo_relacion_persona.orden }}</td>
+            </tr>
+            <tr>
+                <th>Activo</th>
+                <td>{{ tipo_relacion_persona.activo ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_relacion_personas_index') }}">back to list</a>
+
+    <a href="{{ path('tipo_relacion_personas_edit', {'id': tipo_relacion_persona.id}) }}">edit</a>
+
+    {{ include('tipo_relacion_personas/_delete_form.html.twig') }}
+{% endblock %}

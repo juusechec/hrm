@@ -44,9 +44,9 @@ class TipoEntidad
     private $abreviacion;
 
     /**
-     * @var string|null
+     * @var int|null
      *
-     * @ORM\Column(name="orden", type="string", nullable=true)
+     * @ORM\Column(name="orden", type="integer", nullable=true)
      */
     private $orden;
 
@@ -56,6 +56,71 @@ class TipoEntidad
      * @ORM\Column(name="activo", type="boolean", nullable=true)
      */
     private $activo;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(?string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getAbreviacion(): ?string
+    {
+        return $this->abreviacion;
+    }
+
+    public function setAbreviacion(?string $abreviacion): self
+    {
+        $this->abreviacion = $abreviacion;
+
+        return $this;
+    }
+
+    public function getOrden(): ?int
+    {
+        return $this->orden;
+    }
+
+    public function setOrden(?int $orden): self
+    {
+        $this->orden = $orden;
+
+        return $this;
+    }
+
+    public function getActivo(): ?bool
+    {
+        return $this->activo;
+    }
+
+    public function setActivo(?bool $activo): self
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
 
 
 }

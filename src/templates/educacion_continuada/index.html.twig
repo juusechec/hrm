@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EducacionContinuada index{% endblock %}
+
+{% block body %}
+    <h1>EducacionContinuada index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FechaTerminacion</th>
+                <th>FechaVencimiento</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for educacion_continuada in educacion_continuadas %}
+            <tr>
+                <td>{{ educacion_continuada.id }}</td>
+                <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('educacion_continuada_show', {'id': educacion_continuada.id}) }}">show</a>
+                    <a href="{{ path('educacion_continuada_edit', {'id': educacion_continuada.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('educacion_continuada_new') }}">Create new</a>
+{% endblock %}

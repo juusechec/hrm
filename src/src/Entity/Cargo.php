@@ -25,7 +25,7 @@ class Cargo
     /**
      * @var string|null
      *
-     * @ORM\Column(name="nombre", type="text", nullable=true, options={"comment"="nombre del cargo "})
+     * @ORM\Column(name="nombre", type="text", nullable=true, options={"comment"="nombre del cargo"})
      */
     private $nombre;
 
@@ -56,6 +56,71 @@ class Cargo
      * @ORM\Column(name="activo", type="boolean", nullable=true, options={"comment"="valor booleano, identifica si el cargo se encuentra activo en la organización o no"})
      */
     private $activo;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(?string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getAbreviacion(): ?string
+    {
+        return $this->abreviacion;
+    }
+
+    public function setAbreviacion(?string $abreviacion): self
+    {
+        $this->abreviacion = $abreviacion;
+
+        return $this;
+    }
+
+    public function getOrden(): ?int
+    {
+        return $this->orden;
+    }
+
+    public function setOrden(?int $orden): self
+    {
+        $this->orden = $orden;
+
+        return $this;
+    }
+
+    public function getActivo(): ?bool
+    {
+        return $this->activo;
+    }
+
+    public function setActivo(?bool $activo): self
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
 
 
 }

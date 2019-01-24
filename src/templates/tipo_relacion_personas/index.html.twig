@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoRelacionPersonas index{% endblock %}
+
+{% block body %}
+    <h1>TipoRelacionPersonas index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_relacion_persona in tipo_relacion_personas %}
+            <tr>
+                <td>{{ tipo_relacion_persona.id }}</td>
+                <td>{{ tipo_relacion_persona.nombre }}</td>
+                <td>{{ tipo_relacion_persona.descripcion }}</td>
+                <td>{{ tipo_relacion_persona.abreviacion }}</td>
+                <td>{{ tipo_relacion_persona.orden }}</td>
+                <td>{{ tipo_relacion_persona.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tipo_relacion_personas_show', {'id': tipo_relacion_persona.id}) }}">show</a>
+                    <a href="{{ path('tipo_relacion_personas_edit', {'id': tipo_relacion_persona.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_relacion_personas_new') }}">Create new</a>
+{% endblock %}

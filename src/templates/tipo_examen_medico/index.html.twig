@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoExamenMedico index{% endblock %}
+
+{% block body %}
+    <h1>TipoExamenMedico index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_examen_medico in tipo_examen_medicos %}
+            <tr>
+                <td>{{ tipo_examen_medico.id }}</td>
+                <td>{{ tipo_examen_medico.nombre }}</td>
+                <td>{{ tipo_examen_medico.descripcion }}</td>
+                <td>{{ tipo_examen_medico.abreviacion }}</td>
+                <td>{{ tipo_examen_medico.orden }}</td>
+                <td>{{ tipo_examen_medico.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tipo_examen_medico_show', {'id': tipo_examen_medico.id}) }}">show</a>
+                    <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_examen_medico_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contrato index{% endblock %}
+
+{% block body %}
+    <h1>Contrato index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Objeto</th>
+                <th>ObraOLabor</th>
+                <th>FechaInicio</th>
+                <th>FechaFin</th>
+                <th>SalarioBase</th>
+                <th>SalarioAuxilio</th>
+                <th>DiasPeriodoPrueba</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contrato in contratos %}
+            <tr>
+                <td>{{ contrato.id }}</td>
+                <td>{{ contrato.objeto }}</td>
+                <td>{{ contrato.obraOLabor }}</td>
+                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>{{ contrato.salarioBase }}</td>
+                <td>{{ contrato.salarioAuxilio }}</td>
+                <td>{{ contrato.diasPeriodoPrueba }}</td>
+                <td>
+                    <a href="{{ path('contrato_show', {'id': contrato.id}) }}">show</a>
+                    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contrato_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ProcesoGestionIntegral{% endblock %}
+
+{% block body %}
+    <h1>Edit ProcesoGestionIntegral</h1>
+
+    {{ include('proceso_gestion_integral/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('proceso_gestion_integral_index') }}">back to list</a>
+
+    {{ include('proceso_gestion_integral/_delete_form.html.twig') }}
+{% endblock %}
