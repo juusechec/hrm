@@ -48,3 +48,8 @@ where the suffix is one of the following:
 nombre_tabla_nombre_tabla_referenciada_nombre_campo_fk para foraing key
 constraints de relaciones uno a uno, muchos a muchos y uno a muchos
 los campos de las tablas paramétricas
+
+# Docker 
+```sh
+cp .env-example .env
+```
