@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    image: juusechec/centos-symfony-postgis:latest
+    privileged: true # obligatory for centos systemd!
+    environment:
+      - SCRIPT_ON_RUN=/sql/populate_database.sh # optional
+      #- DATABASE_HOST="localhost"
+      # Configure the same at /src/app/config/parameters.yml
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=sigma4c
+      - DATABASE_USER=sigma4c
+      - DATABASE_PASSWORD=abc123
+      - DATABASE_TEST_TABLE=public.parametro
+      - WEBSERVER_PORT=8008
+      - WEBSERVER_PATH=/htdocs/web/
+      - VARNISH_PORT=8009
+    ports:
+      - 5432:5432
+      - 8000:8000 # for app/console symfony
+      - 8008:8008
+      - 8009:8009
+    volumes:
+      # obligatory for centos systemd https://github.com/solita/docker-systemd/issues/1
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # specific for project
+      - ./src:/htdocs
+      - ./sql:/sql:ro
