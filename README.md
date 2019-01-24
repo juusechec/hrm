@@ -53,3 +53,15 @@ los campos de las tablas paramétricas
 ```sh
 cp .env-example .env
 ```
+
+# Symfony
+```sh
+composer create-project symfony/skeleton hrm
+composer require symfony/web-server-bundle --dev
+composer require symfony/orm-pack
+composer require symfony/maker-bundle --dev
+php bin/console doctrine:mapping:import 'App\Entity' annotation --path=src/Entity
+php bin/console doctrine:query:sql 'SELECT * FROM persona'
+php bin/console server:start 0.0.0.0:8000
+php bin/console server:run 0.0.0.0:8000
+```
