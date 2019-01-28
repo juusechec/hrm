@@ -396,6 +396,15 @@ class Persona
 
         return $this;
     }
+     /**
+     * Get display name
+     *
+     * @return String
+     */
+    public function __toString()
+    {
+        return $this->getNombre() . ' / ' . $this->getAbreviacion();
+    }
 
 
 }

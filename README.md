@@ -49,7 +49,7 @@ nombre_tabla_nombre_tabla_referenciada_nombre_campo_fk para foraing key
 constraints de relaciones uno a uno, muchos a muchos y uno a muchos
 los campos de las tablas paramétricas
 
-# Docker 
+# Docker
 ```sh
 cp .env-example .env
 ./run
@@ -58,10 +58,13 @@ docker-compose exec app bash
 
 # Symfony
 ```sh
+cd /htdocs
+chown 1000:1000 -R .
 composer create-project symfony/skeleton hrm
 composer require symfony/web-server-bundle --dev
 composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
+composer install
 php bin/console doctrine:mapping:import 'App\Entity' annotation --path=src/Entity
 php bin/console make:entity --regenerate App
 php bin/console doctrine:query:sql 'SELECT * FROM persona'
