@@ -122,5 +122,14 @@ class Genero
         return $this;
     }
 
-
+    /**
+     * Get display name
+     *
+     * @return String
+     */
+    public function __toString()
+    {
+        return (string)$this->getId();
+    }
+    
 }

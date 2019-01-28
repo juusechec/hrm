@@ -128,5 +128,14 @@ class CuentaBancaria
         return $this;
     }
 
+    /**
+     * Get display name
+     *
+     * @return String
+     */
+    public function __toString()
+    {
+        return $this->getTipo() . ' / ' . $this->getNumero();
+    }
 
 }

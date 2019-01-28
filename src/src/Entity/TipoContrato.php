@@ -131,5 +131,5 @@ class TipoContrato
     {
         return $this->getNombre() . ' / ' . $this->getAbreviacion();
     }
-
+    
 }

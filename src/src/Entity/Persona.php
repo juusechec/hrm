@@ -396,15 +396,16 @@ class Persona
 
         return $this;
     }
-     /**
+
+    /**
      * Get display name
      *
      * @return String
      */
     public function __toString()
     {
-        return $this->getNombre() . ' / ' . $this->getAbreviacion();
+        return strtoupper($this->getPrimerNombre() . ' ' . $this->getOtroNombre() .
+        ' ' . $this->getPrimerApellido() . ' ' . $this->getSegundoApellido());
     }
-
 
 }
