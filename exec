@@ -1,0 +1,4 @@
+#!/bin/bash
+source utils
+printc "docker-compose exec app bash --init-file /htdocs/init-file.sh"
+docker-compose exec app bash --init-file /htdocs/init-file.sh
