@@ -81,9 +81,9 @@ class Persona
     /**
      * @var string|null
      *
-     * @ORM\Column(name="lugar_especion_documento", type="text", nullable=true, options={"comment"="Lugar en donde se expide el documento de identidad"})
+     * @ORM\Column(name="lugar_expedicion_documento", type="text", nullable=true, options={"comment"="Lugar en donde se expide el documento de identidad"})
      */
-    private $lugarEspecionDocumento;
+    private $lugarEspedicionDocumento;
 
     /**
      * @var string|null
