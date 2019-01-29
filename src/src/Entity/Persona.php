@@ -83,7 +83,7 @@ class Persona
      *
      * @ORM\Column(name="lugar_expedicion_documento", type="text", nullable=true, options={"comment"="Lugar en donde se expide el documento de identidad"})
      */
-    private $lugarEspedicionDocumento;
+    private $lugarExpedicionDocumento;
 
     /**
      * @var string|null
@@ -265,14 +265,14 @@ class Persona
         return $this;
     }
 
-    public function getLugarEspecionDocumento(): ?string
+    public function getLugarExpedicionDocumento(): ?string
     {
-        return $this->lugarEspecionDocumento;
+        return $this->lugarExpedicionDocumento;
     }
 
-    public function setLugarEspecionDocumento(?string $lugarEspecionDocumento): self
+    public function setLugarExpedicionDocumento(?string $lugarExpedicionDocumento): self
     {
-        $this->lugarEspecionDocumento = $lugarEspecionDocumento;
+        $this->lugarExpedicionDocumento = $lugarExpedicionDocumento;
 
         return $this;
     }

@@ -20,7 +20,7 @@ class PersonaType extends AbstractType
             ->add('tipoDocumento')
             ->add('numeroDocumento')
             ->add('fechaExpedicionDocumento')
-            ->add('lugarEspecionDocumento')
+            ->add('lugarExpedicionDocumento')
             ->add('tipoSangre')
             ->add('telefonoFijo')
             ->add('telefonoMovil1')
