@@ -45,7 +45,7 @@ CREATE TABLE public.persona(
 	tipo_documento text,
 	numero_documento text,
 	fecha_expedicion_documento date,
-	lugar_especion_documento text,
+	lugar_expedicion_documento text,
 	tipo_sangre text,
 	telefono_fijo text,
 	telefono_movil1 text,
@@ -76,7 +76,7 @@ COMMENT ON COLUMN public.persona.tipo_documento IS 'Identifica el tipo de docume
 -- ddl-end --
 COMMENT ON COLUMN public.persona.numero_documento IS 'Solo admite datos tipos numéricos para los casos RC, TI, CC, Para la cedula de extranjería admite según formato de la registraduria civil';
 -- ddl-end --
-COMMENT ON COLUMN public.persona.lugar_especion_documento IS 'Lugar en donde se expide el documento de identidad';
+COMMENT ON COLUMN public.persona.lugar_expedicion_documento IS 'Lugar en donde se expide el documento de identidad';
 -- ddl-end --
 COMMENT ON COLUMN public.persona.tipo_sangre IS 'Se ingresa el grupo sanguíneo y el Factor del RH solo admite las siguientes letras en el grupo sanguíneo A, B, O. Solo admite los siguientes caracteres en el facto RH +, - ejemplo O+, O-, AB-';
 -- ddl-end --
@@ -950,7 +950,7 @@ CREATE TABLE public.cuenta_bancaria(
 -- ddl-end --
 COMMENT ON TABLE public.cuenta_bancaria IS 'Cuenta bancaria de la persona, básicamente donde se le va a realizar la consignación de la plata.';
 -- ddl-end --
-COMMENT ON COLUMN public.cuenta_bancaria.tipo IS 'Pueden ir los textos en mayúsculas "AHORROS" o "CORRIENTE", no se necesitan más, por eso no se hace otra tabla.';
+COMMENT ON COLUMN public.cuenta_bancaria.tipo IS 'Pueden ir los textos en mayúsculas AHORROS o CORRIENTE, no se necesitan más, por eso no se hace otra tabla.';
 -- ddl-end --
 ALTER TABLE public.cuenta_bancaria OWNER TO postgres;
 -- ddl-end --
