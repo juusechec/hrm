@@ -1,5 +1,17 @@
 #!/bin/bash
 source utils
 
+SUDO='sudo'
+if [ "$USER" == 'root' ]
+then
+SUDO=''
+fi
+
+if ! docker ps &> /dev/null
+then
+printc "$SUDO systemctl start docker"
+$SUDO systemctl start docker
+fi
+
 printc 'docker-compose up'
 docker-compose up

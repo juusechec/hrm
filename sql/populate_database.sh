@@ -18,7 +18,7 @@ fi
 SQLResult=$(echo "SELECT * FROM ${DATABASE_TEST_INSTALLED_TABLE} LIMIT 0;" | $SUDO psql  -p ${DATABASE_PORT} -U postgres -d ${DATABASE_NAME} 2>&1) # error and output to variable
 if ! echo "$SQLResult" | grep 'ERROR' &>/dev/null
 then
-  echo 'La tabla parametro ya está creada. Nada que hacer.'
+  echo "La tabla ${DATABASE_TEST_INSTALLED_TABLE} ya está creada. Nada que hacer."
 elif echo $(echo "\connect ${DATABASE_NAME};" | $SUDO psql -p ${DATABASE_PORT} -U postgres 2>&1) | grep 'ERROR' &>/dev/null
 then
   echo 'La base de datos ya está creada. Nada que hacer.'
