@@ -105,4 +105,5 @@ php bin/console make:crud TipoVivienda
 php bin/console make:crud TituloEducacionContinuada
 php bin/console make:crud EducacionSuperior
 php bin/console make:crud Entidad
+php bin/console make:crud TipoRelacionPersonaEntidad
 ```

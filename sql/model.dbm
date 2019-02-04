@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.1-beta" last-position="508,242" last-zoom="0.9"
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="1147,197" last-zoom="0.9"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database">
 </database>
@@ -72,6 +72,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="date" length="1"/>
 		<comment><![CDATA[Fecha de nacimiento de la persona en el formato aaaa-mm-dd]]></comment>
 	</column>
+	<column name="lugar_nacimiento">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Lugar en donde nacio la persona]]></comment>
+	</column>
 	<column name="tipo_documento">
 		<type name="text" length="1"/>
 		<comment><![CDATA[Identifica el tipo de documento de la persona solo admite los siguientes valores RC = Registro Civil, TI = Tarjeta de identidad, CC=Cedula de Ciudadania, CE = Cedula de Extranjeria]]></comment>
@@ -120,9 +124,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="id_estado_civil" index="18"/>
-		<object name="id_genero" index="17"/>
-		<object name="id_proceso_gestion_integral" index="19"/>
+		<object name="id_estado_civil" index="19"/>
+		<object name="id_genero" index="18"/>
+		<object name="id_proceso_gestion_integral" index="20"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -1182,7 +1186,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<role name="postgres"/>
 	<comment><![CDATA[Es la fecha en que se le entrega la dotación a una persona.]]></comment>
-	<position x="1020" y="780"/>
+	<position x="1020" y="740"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1363,7 +1367,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<role name="postgres"/>
 	<comment><![CDATA[Describe el tipo de relación que tiene una persona con una entidad, por ejemplo, una entidad bancaria, EPS, ARL, entre otros.]]></comment>
-	<position x="1720" y="480"/>
+	<position x="1720" y="420"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -1373,9 +1377,22 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="fecha_fin">
 		<type name="date" length="0"/>
 	</column>
+	<column name="id_tipo_relacion_persona_entidad">
+		<type name="integer" length="0"/>
+	</column>
 	<constraint name="relacion_persona_entidad_pk" type="pk-constr" table="public.relacion_persona_entidad">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_entidad" index="4"/>
+		<object name="id_persona" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="entidad_fk" index="2"/>
+		<object name="persona_fk" index="1"/>
+	</customidxs>
 </table>
 
 <table name="educacion_continuada">
@@ -1501,6 +1518,34 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="public.vivienda"
 	 src-required="false" dst-required="false"/>
 
+<table name="tipo_relacion_persona_entidad">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Tipo de relación por ejemplo Relacione entidad - persona ARL, EPS, FONDO DE PENSIONES, CESANTÍAS]]></comment>
+	<position x="1460" y="240"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="text" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="tipo_relacion_persona_entidad__id__pk" type="pk-constr" table="public.tipo_relacion_persona_entidad">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
 <constraint name="relacion_personas_id_persona1_fk" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.persona" table="public.relacion_personas">
 	<columns names="id_persona1" ref-type="src-columns"/>
@@ -1513,6 +1558,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="id" ref-type="dst-columns"/>
 </constraint>
 
+<constraint name="tipo_relacion_persona_entidad__fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tipo_relacion_persona_entidad" table="public.relacion_persona_entidad">
+	<columns names="id_tipo_relacion_persona_entidad" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
 <relationship name="persona_has_many_relacion_personas" type="relfk"
 	 src-table="public.relacion_personas"
 	 dst-table="public.persona"
@@ -1521,5 +1572,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<position x="-51.1243" y="-4.94853"/>
 	</label>
 </relationship>
+
+<relationship name="rel_relacion_persona_entidad_tipo_relacion_persona_entidad" type="relfk"
+	 src-table="public.relacion_persona_entidad"
+	 dst-table="public.tipo_relacion_persona_entidad"
+	 src-required="false" dst-required="false"/>
 
 </dbmodel>

@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: juusechec/centos-symfony-postgis:20190128
+    image: juusechec/centos-symfony-postgis:20190203
     privileged: true # obligatory for centos systemd!
     environment:
       - SCRIPT_ON_RUN=/sql/populate_database.sh # optional

@@ -42,6 +42,7 @@ CREATE TABLE public.persona(
 	primer_apellido text,
 	segundo_apellido text,
 	fecha_nacimiento date,
+	lugar_nacimiento text,
 	tipo_documento text,
 	numero_documento text,
 	fecha_expedicion_documento date,
@@ -71,6 +72,8 @@ COMMENT ON COLUMN public.persona.primer_apellido IS 'Primer Apellido de la Perso
 COMMENT ON COLUMN public.persona.segundo_apellido IS 'Segundo Apellido de la persona';
 -- ddl-end --
 COMMENT ON COLUMN public.persona.fecha_nacimiento IS 'Fecha de nacimiento de la persona en el formato aaaa-mm-dd';
+-- ddl-end --
+COMMENT ON COLUMN public.persona.lugar_nacimiento IS 'Lugar en donde nacio la persona';
 -- ddl-end --
 COMMENT ON COLUMN public.persona.tipo_documento IS 'Identifica el tipo de documento de la persona solo admite los siguientes valores RC = Registro Civil, TI = Tarjeta de identidad, CC=Cedula de Ciudadania, CE = Cedula de Extranjeria';
 -- ddl-end --
@@ -970,6 +973,7 @@ CREATE TABLE public.relacion_persona_entidad(
 	fecha_fin date,
 	id_persona integer,
 	id_entidad integer,
+	id_tipo_relacion_persona_entidad integer,
 	CONSTRAINT relacion_persona_entidad_pk PRIMARY KEY (id)
 
 );
@@ -1064,6 +1068,24 @@ REFERENCES public.persona (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
+-- object: public.tipo_relacion_persona_entidad | type: TABLE --
+-- DROP TABLE IF EXISTS public.tipo_relacion_persona_entidad CASCADE;
+CREATE TABLE public.tipo_relacion_persona_entidad(
+	id serial NOT NULL,
+	nombre text,
+	descripcion text,
+	abreviacion text,
+	orden text,
+	activo boolean,
+	CONSTRAINT tipo_relacion_persona_entidad__id__pk PRIMARY KEY (id)
+
+);
+-- ddl-end --
+COMMENT ON TABLE public.tipo_relacion_persona_entidad IS 'Tipo de relación por ejemplo Relacione entidad - persona ARL, EPS, FONDO DE PENSIONES, CESANTÍAS';
+-- ddl-end --
+ALTER TABLE public.tipo_relacion_persona_entidad OWNER TO postgres;
+-- ddl-end --
+
 -- object: relacion_personas_id_persona1_fk | type: CONSTRAINT --
 -- ALTER TABLE public.relacion_personas DROP CONSTRAINT IF EXISTS relacion_personas_id_persona1_fk CASCADE;
 ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas_id_persona1_fk FOREIGN KEY (id_persona1)
@@ -1076,6 +1098,13 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas_id_persona2_fk FOREIGN KEY (id_persona2)
 REFERENCES public.persona (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: tipo_relacion_persona_entidad_fk | type: CONSTRAINT --
+-- ALTER TABLE public.relacion_persona_entidad DROP CONSTRAINT IF EXISTS tipo_relacion_persona_entidad_fk CASCADE;
+ALTER TABLE public.relacion_persona_entidad ADD CONSTRAINT tipo_relacion_persona_entidad_fk FOREIGN KEY (id_tipo_relacion_persona_entidad)
+REFERENCES public.tipo_relacion_persona_entidad (id) MATCH FULL
+ON DELETE SET NULL ON UPDATE NO ACTION;
 -- ddl-end --
 
 
