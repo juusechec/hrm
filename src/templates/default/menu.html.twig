@@ -2,157 +2,145 @@
 <div class="menu">
     <ul class="list">
         <li class="header">Menú Principal</li>
-        <li class="active">
+        <li{% if app.request.get('_route') == 'homepage' %} class="active"{% endif %}>
             <a href="{{ path('homepage') }}">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
         </li>
-        <li>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
-            </a>
-        </li>
-        <li>
+        <li {% if app.request.get('_route') == 'concepto_examen_medico_index' %} class="active"{% endif %}>
             <a href="{{ path('concepto_examen_medico_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Concepto Examen Médico</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'concepto_otrosi_index' %} class="active"{% endif %}>
             <a href="{{ path('concepto_otrosi_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Concepto Otro Si</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'contrato_index' %} class="active"{% endif %}>
             <a href="{{ path('contrato_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Contrato</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cuenta_bancaria_index' %} class="active"{% endif %}>
             <a href="{{ path('cuenta_bancaria_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cuenta Bancaria</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'educacion_basica_media_index' %} class="active"{% endif %}>
             <a href="{{ path('educacion_basica_media_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Educación Básica Media</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'educacion_continuada_index' %} class="active"{% endif %}>
             <a href="{{ path('educacion_continuada_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Educación Continuada</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'educacion_superior_index' %} class="active"{% endif %}>
             <a href="{{ path('educacion_superior_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Educación Superior</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'elemento_dotacion_index' %} class="active"{% endif %}>
             <a href="{{ path('elemento_dotacion_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Elemento Dotación</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'entidad_index' %} class="active"{% endif %}>
             <a href="{{ path('entidad_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Entidad</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'entrega_elemento_dotacion_index' %} class="active"{% endif %}>
             <a href="{{ path('entrega_elemento_dotacion_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Entrega Elemento Dotación</span>
             </a>
         </li>
-        <li>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
-            </a>
-        </li>
-        <li>
+        <li {% if app.request.get('_route') == 'estado_civil_index' %} class="active"{% endif %}>
             <a href="{{ path('estado_civil_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Estado Civil</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'examen_medico_index' %} class="active"{% endif %}>
             <a href="{{ path('examen_medico_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Examen Médico</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'genero_index' %} class="active"{% endif %}>
             <a href="{{ path('genero_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Género</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'otrosi_index' %} class="active"{% endif %}>
             <a href="{{ path('otrosi_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Otro Si</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'persona_index' %} class="active"{% endif %}>
             <a href="{{ path('persona_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Persona</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>
             </a>
         </li>
-        <li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">content_copy</i>
                 <span>Cargo</span>

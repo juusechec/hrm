@@ -14,6 +14,7 @@
                 <th>PrimerApellido</th>
                 <th>SegundoApellido</th>
                 <th>FechaNacimiento</th>
+                <th>LugarNacimiento</th>
                 <th>TipoDocumento</th>
                 <th>NumeroDocumento</th>
                 <th>FechaExpedicionDocumento</th>
@@ -37,6 +38,7 @@
                 <td>{{ persona.primerApellido }}</td>
                 <td>{{ persona.segundoApellido }}</td>
                 <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.lugarNacimiento }}</td>
                 <td>{{ persona.tipoDocumento }}</td>
                 <td>{{ persona.numeroDocumento }}</td>
                 <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>

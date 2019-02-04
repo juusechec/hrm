@@ -17,6 +17,7 @@ class PersonaType extends AbstractType
             ->add('primerApellido')
             ->add('segundoApellido')
             ->add('fechaNacimiento')
+            ->add('lugarNacimiento')
             ->add('tipoDocumento')
             ->add('numeroDocumento')
             ->add('fechaExpedicionDocumento')

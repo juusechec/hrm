@@ -67,6 +67,13 @@ class Persona
     /**
      * @var string|null
      *
+     * @ORM\Column(name="lugar_nacimiento", type="text", nullable=true, options={"comment"="Lugar en donde nace la persona"})
+     */
+    private $lugarNacimiento;
+
+    /**
+     * @var string|null
+     *
      * @ORM\Column(name="numero_documento", type="text", nullable=true, options={"comment"="Solo admite datos tipos numéricos para los casos RC, TI, CC, Para la cedula de extranjería admite según formato de la registraduria civil"})
      */
     private $numeroDocumento;
@@ -225,6 +232,18 @@ class Persona
     public function setFechaNacimiento(?\DateTimeInterface $fechaNacimiento): self
     {
         $this->fechaNacimiento = $fechaNacimiento;
+
+        return $this;
+    }
+
+    public function getLugarNacimiento(): ?string
+    {
+        return $this->lugarNacimiento;
+    }
+
+    public function setLugarNacimiento(?string $lugarNacimiento): self
+    {
+        $this->lugarNacimiento = $lugarNacimiento;
 
         return $this;
     }
