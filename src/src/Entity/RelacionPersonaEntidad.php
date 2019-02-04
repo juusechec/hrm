@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RelacionPersonaEntidad
  *
- * @ORM\Table(name="relacion_persona_entidad", indexes={@ORM\Index(name="IDX_DE56F66F8F781FEB", columns={"id_persona"}), @ORM\Index(name="IDX_DE56F66F9B1A19BB", columns={"id_entidad"})})
+ * @ORM\Table(name="relacion_persona_entidad", indexes={@ORM\Index(name="IDX_DE56F66F8F781FEB", columns={"id_persona"}), @ORM\Index(name="IDX_DE56F66F9B1A19BB", columns={"id_entidad"}), @ORM\Index(name="IDX_DE56F66F4E61FCC8", columns={"id_tipo_relacion_persona_entidad"})})
  * @ORM\Entity
  */
 class RelacionPersonaEntidad
@@ -55,6 +55,16 @@ class RelacionPersonaEntidad
      * })
      */
     private $idEntidad;
+
+    /**
+     * @var \TipoRelacionPersonaEntidad
+     *
+     * @ORM\ManyToOne(targetEntity="TipoRelacionPersonaEntidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_relacion_persona_entidad", referencedColumnName="id")
+     * })
+     */
+    private $idTipoRelacionPersonaEntidad;
 
     public function getId(): ?int
     {
@@ -109,6 +119,18 @@ class RelacionPersonaEntidad
         return $this;
     }
 
+    public function getIdTipoRelacionPersonaEntidad(): ?TipoRelacionPersonaEntidad
+    {
+        return $this->idTipoRelacionPersonaEntidad;
+    }
+
+    public function setIdTipoRelacionPersonaEntidad(?TipoRelacionPersonaEntidad $idTipoRelacionPersonaEntidad): self
+    {
+        $this->idTipoRelacionPersonaEntidad = $idTipoRelacionPersonaEntidad;
+
+        return $this;
+    }
+
     /**
      * Get display name
      *
@@ -118,5 +140,5 @@ class RelacionPersonaEntidad
     {
         return (string)$this->getId();
     }
-    
+
 }

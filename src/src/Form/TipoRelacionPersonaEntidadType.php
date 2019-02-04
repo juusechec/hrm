@@ -2,28 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\RelacionPersonaEntidad;
+use App\Entity\TipoRelacionPersonaEntidad;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RelacionPersonaEntidadType extends AbstractType
+class TipoRelacionPersonaEntidadType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaInicio')
-            ->add('fechaFin')
-            ->add('idPersona')
-            ->add('idEntidad')
-            ->add('idTipoRelacionPersonaEntidad')
+            ->add('nombre')
+            ->add('descripcion')
+            ->add('abreviacion')
+            ->add('orden')
+            ->add('activo')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => RelacionPersonaEntidad::class,
+            'data_class' => TipoRelacionPersonaEntidad::class,
         ]);
     }
 }

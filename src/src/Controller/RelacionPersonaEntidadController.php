@@ -36,6 +36,7 @@ class RelacionPersonaEntidadController extends AbstractController
         $relacionPersonaEntidad = new RelacionPersonaEntidad();
         $form = $this->createForm(RelacionPersonaEntidadType::class, $relacionPersonaEntidad);
         $form->handleRequest($request);
+        var_dump($form);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
