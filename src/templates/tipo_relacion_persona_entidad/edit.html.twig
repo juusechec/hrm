@@ -1,0 +1,13 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}Edit TipoRelacionPersonaEntidad{% endblock %}
+
+{% block body %}
+    <h1>Edit TipoRelacionPersonaEntidad</h1>
+
+    {{ include('tipo_relacion_persona_entidad/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('tipo_relacion_persona_entidad_index') }}">back to list</a>
+
+    {{ include('tipo_relacion_persona_entidad/_delete_form.html.twig') }}
+{% endblock %}

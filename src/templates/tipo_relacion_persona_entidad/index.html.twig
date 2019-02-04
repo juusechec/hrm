@@ -1,0 +1,43 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}TipoRelacionPersonaEntidad index{% endblock %}
+
+{% block body %}
+    <h1>TipoRelacionPersonaEntidad index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_relacion_persona_entidad in tipo_relacion_persona_entidads %}
+            <tr>
+                <td>{{ tipo_relacion_persona_entidad.id }}</td>
+                <td>{{ tipo_relacion_persona_entidad.nombre }}</td>
+                <td>{{ tipo_relacion_persona_entidad.descripcion }}</td>
+                <td>{{ tipo_relacion_persona_entidad.abreviacion }}</td>
+                <td>{{ tipo_relacion_persona_entidad.orden }}</td>
+                <td>{{ tipo_relacion_persona_entidad.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tipo_relacion_persona_entidad_show', {'id': tipo_relacion_persona_entidad.id}) }}">show</a>
+                    <a href="{{ path('tipo_relacion_persona_entidad_edit', {'id': tipo_relacion_persona_entidad.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_relacion_persona_entidad_new') }}">Create new</a>
+{% endblock %}
