@@ -8,142 +8,202 @@
                 <span>Home</span>
             </a>
         </li>
+        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
+            <a href="{{ path('cargo_index') }}">
+                <i class="material-icons">work</i>
+                <span>Cargo</span>
+            </a>
+        </li>
         <li {% if app.request.get('_route') == 'concepto_examen_medico_index' %} class="active"{% endif %}>
             <a href="{{ path('concepto_examen_medico_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">local_hospital</i>
                 <span>Concepto Examen Médico</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'concepto_otrosi_index' %} class="active"{% endif %}>
             <a href="{{ path('concepto_otrosi_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">receipt</i>
                 <span>Concepto Otro Si</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'contrato_index' %} class="active"{% endif %}>
             <a href="{{ path('contrato_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">border_color</i>
                 <span>Contrato</span>
-            </a>
-        </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'cuenta_bancaria_index' %} class="active"{% endif %}>
             <a href="{{ path('cuenta_bancaria_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">attach_money</i>
                 <span>Cuenta Bancaria</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'educacion_basica_media_index' %} class="active"{% endif %}>
             <a href="{{ path('educacion_basica_media_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">event_seat</i>
                 <span>Educación Básica Media</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'educacion_continuada_index' %} class="active"{% endif %}>
             <a href="{{ path('educacion_continuada_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">donut_small</i>
                 <span>Educación Continuada</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'educacion_superior_index' %} class="active"{% endif %}>
             <a href="{{ path('educacion_superior_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">gavel </i>
                 <span>Educación Superior</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'elemento_dotacion_index' %} class="active"{% endif %}>
             <a href="{{ path('elemento_dotacion_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">toys</i>
                 <span>Elemento Dotación</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'entidad_index' %} class="active"{% endif %}>
             <a href="{{ path('entidad_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">terrain</i>
                 <span>Entidad</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'entrega_elemento_dotacion_index' %} class="active"{% endif %}>
             <a href="{{ path('entrega_elemento_dotacion_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">rowing</i>
                 <span>Entrega Elemento Dotación</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'estado_civil_index' %} class="active"{% endif %}>
             <a href="{{ path('estado_civil_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">nature_people </i>
                 <span>Estado Civil</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'examen_medico_index' %} class="active"{% endif %}>
             <a href="{{ path('examen_medico_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">local_hospital</i>
                 <span>Examen Médico</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'genero_index' %} class="active"{% endif %}>
             <a href="{{ path('genero_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">wc</i>
                 <span>Género</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'otrosi_index' %} class="active"{% endif %}>
             <a href="{{ path('otrosi_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">blur_linears</i>
                 <span>Otro Si</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'persona_index' %} class="active"{% endif %}>
             <a href="{{ path('persona_index') }}">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">account_circle</i>
                 <span>Persona</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+        <li {% if app.request.get('_route') == 'proceso_gestion_integral_index' %} class="active"{% endif %}>
+            <a href="{{ path('proceso_gestion_integral_index') }}">
+                <i class="material-icons">blur_circular</i>
+                <span>Proceso Gestion Integral</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
+        <li {% if app.request.get('_route') == 'prorroga_contrato_index' %} class="active"{% endif %}>
+            <a href="{{ path('prorroga_contrato_index') }}">
                 <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+                <span>Prórroga Contrato</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+        <li {% if app.request.get('_route') == 'registro_vacuna_index' %} class="active"{% endif %}>
+            <a href="{{ path('registro_vacuna_index') }}">
+                <i class="material-icons">queue_play_next</i>
+                <span>Registro Vacuna</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+        <li {% if app.request.get('_route') == 'relacion_persona_entidad_index' %} class="active"{% endif %}>
+            <a href="{{ path('relacion_persona_entidad_index') }}">
+                <i class="material-icons">switch_cameras</i>
+                <span>Relacion Persona Entidad</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+        <li {% if app.request.get('_route') == 'relacion_personas_index' %} class="active"{% endif %}>
+            <a href="{{ path('relacion_personas_index') }}">
+                <i class="material-icons">group</i>
+                <span>Relación Persona</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+        <li {% if app.request.get('_route') == 'talla_dotacion_index' %} class="active"{% endif %}>
+            <a href="{{ path('talla_dotacion_index') }}">
+                <i class="material-icons">bug_report</i>
+                <span>Talla Dotación</span>
             </a>
         </li>
-        <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
-            <a href="{{ path('cargo_index') }}">
-                <i class="material-icons">content_copy</i>
-                <span>Cargo</span>
+        <li {% if app.request.get('_route') == 'tipo_contrato_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_contrato_index') }}">
+                <i class="material-icons">dvr</i>
+                <span>Tipo de Contrato</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_elemento_dotacion_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_elemento_dotacion_index') }}">
+                <i class="material-icons">style</i>
+                <span>Tipo de Elemento de  Dotación</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_entidad_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_entidad_index') }}">
+                <i class="material-icons">location_city</i>
+                <span>Tipo de Entidad</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_examen_medico_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_examen_medico_index') }}">
+                <i class="material-icons">local_hospital</i>
+                <span>Tipo de Examen Medico</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_programa_examen_medico_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_programa_examen_medico_index') }}">
+                <i class="material-icons">local_hospital</i>
+                <span>Tipo de Programa del Examen Medico</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_relacion_personas_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_relacion_personas_index') }}">
+                <i class="material-icons">assignment_ind</i>
+                <span>Tipo de Relación Personas </span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_vacuna_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_vacuna_index') }}">
+                <i class="material-icons">local_pharmacyy</i>
+                <span>Tipo de Vacuna</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'tipo_vivienda_index' %} class="active"{% endif %}>
+            <a href="{{ path('tipo_vivienda_index') }}">
+                <i class="material-icons"> compare</i>
+                <span>Tipo de Vivienda</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'titulo_academico_index' %} class="active"{% endif %}>
+            <a href="{{ path('titulo_academico_index') }}">
+                <i class="material-icons">school</i>
+                <span>Titulo Academico</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'titulo_educacion_continuada_index' %} class="active"{% endif %}>
+            <a href="{{ path('titulo_educacion_continuada_index') }}">
+                <i class="material-icons">local_library</i>
+                <span>Titulo Educación Continuada</span>
+            </a>
+        </li>
+        <li {% if app.request.get('_route') == 'Vivienda_index' %} class="active"{% endif %}>
+            <a href="{{ path('vivienda_index') }}">
+                <i class="material-icons">home</i>
+                <span>Vivienda</span>
             </a>
         </li>
     </ul>
