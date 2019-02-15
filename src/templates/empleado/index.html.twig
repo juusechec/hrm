@@ -1,0 +1,74 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}Lista de Empleados{% endblock %}
+
+{% block body %}
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Lista de Empleados
+                        <small>Personas que cumplen con la clasificación de ser empleados</small>
+                    </h2>
+                </div>
+                <div class="body table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre Completo</th>
+                                <th>Documento</th>
+                                <th>Fecha Nacimiento</th>
+                                <th>Lugar Nacimiento</th>
+                                <th>Fecha Expedicion Documento</th>
+                                <th>Lugar Expedicion Documento</th>
+                                <th>Tipo Sangre</th>
+                                <th>Fijo</th>
+                                <th>Móvil1</th>
+                                <th>Móvil2</th>
+                                <th>Email1</th>
+                                <th>Email2</th>
+                                <th>Activo</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for persona in personas %}
+                            <tr>
+                                <td>{{ persona.id }}</td>
+                                <td>{{ persona.primerNombre ~ ' ' ~ persona.otroNombre ~ ' ' ~ persona.primerApellido ~ ' ' ~ persona.segundoApellido }}</td>
+                                <td>{{ persona.tipoDocumento ~ ' ' ~ persona.numeroDocumento }}</td>
+                                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
+                                <td>{{ persona.lugarNacimiento }}</td>
+                                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
+                                <td>{{ persona.lugarExpedicionDocumento }}</td>
+                                <td>{{ persona.tipoSangre }}</td>
+                                <td>{{ persona.telefonoFijo }}</td>
+                                <td>{{ persona.telefonoMovil1 }}</td>
+                                <td>{{ persona.telefonoMovil2 }}</td>
+                                <td>{{ persona.correoElectronico1 }}</td>
+                                <td>{{ persona.correoElectronico2 }}</td>
+                                <td>{{ persona.activo ? 'Yes' : 'No' }}</td>
+                                <td>
+                                    <a href="{{ path('empleado_show', {'id': persona.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                        <i class="material-icons">view_headline</i>
+                                    </a>
+                                    <a href="{{ path('empleado_edit', {'id': persona.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                        <i class="material-icons">mode_edit</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('empleado_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+{% endblock %}
