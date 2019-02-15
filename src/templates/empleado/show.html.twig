@@ -1,0 +1,90 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}Persona{% endblock %}
+
+{% block body %}
+    <h1>Persona</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ persona.id }}</td>
+            </tr>
+            <tr>
+                <th>PrimerNombre</th>
+                <td>{{ persona.primerNombre }}</td>
+            </tr>
+            <tr>
+                <th>OtroNombre</th>
+                <td>{{ persona.otroNombre }}</td>
+            </tr>
+            <tr>
+                <th>PrimerApellido</th>
+                <td>{{ persona.primerApellido }}</td>
+            </tr>
+            <tr>
+                <th>SegundoApellido</th>
+                <td>{{ persona.segundoApellido }}</td>
+            </tr>
+            <tr>
+                <th>FechaNacimiento</th>
+                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LugarNacimiento</th>
+                <td>{{ persona.lugarNacimiento }}</td>
+            </tr>
+            <tr>
+                <th>TipoDocumento</th>
+                <td>{{ persona.tipoDocumento }}</td>
+            </tr>
+            <tr>
+                <th>NumeroDocumento</th>
+                <td>{{ persona.numeroDocumento }}</td>
+            </tr>
+            <tr>
+                <th>FechaExpedicionDocumento</th>
+                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LugarExpedicionDocumento</th>
+                <td>{{ persona.lugarExpedicionDocumento }}</td>
+            </tr>
+            <tr>
+                <th>TipoSangre</th>
+                <td>{{ persona.tipoSangre }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoFijo</th>
+                <td>{{ persona.telefonoFijo }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoMovil1</th>
+                <td>{{ persona.telefonoMovil1 }}</td>
+            </tr>
+            <tr>
+                <th>TelefonoMovil2</th>
+                <td>{{ persona.telefonoMovil2 }}</td>
+            </tr>
+            <tr>
+                <th>CorreoElectronico1</th>
+                <td>{{ persona.correoElectronico1 }}</td>
+            </tr>
+            <tr>
+                <th>CorreoElectronico2</th>
+                <td>{{ persona.correoElectronico2 }}</td>
+            </tr>
+            <tr>
+                <th>Activo</th>
+                <td>{{ persona.activo ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('empleado_index') }}">Volver a la Lista</a>
+
+    <a href="{{ path('empleado_edit', {'id': persona.id}) }}">edit</a>
+
+    {{ include('persona/_delete_form.html.twig') }}
+{% endblock %}

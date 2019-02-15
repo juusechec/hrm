@@ -1,1 +1,1 @@
-alert('Bienvenido a HRM');
+console.log('Bienvenido a HRM');
