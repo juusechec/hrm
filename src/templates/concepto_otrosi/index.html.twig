@@ -27,17 +27,17 @@
                 <td>{{ concepto_otrosi.orden }}</td>
                 <td>{{ concepto_otrosi.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('concepto_otrosi_show', {'id': concepto_otrosi.id}) }}">show</a>
-                    <a href="{{ path('concepto_otrosi_edit', {'id': concepto_otrosi.id}) }}">edit</a>
+                    <a href="{{ path('concepto_otrosi_show', {'id': concepto_otrosi.id}) }}">Ver</a>
+                    <a href="{{ path('concepto_otrosi_edit', {'id': concepto_otrosi.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">!Ups! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('concepto_otrosi_new') }}">Create new</a>
+    <a href="{{ path('concepto_otrosi_new') }}">Crear Nuevo</a>
 {% endblock %}

@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ConceptoExamenMedico index{% endblock %}
+{% block title %}Concepto Examen Medico{% endblock %}
 
 {% block body %}
-    <h1>ConceptoExamenMedico index</h1>
+    <h1>Concepto Examen Medico</h1>
 
     <table class="table">
         <thead>
@@ -27,17 +27,17 @@
                 <td>{{ concepto_examen_medico.orden }}</td>
                 <td>{{ concepto_examen_medico.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('concepto_examen_medico_show', {'id': concepto_examen_medico.id}) }}">show</a>
-                    <a href="{{ path('concepto_examen_medico_edit', {'id': concepto_examen_medico.id}) }}">edit</a>
+                    <a href="{{ path('concepto_examen_medico_show', {'id': concepto_examen_medico.id}) }}">Mostrar</a>
+                    <a href="{{ path('concepto_examen_medico_edit', {'id': concepto_examen_medico.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Registro no encontrado</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('concepto_examen_medico_new') }}">Create new</a>
+    <a href="{{ path('concepto_examen_medico_new') }}">Crear nuevo</a>
 {% endblock %}
