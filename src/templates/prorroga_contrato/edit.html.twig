@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Edit ProrrogaContrato</h1>
 
-    {{ include('prorroga_contrato/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('prorroga_contrato/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
 
     <a href="{{ path('prorroga_contrato_index') }}">Volver a la Lista</a>
 

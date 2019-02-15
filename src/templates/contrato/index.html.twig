@@ -31,8 +31,8 @@
                 <td>{{ contrato.salarioAuxilio }}</td>
                 <td>{{ contrato.diasPeriodoPrueba }}</td>
                 <td>
-                    <a href="{{ path('contrato_show', {'id': contrato.id}) }}">show</a>
-                    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">edit</a>
+                    <a href="{{ path('contrato_show', {'id': contrato.id}) }}">Ver </a>
+                    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('contrato_new') }}">Create new</a>
+    <a href="{{ path('contrato_new') }}">Crear Nuevo</a>
 {% endblock %}

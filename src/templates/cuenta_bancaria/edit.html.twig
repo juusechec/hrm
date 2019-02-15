@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Edit CuentaBancaria</h1>
 
-    {{ include('cuenta_bancaria/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('cuenta_bancaria/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
 
     <a href="{{ path('cuenta_bancaria_index') }}">Volver a la Lista</a>
 

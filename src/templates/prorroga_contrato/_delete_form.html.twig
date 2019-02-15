@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('prorroga_contrato_delete', {'id': prorroga_contrato.id}) }}" onsubmit="return confirm('¿Está seguro que desea eliminar este ítem?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ prorroga_contrato.id) }}">
-    <button class="btn">Delete</button>
+    <button class="btn">Borrar</button>
 </form>

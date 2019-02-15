@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Edit TipoProgramaExamenMedico</h1>
 
-    {{ include('tipo_programa_examen_medico/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('tipo_programa_examen_medico/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
 
     <a href="{{ path('tipo_programa_examen_medico_index') }}">Volver a la Lista</a>
 
