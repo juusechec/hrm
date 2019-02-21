@@ -5,7 +5,8 @@
 {% block body %}
     <h1>Edit Persona</h1>
 
-    {{ include('persona/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
+    {{ include('persona/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
 
     <a href="{{ path('persona_index') }}">Volver a la Lista</a>
 

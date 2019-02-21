@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Edit Genero</h1>
 
-    {{ include('genero/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
+    {{ include('genero/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
     <a href="{{ path('genero_index') }}">Volver a la Lista</a>
 

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Edit EducacionBasicaMedia</h1>
 
-    {{ include('educacion_basica_media/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
+    {{ include('educacion_basica_media/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
     <a href="{{ path('educacion_basica_media_index') }}">Volver a la Lista</a>
 

@@ -5,8 +5,7 @@
 {% block body %}
     <h1>Edit TipoRelacionPersonas</h1>
 
-    {{ include('tipo_relacion_personas/_form.html.twig',{{ button_label|default('Actualizar') }}) }}
-
+    {{ include('tipo_relacion_personas/_form.html.twig',{'button_label': 'Actualizar'}) }}
     <a href="{{ path('tipo_relacion_personas_index') }}">Volver a la Lista</a>
 
     {{ include('tipo_relacion_personas/_delete_form.html.twig') }}
