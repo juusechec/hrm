@@ -1,16 +1,16 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Otrosi index{% endblock %}
+{% block title %}Listado de Otro Si{% endblock %}
 
 {% block body %}
-    <h1>Otrosi index</h1>
+    <h1>Listado de Otro Si</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>FechaInicio</th>
-                <th>actions</th>
+                <th>Fecha Inicio</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,8 @@
                 <td>{{ otrosi.id }}</td>
                 <td>{{ otrosi.fechaInicio ? otrosi.fechaInicio|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('otrosi_show', {'id': otrosi.id}) }}">show</a>
-                    <a href="{{ path('otrosi_edit', {'id': otrosi.id}) }}">edit</a>
+                    <a href="{{ path('otrosi_show', {'id': otrosi.id}) }}">Ver</a>
+                    <a href="{{ path('otrosi_edit', {'id': otrosi.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}

@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Otrosi{% endblock %}
+{% block title %}Otro Si{% endblock %}
 
-{% block body %}
-    <h1>Otrosi</h1>
+{% block bodys %}
+    <h1>Otro Si</h1>
 
     <table class="table">
         <tbody>
@@ -12,7 +12,7 @@
                 <td>{{ otrosi.id }}</td>
             </tr>
             <tr>
-                <th>FechaInicio</th>
+                <th>Fecha Inicio</th>
                 <td>{{ otrosi.fechaInicio ? otrosi.fechaInicio|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
