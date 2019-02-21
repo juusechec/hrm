@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EducacionBasicaMedia{% endblock %}
+{% block title %}Educacion Basica Media{% endblock %}
 
 {% block body %}
-    <h1>EducacionBasicaMedia</h1>
+    <h1>Educacion Basica Media</h1>
 
     <table class="table">
         <tbody>
@@ -12,15 +12,15 @@
                 <td>{{ educacion_basica_media.id }}</td>
             </tr>
             <tr>
-                <th>UltimoGradoAprobado</th>
+                <th>Ultimo Grado Aprobado</th>
                 <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
             </tr>
             <tr>
-                <th>TituloObtenido</th>
+                <th>Titulo Obtenido</th>
                 <td>{{ educacion_basica_media.tituloObtenido }}</td>
             </tr>
             <tr>
-                <th>FechaGrado</th>
+                <th>Fecha Grado</th>
                 <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
