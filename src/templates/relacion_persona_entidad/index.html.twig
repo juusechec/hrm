@@ -22,7 +22,7 @@
                 <td>{{ relacion_persona_entidad.fechaFin ? relacion_persona_entidad.fechaFin|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('relacion_persona_entidad_show', {'id': relacion_persona_entidad.id}) }}">show</a>
-                    <a href="{{ path('relacion_persona_entidad_edit', {'id': relacion_persona_entidad.id}) }}">edit</a>
+                    <a href="{{ path('relacion_persona_entidad_edit', {'id': relacion_persona_entidad.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}

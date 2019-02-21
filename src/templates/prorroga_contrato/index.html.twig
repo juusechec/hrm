@@ -22,7 +22,7 @@
                 <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">show</a>
-                    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">edit</a>
+                    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}

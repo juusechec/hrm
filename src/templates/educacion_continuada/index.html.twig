@@ -22,7 +22,7 @@
                 <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('educacion_continuada_show', {'id': educacion_continuada.id}) }}">show</a>
-                    <a href="{{ path('educacion_continuada_edit', {'id': educacion_continuada.id}) }}">edit</a>
+                    <a href="{{ path('educacion_continuada_edit', {'id': educacion_continuada.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
