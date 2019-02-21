@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TituloEducacionContinuada index{% endblock %}
+{% block title %}TituloEducacionContinuada {% endblock %}
 
 {% block body %}
-    <h1>TituloEducacionContinuada index</h1>
+    <h1>TituloEducacionContinuada</h1>
 
     <table class="table">
         <thead>
@@ -29,7 +29,7 @@
                 <td>{{ titulo_educacion_continuada.orden }}</td>
                 <td>{{ titulo_educacion_continuada.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('titulo_educacion_continuada_show', {'id': titulo_educacion_continuada.id}) }}">show</a>
+                    <a href="{{ path('titulo_educacion_continuada_show', {'id': titulo_educacion_continuada.id}) }}">Ver</a>
                     <a href="{{ path('titulo_educacion_continuada_edit', {'id': titulo_educacion_continuada.id}) }}">Editar</a>
                 </td>
             </tr>

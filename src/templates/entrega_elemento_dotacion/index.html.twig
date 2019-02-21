@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EntregaElementoDotacion index{% endblock %}
+{% block title %}EntregaElementoDotacion {% endblock %}
 
 {% block body %}
-    <h1>EntregaElementoDotacion index</h1>
+    <h1>EntregaElementoDotacion</h1>
 
     <table class="table">
         <thead>
@@ -19,7 +19,7 @@
                 <td>{{ entrega_elemento_dotacion.id }}</td>
                 <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('entrega_elemento_dotacion_show', {'id': entrega_elemento_dotacion.id}) }}">show</a>
+                    <a href="{{ path('entrega_elemento_dotacion_show', {'id': entrega_elemento_dotacion.id}) }}">Ver</a>
                     <a href="{{ path('entrega_elemento_dotacion_edit', {'id': entrega_elemento_dotacion.id}) }}">Editar</a>
                 </td>
             </tr>

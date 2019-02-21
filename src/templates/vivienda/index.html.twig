@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Vivienda index{% endblock %}
+{% block title %}Vivienda {% endblock %}
 
 {% block body %}
-    <h1>Vivienda index</h1>
+    <h1>Vivienda</h1>
 
     <table class="table">
         <thead>
@@ -29,7 +29,7 @@
                 <td>{{ vivienda.departamento }}</td>
                 <td>{{ vivienda.municipio }}</td>
                 <td>
-                    <a href="{{ path('vivienda_show', {'id': vivienda.id}) }}">show</a>
+                    <a href="{{ path('vivienda_show', {'id': vivienda.id}) }}">Ver</a>
                     <a href="{{ path('vivienda_edit', {'id': vivienda.id}) }}">Editar</a>
                 </td>
             </tr>

@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ProrrogaContrato index{% endblock %}
+{% block title %}ProrrogaContrato {% endblock %}
 
 {% block body %}
-    <h1>ProrrogaContrato index</h1>
+    <h1>ProrrogaContrato</h1>
 
     <table class="table">
         <thead>
@@ -21,7 +21,7 @@
                 <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('Y-m-d') : '' }}</td>
                 <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">show</a>
+                    <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">Ver</a>
                     <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">Editar</a>
                 </td>
             </tr>

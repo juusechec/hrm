@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoExamenMedico index{% endblock %}
+{% block title %}TipoExamenMedico {% endblock %}
 
 {% block body %}
-    <h1>TipoExamenMedico index</h1>
+    <h1>TipoExamenMedico</h1>
 
     <table class="table">
         <thead>
@@ -27,7 +27,7 @@
                 <td>{{ tipo_examen_medico.orden }}</td>
                 <td>{{ tipo_examen_medico.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('tipo_examen_medico_show', {'id': tipo_examen_medico.id}) }}">show</a>
+                    <a href="{{ path('tipo_examen_medico_show', {'id': tipo_examen_medico.id}) }}">Ver</a>
                     <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">Editar</a>
                 </td>
             </tr>

@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoContrato index{% endblock %}
+{% block title %}TipoContrato {% endblock %}
 
 {% block body %}
-    <h1>TipoContrato index</h1>
+    <h1>TipoContrato</h1>
 
     <table class="table">
         <thead>
@@ -27,7 +27,7 @@
                 <td>{{ tipo_contrato.orden }}</td>
                 <td>{{ tipo_contrato.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('tipo_contrato_show', {'id': tipo_contrato.id}) }}">show</a>
+                    <a href="{{ path('tipo_contrato_show', {'id': tipo_contrato.id}) }}">Ver</a>
                     <a href="{{ path('tipo_contrato_edit', {'id': tipo_contrato.id}) }}">Editar</a>
                 </td>
             </tr>

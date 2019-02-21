@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EstadoCivil index{% endblock %}
+{% block title %}EstadoCivil {% endblock %}
 
 {% block body %}
-    <h1>EstadoCivil index</h1>
+    <h1>EstadoCivil</h1>
 
     <table class="table">
         <thead>
@@ -27,7 +27,7 @@
                 <td>{{ estado_civil.orden }}</td>
                 <td>{{ estado_civil.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('estado_civil_show', {'id': estado_civil.id}) }}">show</a>
+                    <a href="{{ path('estado_civil_show', {'id': estado_civil.id}) }}">Ver</a>
                     <a href="{{ path('estado_civil_edit', {'id': estado_civil.id}) }}">Editar</a>
                 </td>
             </tr>

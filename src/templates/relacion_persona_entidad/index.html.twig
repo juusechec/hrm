@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}RelacionPersonaEntidad index{% endblock %}
+{% block title %}RelacionPersonaEntidad {% endblock %}
 
 {% block body %}
-    <h1>RelacionPersonaEntidad index</h1>
+    <h1>RelacionPersonaEntidad</h1>
 
     <table class="table">
         <thead>
@@ -21,7 +21,7 @@
                 <td>{{ relacion_persona_entidad.fechaInicio ? relacion_persona_entidad.fechaInicio|date('Y-m-d') : '' }}</td>
                 <td>{{ relacion_persona_entidad.fechaFin ? relacion_persona_entidad.fechaFin|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('relacion_persona_entidad_show', {'id': relacion_persona_entidad.id}) }}">show</a>
+                    <a href="{{ path('relacion_persona_entidad_show', {'id': relacion_persona_entidad.id}) }}">Ver</a>
                     <a href="{{ path('relacion_persona_entidad_edit', {'id': relacion_persona_entidad.id}) }}">Editar</a>
                 </td>
             </tr>

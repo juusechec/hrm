@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Genero index{% endblock %}
+{% block title %}Genero {% endblock %}
 
 {% block body %}
-    <h1>Genero index</h1>
+    <h1>Genero</h1>
 
     <table class="table">
         <thead>
@@ -27,7 +27,7 @@
                 <td>{{ genero.orden }}</td>
                 <td>{{ genero.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('genero_show', {'id': genero.id}) }}">show</a>
+                    <a href="{{ path('genero_show', {'id': genero.id}) }}">Ver</a>
                     <a href="{{ path('genero_edit', {'id': genero.id}) }}">Editar</a>
                 </td>
             </tr>

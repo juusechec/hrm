@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EducacionSuperior index{% endblock %}
+{% block title %}EducacionSuperior {% endblock %}
 
 {% block body %}
-    <h1>EducacionSuperior index</h1>
+    <h1>EducacionSuperior</h1>
 
     <table class="table">
         <thead>
@@ -29,7 +29,7 @@
                 <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('Y-m-d') : '' }}</td>
                 <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
                 <td>
-                    <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}">show</a>
+                    <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}">Ver</a>
                     <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">Editar</a>
                 </td>
             </tr>

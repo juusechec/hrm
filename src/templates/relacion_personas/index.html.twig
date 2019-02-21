@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}RelacionPersonas index{% endblock %}
+{% block title %}RelacionPersonas {% endblock %}
 
 {% block body %}
-    <h1>RelacionPersonas index</h1>
+    <h1>RelacionPersonas</h1>
 
     <table class="table">
         <thead>
@@ -17,7 +17,7 @@
             <tr>
                 <td>{{ relacion_persona.id }}</td>
                 <td>
-                    <a href="{{ path('relacion_personas_show', {'id': relacion_persona.id}) }}">show</a>
+                    <a href="{{ path('relacion_personas_show', {'id': relacion_persona.id}) }}">Ver</a>
                     <a href="{{ path('relacion_personas_edit', {'id': relacion_persona.id}) }}">Editar</a>
                 </td>
             </tr>
