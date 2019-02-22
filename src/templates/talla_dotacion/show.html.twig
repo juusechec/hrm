@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TallaDotacion{% endblock %}
+{% block title %}Talla de Dotacion{% endblock %}
 
 {% block body %}
-    <h1>TallaDotacion</h1>
+    <h1>Talla de Dotacion</h1>
 
     <table class="table">
         <tbody>
@@ -20,7 +20,7 @@
                 <td>{{ talla_dotacion.unidades }}</td>
             </tr>
             <tr>
-                <th>FechaRegistro</th>
+                <th>Fecha de Registro</th>
                 <td>{{ talla_dotacion.fechaRegistro ? talla_dotacion.fechaRegistro|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
