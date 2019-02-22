@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}RegistroVacuna{% endblock %}
+{% block title %}Registro de Vacuna{% endblock %}
 
 {% block body %}
-    <h1>RegistroVacuna</h1>
+    <h1>Registro de Vacuna</h1>
 
     <table class="table">
         <tbody>
@@ -12,15 +12,15 @@
                 <td>{{ registro_vacuna.id }}</td>
             </tr>
             <tr>
-                <th>FechaDosis</th>
+                <th>Fecha de Dosis</th>
                 <td>{{ registro_vacuna.fechaDosis ? registro_vacuna.fechaDosis|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>FechaVencimientoDosis</th>
+                <th>Fecha de Vencimiento de la Dosis</th>
                 <td>{{ registro_vacuna.fechaVencimientoDosis }}</td>
             </tr>
             <tr>
-                <th>Observacion</th>
+                <th>Observaciones</th>
                 <td>{{ registro_vacuna.observacion }}</td>
             </tr>
         </tbody>
