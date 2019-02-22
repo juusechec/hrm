@@ -167,7 +167,7 @@ class TituloAcademico
      */
     public function __toString()
     {
-        return (string)$this->getId();
+        return $this->getNombre();
     }
     
 }

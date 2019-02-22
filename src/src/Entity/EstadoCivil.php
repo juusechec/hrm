@@ -129,7 +129,7 @@ class EstadoCivil
      */
     public function __toString()
     {
-        return (string)$this->getId();
+        return $this->getNombre() . ' / ' . $this->getAbreviacion();
     }
     
 }
