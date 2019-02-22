@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EntregaElemento Dotacion{% endblock %}
+{% block title %}Entrega del Elemento de Dotacion{% endblock %}
 
 {% block body %}
-    <h1>EntregaElemento de Dotacion</h1>
+    <h1>Entrega del Elemento de Dotacion</h1>
 
     <table class="table">
         <tbody>
@@ -12,7 +12,7 @@
                 <td>{{ entrega_elemento_dotacion.id }}</td>
             </tr>
             <tr>
-                <th>FechaEntregaDotacion</th>
+                <th>Fecha Entrega de Dotacion</th>
                 <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>

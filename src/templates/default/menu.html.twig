@@ -62,6 +62,12 @@
                 <span>Elemento Dotación</span>
             </a>
         </li>
+        <li {% if app.request.get('_route') == 'empleado_index' %} class="active"{% endif %}>
+            <a href="{{ path('empleado_index') }}">
+                <i class="material-icons">toys</i>
+                <span>Empleado</span>
+            </a>
+        </li>
         <li {% if app.request.get('_route') == 'entidad_index' %} class="active"{% endif %}>
             <a href="{{ path('entidad_index') }}">
                 <i class="material-icons">terrain</i>
@@ -94,7 +100,7 @@
         </li>
         <li {% if app.request.get('_route') == 'otrosi_index' %} class="active"{% endif %}>
             <a href="{{ path('otrosi_index') }}">
-                <i class="material-icons">blur_linears</i>
+                <i class="material-icons">blur_linear</i>
                 <span>Otro Si</span>
             </a>
         </li>
@@ -124,7 +130,7 @@
         </li>
         <li {% if app.request.get('_route') == 'relacion_persona_entidad_index' %} class="active"{% endif %}>
             <a href="{{ path('relacion_persona_entidad_index') }}">
-                <i class="material-icons">switch_cameras</i>
+                <i class="material-icons">switch_camera</i>
                 <span>Relacion Persona Entidad</span>
             </a>
         </li>
@@ -178,7 +184,7 @@
         </li>
         <li {% if app.request.get('_route') == 'tipo_vacuna_index' %} class="active"{% endif %}>
             <a href="{{ path('tipo_vacuna_index') }}">
-                <i class="material-icons">local_pharmacyy</i>
+                <i class="material-icons">local_pharmacy</i>
                 <span>Tipo de Vacuna</span>
             </a>
         </li>
