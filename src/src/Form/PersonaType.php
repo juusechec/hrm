@@ -16,11 +16,15 @@ class PersonaType extends AbstractType
             ->add('otroNombre')
             ->add('primerApellido')
             ->add('segundoApellido')
-            ->add('fechaNacimiento')
+            ->add('fechaNacimiento', null, [
+                'years' => range(date('Y'), date('Y')-100)
+            ])
             ->add('lugarNacimiento')
             ->add('tipoDocumento')
             ->add('numeroDocumento')
-            ->add('fechaExpedicionDocumento')
+            ->add('fechaExpedicionDocumento', null, [
+                'years' => range(date('Y'), date('Y')-100)
+            ])
             ->add('lugarExpedicionDocumento')
             ->add('tipoSangre')
             ->add('telefonoFijo')

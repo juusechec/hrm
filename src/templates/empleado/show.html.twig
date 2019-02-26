@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Fecha de Nacimiento</th>
-                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Lugar de Nacimiento</th>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <th>Fecha de ExpedicionDocumento</th>
-                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Lugar de ExpedicionDocumento</th>
@@ -100,7 +100,7 @@
             </tr>
             <tr>
                 <th>Fecha Grado</th>
-                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
@@ -120,7 +120,7 @@
             </tr>
             <tr>
                 <th>Fecha Grado</th>
-                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
@@ -136,11 +136,11 @@
             </tr>
             <tr>
                 <th>Fecha Terminacion</th>
-                <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Fecha Vencimiento</th>
-                <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
@@ -160,11 +160,11 @@
             </tr>
             <tr>
                 <th>Fecha Inicio</th>
-                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Fecha Fin</th>
-                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Salario Base</th>

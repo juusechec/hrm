@@ -18,7 +18,7 @@
         {% for examen_medico in examen_medicos %}
             <tr>
                 <td>{{ examen_medico.id }}</td>
-                <td>{{ examen_medico.fecha ? examen_medico.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_medico.fecha ? examen_medico.fecha|date('d-m-Y') : '' }}</td>
                 <td>{{ examen_medico.recomendaciones }}</td>
                 <td>
                     <a href="{{ path('examen_medico_show', {'id': examen_medico.id}) }}">Ver</a>

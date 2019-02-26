@@ -13,11 +13,11 @@
             </tr>
             <tr>
                 <th>Fecha de Inicio</th>
-                <td>{{ relacion_persona_entidad.fechaInicio ? relacion_persona_entidad.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ relacion_persona_entidad.fechaInicio ? relacion_persona_entidad.fechaInicio|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Fecha de Finalización</th>
-                <td>{{ relacion_persona_entidad.fechaFin ? relacion_persona_entidad.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>{{ relacion_persona_entidad.fechaFin ? relacion_persona_entidad.fechaFin|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>

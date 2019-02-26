@@ -18,8 +18,8 @@
         {% for prorroga_contrato in prorroga_contratos %}
             <tr>
                 <td>{{ prorroga_contrato.id }}</td>
-                <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('Y-m-d') : '' }}</td>
-                <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('d-m-Y') : '' }}</td>
+                <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('d-m-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">Ver</a>
                     <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">Editar</a>
