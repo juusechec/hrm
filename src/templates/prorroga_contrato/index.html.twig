@@ -1,17 +1,17 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ProrrogaContrato index{% endblock %}
+{% block title %}Prorroga de Contrato {% endblock %}
 
 {% block body %}
-    <h1>ProrrogaContrato index</h1>
+    <h1>Prorroga de Contrato</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>FechaInicio</th>
-                <th>FechaFin</th>
-                <th>actions</th>
+                <th>Fecha de Inicio de la Prorroga</th>
+                <th>Fin de la Prorroga</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +21,8 @@
                 <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('Y-m-d') : '' }}</td>
                 <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">show</a>
-                    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">edit</a>
+                    <a href="{{ path('prorroga_contrato_show', {'id': prorroga_contrato.id}) }}">Ver</a>
+                    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('prorroga_contrato_new') }}">Create new</a>
+    <a href="{{ path('prorroga_contrato_new') }}">Nuevo</a>
 {% endblock %}

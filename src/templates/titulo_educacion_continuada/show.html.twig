@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TituloEducacionContinuada{% endblock %}
+{% block title %}Titulo Educacion Continuada{% endblock %}
 
 {% block body %}
-    <h1>TituloEducacionContinuada</h1>
+    <h1>Titulo Educacion Continuada</h1>
 
     <table class="table">
         <tbody>
@@ -16,7 +16,7 @@
                 <td>{{ titulo_educacion_continuada.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ titulo_educacion_continuada.descripcion }}</td>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                 <td>{{ titulo_educacion_continuada.horas }}</td>
             </tr>
             <tr>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <td>{{ titulo_educacion_continuada.abreviacion }}</td>
             </tr>
             <tr>
@@ -40,7 +40,7 @@
 
     <a href="{{ path('titulo_educacion_continuada_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('titulo_educacion_continuada_edit', {'id': titulo_educacion_continuada.id}) }}">edit</a>
+    <a href="{{ path('titulo_educacion_continuada_edit', {'id': titulo_educacion_continuada.id}) }}">Editar</a>
 
     {{ include('titulo_educacion_continuada/_delete_form.html.twig') }}
 {% endblock %}

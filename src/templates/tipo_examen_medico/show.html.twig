@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoExamenMedico{% endblock %}
+{% block title %}Tipo de Examen Medico{% endblock %}
 
 {% block body %}
-    <h1>TipoExamenMedico</h1>
+    <h1>Tipo de Examen Medico</h1>
 
     <table class="table">
         <tbody>
@@ -16,11 +16,11 @@
                 <td>{{ tipo_examen_medico.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ tipo_examen_medico.descripcion }}</td>
             </tr>
             <tr>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <td>{{ tipo_examen_medico.abreviacion }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
 
     <a href="{{ path('tipo_examen_medico_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">edit</a>
+    <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">Editar</a>
 
     {{ include('tipo_examen_medico/_delete_form.html.twig') }}
 {% endblock %}

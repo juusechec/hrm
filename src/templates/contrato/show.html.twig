@@ -16,19 +16,19 @@
                 <td>{{ contrato.objeto }}</td>
             </tr>
             <tr>
-                <th>ObraOLabor</th>
+                <th>Obra O Labor</th>
                 <td>{{ contrato.obraOLabor }}</td>
             </tr>
             <tr>
-                <th>FechaInicio</th>
+                <th>Fecha Inicio</th>
                 <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>FechaFin</th>
+                <th>Fecha Fin</th>
                 <td>{{ contrato.fechaFin ? contrato.fechaFin|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>SalarioBase</th>
+                <th>Salario Base</th>
                 <td>{{ contrato.salarioBase }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
                 <td>{{ contrato.salarioAuxilio }}</td>
             </tr>
             <tr>
-                <th>DiasPeriodoPrueba</th>
+                <th>Dias del Periodo Prueba</th>
                 <td>{{ contrato.diasPeriodoPrueba }}</td>
             </tr>
         </tbody>
@@ -44,7 +44,7 @@
 
     <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">edit</a>
+    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">Editar</a>
 
     {{ include('contrato/_delete_form.html.twig') }}
 {% endblock %}

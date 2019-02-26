@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoEntidad{% endblock %}
+{% block title %}Tipo de Entidad{% endblock %}
 
 {% block body %}
-    <h1>TipoEntidad</h1>
+    <h1>Tipo de Entidad</h1>
 
     <table class="table">
         <tbody>
@@ -16,11 +16,11 @@
                 <td>{{ tipo_entidad.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ tipo_entidad.descripcion }}</td>
             </tr>
             <tr>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <td>{{ tipo_entidad.abreviacion }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
 
     <a href="{{ path('tipo_entidad_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('tipo_entidad_edit', {'id': tipo_entidad.id}) }}">edit</a>
+    <a href="{{ path('tipo_entidad_edit', {'id': tipo_entidad.id}) }}">Editar</a>
 
     {{ include('tipo_entidad/_delete_form.html.twig') }}
 {% endblock %}

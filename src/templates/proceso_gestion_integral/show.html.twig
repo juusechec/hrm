@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ProcesoGestionIntegral{% endblock %}
+{% block title %}Proceso de Gestion Integral{% endblock %}
 
 {% block body %}
-    <h1>ProcesoGestionIntegral</h1>
+    <h1>Proceso de Gestion Integral</h1>
 
     <table class="table">
         <tbody>
@@ -16,11 +16,11 @@
                 <td>{{ proceso_gestion_integral.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ proceso_gestion_integral.descripcion }}</td>
             </tr>
             <tr>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <td>{{ proceso_gestion_integral.abreviacion }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
 
     <a href="{{ path('proceso_gestion_integral_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('proceso_gestion_integral_edit', {'id': proceso_gestion_integral.id}) }}">edit</a>
+    <a href="{{ path('proceso_gestion_integral_edit', {'id': proceso_gestion_integral.id}) }}">Editar</a>
 
     {{ include('proceso_gestion_integral/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,20 +1,20 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoExamenMedico index{% endblock %}
+{% block title %}Tipo de Examen deMedico {% endblock %}
 
 {% block body %}
-    <h1>TipoExamenMedico index</h1>
+    <h1>Tipo de Examen Medico</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Abreviacion</th>
+                <th>Descripción</th>
+                <th>Abreviación</th>
                 <th>Orden</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 <td>{{ tipo_examen_medico.orden }}</td>
                 <td>{{ tipo_examen_medico.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('tipo_examen_medico_show', {'id': tipo_examen_medico.id}) }}">show</a>
-                    <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">edit</a>
+                    <a href="{{ path('tipo_examen_medico_show', {'id': tipo_examen_medico.id}) }}">Ver</a>
+                    <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_examen_medico_new') }}">Create new</a>
+    <a href="{{ path('tipo_examen_medico_new') }}">Nuevo</a>
 {% endblock %}

@@ -1,22 +1,22 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TituloAcademico index{% endblock %}
+{% block title %}Titulo Academico{% endblock %}
 
 {% block body %}
-    <h1>TituloAcademico index</h1>
+    <h1>Titulo Academico</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>CodigoSnies</th>
-                <th>ModalidadAcademica</th>
-                <th>Descripcion</th>
-                <th>Abreviacion</th>
+                <th>Codigo Snies</th>
+                <th>Modalidad Academica</th>
+                <th>Descripción</th>
+                <th>Abreviación</th>
                 <th>Orden</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +31,8 @@
                 <td>{{ titulo_academico.orden }}</td>
                 <td>{{ titulo_academico.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('titulo_academico_show', {'id': titulo_academico.id}) }}">show</a>
-                    <a href="{{ path('titulo_academico_edit', {'id': titulo_academico.id}) }}">edit</a>
+                    <a href="{{ path('titulo_academico_show', {'id': titulo_academico.id}) }}">Ver</a>
+                    <a href="{{ path('titulo_academico_edit', {'id': titulo_academico.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('titulo_academico_new') }}">Create new</a>
+    <a href="{{ path('titulo_academico_new') }}">Nuevo</a>
 {% endblock %}

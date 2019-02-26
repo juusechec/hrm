@@ -1,32 +1,32 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Persona index{% endblock %}
+{% block title %}Listado de Personas{% endblock %}
 
 {% block body %}
-    <h1>Persona index</h1>
+    <h1>Listado de Personas</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>PrimerNombre</th>
-                <th>OtroNombre</th>
-                <th>PrimerApellido</th>
-                <th>SegundoApellido</th>
-                <th>FechaNacimiento</th>
-                <th>LugarNacimiento</th>
-                <th>TipoDocumento</th>
-                <th>NumeroDocumento</th>
-                <th>FechaExpedicionDocumento</th>
-                <th>LugarExpedicionDocumento</th>
-                <th>TipoSangre</th>
-                <th>TelefonoFijo</th>
-                <th>TelefonoMovil1</th>
-                <th>TelefonoMovil2</th>
-                <th>CorreoElectronico1</th>
-                <th>CorreoElectronico2</th>
+                <th>Primer Nombre</th>
+                <th>Otro Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Fecha Nacimiento</th>
+                <th>Lugar Nacimiento</th>
+                <th>Tipo Documento</th>
+                <th>Numero Documento</th>
+                <th>Fecha Expedición Documento</th>
+                <th>Lugar Expedicion Documento</th>
+                <th>Tipo Sangre</th>
+                <th>Telefono Fijo</th>
+                <th>Telefono Movil 1</th>
+                <th>Telefono Movil 2</th>
+                <th>Correo Electronico 1</th>
+                <th>Correo Electronico 2</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -51,8 +51,8 @@
                 <td>{{ persona.correoElectronico2 }}</td>
                 <td>{{ persona.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('persona_show', {'id': persona.id}) }}">show</a>
-                    <a href="{{ path('persona_edit', {'id': persona.id}) }}">edit</a>
+                    <a href="{{ path('persona_show', {'id': persona.id}) }}">Ver</a>
+                    <a href="{{ path('persona_edit', {'id': persona.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -63,5 +63,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('persona_new') }}">Create new</a>
+    <a href="{{ path('persona_new') }}">Crear Nuevo</a>
 {% endblock %}

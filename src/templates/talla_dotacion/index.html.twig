@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TallaDotacion index{% endblock %}
+{% block title %}Talla Dotacion {% endblock %}
 
 {% block body %}
-    <h1>TallaDotacion index</h1>
+    <h1>Talla Dotacion</h1>
 
     <table class="table">
         <thead>
@@ -11,8 +11,8 @@
                 <th>Id</th>
                 <th>Numero</th>
                 <th>Unidades</th>
-                <th>FechaRegistro</th>
-                <th>actions</th>
+                <th>Fecha de Registro</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +23,8 @@
                 <td>{{ talla_dotacion.unidades }}</td>
                 <td>{{ talla_dotacion.fechaRegistro ? talla_dotacion.fechaRegistro|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('talla_dotacion_show', {'id': talla_dotacion.id}) }}">show</a>
-                    <a href="{{ path('talla_dotacion_edit', {'id': talla_dotacion.id}) }}">edit</a>
+                    <a href="{{ path('talla_dotacion_show', {'id': talla_dotacion.id}) }}">Ver</a>
+                    <a href="{{ path('talla_dotacion_edit', {'id': talla_dotacion.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('talla_dotacion_new') }}">Create new</a>
+    <a href="{{ path('talla_dotacion_new') }}">Nuevo</a>
 {% endblock %}

@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}RelacionPersonas{% endblock %}
+{% block title %}Relacion Personas{% endblock %}
 
 {% block body %}
-    <h1>RelacionPersonas</h1>
+    <h1>Relacion Personas</h1>
 
     <table class="table">
         <tbody>
@@ -16,7 +16,7 @@
 
     <a href="{{ path('relacion_personas_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('relacion_personas_edit', {'id': relacion_persona.id}) }}">edit</a>
+    <a href="{{ path('relacion_personas_edit', {'id': relacion_persona.id}) }}">Editar</a>
 
     {{ include('relacion_personas/_delete_form.html.twig') }}
 {% endblock %}

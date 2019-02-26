@@ -19,18 +19,8 @@
                                 <th>Id</th>
                                 <th>Nombre Completo</th>
                                 <th>Documento</th>
-                                <th>Fecha Nacimiento</th>
-                                <th>Lugar Nacimiento</th>
-                                <th>Fecha Expedicion Documento</th>
-                                <th>Lugar Expedicion Documento</th>
-                                <th>Tipo Sangre</th>
-                                <th>Fijo</th>
-                                <th>Móvil1</th>
-                                <th>Móvil2</th>
-                                <th>Email1</th>
-                                <th>Email2</th>
-                                <th>Activo</th>
-                                <th>actions</th>
+                                <th>Edad</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,24 +29,14 @@
                                 <td>{{ persona.id }}</td>
                                 <td>{{ persona.primerNombre ~ ' ' ~ persona.otroNombre ~ ' ' ~ persona.primerApellido ~ ' ' ~ persona.segundoApellido }}</td>
                                 <td>{{ persona.tipoDocumento ~ ' ' ~ persona.numeroDocumento }}</td>
-                                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
-                                <td>{{ persona.lugarNacimiento }}</td>
-                                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
-                                <td>{{ persona.lugarExpedicionDocumento }}</td>
-                                <td>{{ persona.tipoSangre }}</td>
-                                <td>{{ persona.telefonoFijo }}</td>
-                                <td>{{ persona.telefonoMovil1 }}</td>
-                                <td>{{ persona.telefonoMovil2 }}</td>
-                                <td>{{ persona.correoElectronico1 }}</td>
-                                <td>{{ persona.correoElectronico2 }}</td>
-                                <td>{{ persona.activo ? 'Yes' : 'No' }}</td>
+                                <td>{{ ('now'|date('Y') - persona.fechaNacimiento|date('Y') - 1) + ('now'|date('2010-m-d')|date('U') - persona.fechaNacimiento|date('2010-m-d')|date('U') >= 0 ? 1 : 0) }}</td>
                                 <td>
                                     <a href="{{ path('empleado_show', {'id': persona.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
                                         <i class="material-icons">view_headline</i>
                                     </a>
                                     <a href="{{ path('empleado_edit', {'id': persona.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
                                         <i class="material-icons">mode_edit</i>
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         {% else %}
@@ -70,5 +50,9 @@
             </div>
         </div>
     </div>
-    <a href="{{ path('empleado_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    <div class="row clearfix">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ path('empleado_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+        </div>
+    </div>
 {% endblock %}

@@ -1,21 +1,21 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EducacionSuperior index{% endblock %}
+{% block title %}Educacion Superior {% endblock %}
 
 {% block body %}
-    <h1>EducacionSuperior index</h1>
+    <h1>Educacion Superior</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>NumeroSemestreAprobados</th>
+                <th>Numero Semestre Aprobados</th>
                 <th>Graduado</th>
-                <th>FechaGrado</th>
-                <th>FechaExpedicionTarjetaProfesional</th>
-                <th>FechaVencimientoTarjetaProfesional</th>
-                <th>NumeroTarjetaProfesional</th>
-                <th>actions</th>
+                <th>Fecha del Grado</th>
+                <th>Fecha de Expedicion de la Tarjeta Profesional</th>
+                <th>Fecha de Vencimiento Tarjeta Profesional</th>
+                <th>Numero de Tarjeta Profesional</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +29,8 @@
                 <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('Y-m-d') : '' }}</td>
                 <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
                 <td>
-                    <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}">show</a>
-                    <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">edit</a>
+                    <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}">Ver</a>
+                    <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('educacion_superior_new') }}">Create new</a>
+    <a href="{{ path('educacion_superior_new') }}">Nuevo</a>
 {% endblock %}

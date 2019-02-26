@@ -1,20 +1,20 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ProcesoGestionIntegral index{% endblock %}
+{% block title %}Proceso de Gestion Integral {% endblock %}
 
 {% block body %}
-    <h1>ProcesoGestionIntegral index</h1>
+    <h1>Proceso de Gestion Integral</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Abreviacion</th>
+                <th>Descripción</th>
+                <th>Abreviación</th>
                 <th>Orden</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 <td>{{ proceso_gestion_integral.orden }}</td>
                 <td>{{ proceso_gestion_integral.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('proceso_gestion_integral_show', {'id': proceso_gestion_integral.id}) }}">show</a>
-                    <a href="{{ path('proceso_gestion_integral_edit', {'id': proceso_gestion_integral.id}) }}">edit</a>
+                    <a href="{{ path('proceso_gestion_integral_show', {'id': proceso_gestion_integral.id}) }}">Ver</a>
+                    <a href="{{ path('proceso_gestion_integral_edit', {'id': proceso_gestion_integral.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('proceso_gestion_integral_new') }}">Create new</a>
+    <a href="{{ path('proceso_gestion_integral_new') }}">Nuevo</a>
 {% endblock %}

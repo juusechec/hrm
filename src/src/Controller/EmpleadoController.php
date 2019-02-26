@@ -3,6 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Persona;
+use App\Entity\EducacionBasicaMedia;
+use App\Entity\EducacionSuperior;
+use App\Entity\EducacionContinuada;
+use App\Entity\Contrato;
 use App\Form\PersonaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +26,7 @@ class EmpleadoController extends AbstractController
         $personas = $this->getDoctrine()
             ->getRepository(Persona::class)
             ->findAll();
-
+        
         return $this->render('empleado/index.html.twig', [
             'personas' => $personas,
         ]);
@@ -56,8 +60,36 @@ class EmpleadoController extends AbstractController
      */
     public function show(Persona $persona): Response
     {
+        $educacion_basica_medias = $this->getDoctrine()
+        ->getRepository(EducacionBasicaMedia::class)
+        ->findBy(
+            array('idPersona' =>array($persona->getId()))  
+        );
+
+        $educacion_superiors = $this->getDoctrine()
+        ->getRepository(EducacionSuperior::class)
+        ->findBy(
+            array('idPersona' =>array($persona->getId()))  
+        );
+
+        $educacion_continuadas = $this->getDoctrine()
+        ->getRepository(EducacionContinuada::class)
+        ->findBy(
+            array('idPersona' =>array($persona->getId()))  
+        );
+
+        $contratos = $this->getDoctrine()
+        ->getRepository(Contrato::class)
+        ->findBy(
+            array('idPersona' =>array($persona->getId()))  
+        );
+
         return $this->render('empleado/show.html.twig', [
             'persona' => $persona,
+            'educacion_basica_medias' => $educacion_basica_medias,
+            'educacion_superiors' => $educacion_superiors,
+            'educacion_continuadas' => $educacion_continuadas,
+            'contratos' => $contratos
         ]);
     }
 

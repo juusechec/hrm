@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}EducacionSuperior{% endblock %}
+{% block title %}Educacion Superior{% endblock %}
 
 {% block body %}
-    <h1>EducacionSuperior</h1>
+    <h1>Educacion Superior</h1>
 
     <table class="table">
         <tbody>
@@ -12,7 +12,7 @@
                 <td>{{ educacion_superior.id }}</td>
             </tr>
             <tr>
-                <th>NumeroSemestreAprobados</th>
+                <th>Numero de Semestres Aprobados</th>
                 <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
             </tr>
             <tr>
@@ -20,19 +20,19 @@
                 <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>FechaGrado</th>
+                <th>Fecha de Grado</th>
                 <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>FechaExpedicionTarjetaProfesional</th>
+                <th>Fecha de Expedicion de la Tarjeta Profesional</th>
                 <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>FechaVencimientoTarjetaProfesional</th>
+                <th>Fecha de Vencimiento de la Tarjeta Profesional</th>
                 <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>NumeroTarjetaProfesional</th>
+                <th>Numero Tarjeta Profesional</th>
                 <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
             </tr>
         </tbody>
@@ -40,7 +40,7 @@
 
     <a href="{{ path('educacion_superior_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">edit</a>
+    <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">Editar</a>
 
     {{ include('educacion_superior/_delete_form.html.twig') }}
 {% endblock %}

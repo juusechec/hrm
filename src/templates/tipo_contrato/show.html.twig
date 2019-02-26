@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoContrato{% endblock %}
+{% block title %}Tipo de Contrato{% endblock %}
 
 {% block body %}
-    <h1>TipoContrato</h1>
+    <h1>Tipo de Contrato</h1>
 
     <table class="table">
         <tbody>
@@ -16,11 +16,11 @@
                 <td>{{ tipo_contrato.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ tipo_contrato.descripcion }}</td>
             </tr>
             <tr>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <td>{{ tipo_contrato.abreviacion }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
 
     <a href="{{ path('tipo_contrato_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('tipo_contrato_edit', {'id': tipo_contrato.id}) }}">edit</a>
+    <a href="{{ path('tipo_contrato_edit', {'id': tipo_contrato.id}) }}">Editar</a>
 
     {{ include('tipo_contrato/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Cargo index{% endblock %}
+{% block title %}Cargo {% endblock %}
 
 {% block body %}
     <h1>Lista de Cargos</h1>
@@ -27,13 +27,13 @@
                 <td>{{ cargo.orden }}</td>
                 <td>{{ cargo.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('cargo_show', {'id': cargo.id}) }}">mostrar</a>
-                    <a href="{{ path('cargo_edit', {'id': cargo.id}) }}">editar</a>
+                    <a href="{{ path('cargo_show', {'id': cargo.id}) }}">Ver</a>
+                    <a href="{{ path('cargo_edit', {'id': cargo.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">No hay registros</td>
+                <td colspan="7">!Ups! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>

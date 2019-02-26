@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ElementoDotacion{% endblock %}
+{% block title %}Elemento de Dotacion{% endblock %}
 
 {% block body %}
-    <h1>ElementoDotacion</h1>
+    <h1>Elemento de Dotacion</h1>
 
     <table class="table">
         <tbody>
@@ -16,11 +16,11 @@
                 <td>{{ elemento_dotacion.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ elemento_dotacion.descripcion }}</td>
             </tr>
             <tr>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <td>{{ elemento_dotacion.abreviacion }}</td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
 
     <a href="{{ path('elemento_dotacion_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">edit</a>
+    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">Editar</a>
 
     {{ include('elemento_dotacion/_delete_form.html.twig') }}
 {% endblock %}

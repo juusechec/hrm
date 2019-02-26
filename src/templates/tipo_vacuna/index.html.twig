@@ -1,21 +1,21 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}TipoVacuna index{% endblock %}
+{% block title %}Tipo de Vacuna {% endblock %}
 
 {% block body %}
-    <h1>TipoVacuna index</h1>
+    <h1>Tipo de Vacuna</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Patologia</th>
-                <th>Abreviacion</th>
+                <th>Abreviación</th>
                 <th>Orden</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +29,8 @@
                 <td>{{ tipo_vacuna.orden }}</td>
                 <td>{{ tipo_vacuna.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('tipo_vacuna_show', {'id': tipo_vacuna.id}) }}">show</a>
-                    <a href="{{ path('tipo_vacuna_edit', {'id': tipo_vacuna.id}) }}">edit</a>
+                    <a href="{{ path('tipo_vacuna_show', {'id': tipo_vacuna.id}) }}">Ver</a>
+                    <a href="{{ path('tipo_vacuna_edit', {'id': tipo_vacuna.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_vacuna_new') }}">Create new</a>
+    <a href="{{ path('tipo_vacuna_new') }}">Nuevo</a>
 {% endblock %}

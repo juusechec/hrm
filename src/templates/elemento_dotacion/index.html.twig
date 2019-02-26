@@ -1,20 +1,20 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ElementoDotacion index{% endblock %}
+{% block title %}Elemento de Dotacion {% endblock %}
 
 {% block body %}
-    <h1>ElementoDotacion index</h1>
+    <h1>Elemento de Dotacion</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Abreviacion</th>
+                <th>Descripción</th>
+                <th>Abreviación</th>
                 <th>Orden</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 <td>{{ elemento_dotacion.orden }}</td>
                 <td>{{ elemento_dotacion.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('elemento_dotacion_show', {'id': elemento_dotacion.id}) }}">show</a>
-                    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">edit</a>
+                    <a href="{{ path('elemento_dotacion_show', {'id': elemento_dotacion.id}) }}">Ver</a>
+                    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('elemento_dotacion_new') }}">Create new</a>
+    <a href="{{ path('elemento_dotacion_new') }}">Nuevo</a>
 {% endblock %}

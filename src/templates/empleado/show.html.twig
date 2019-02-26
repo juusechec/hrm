@@ -3,77 +3,81 @@
 {% block title %}Persona{% endblock %}
 
 {% block body %}
-    <h1>Persona</h1>
+    <h1>Datos Básicos</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ persona.id }}</td>
-            </tr>
             <tr>
                 <th>PrimerNombre</th>
                 <td>{{ persona.primerNombre }}</td>
             </tr>
             <tr>
-                <th>OtroNombre</th>
+                <th>Otro Nombre</th>
                 <td>{{ persona.otroNombre }}</td>
             </tr>
             <tr>
-                <th>PrimerApellido</th>
+                <th>Primer Apellido</th>
                 <td>{{ persona.primerApellido }}</td>
             </tr>
             <tr>
-                <th>SegundoApellido</th>
+                <th>Segundo Apellido</th>
                 <td>{{ persona.segundoApellido }}</td>
             </tr>
             <tr>
-                <th>FechaNacimiento</th>
+                <th>Fecha de Nacimiento</th>
                 <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>LugarNacimiento</th>
+                <th>Lugar de Nacimiento</th>
                 <td>{{ persona.lugarNacimiento }}</td>
             </tr>
             <tr>
-                <th>TipoDocumento</th>
+                <th>Tipo de Documento</th>
                 <td>{{ persona.tipoDocumento }}</td>
             </tr>
             <tr>
-                <th>NumeroDocumento</th>
+                <th>Numero de Documento</th>
                 <td>{{ persona.numeroDocumento }}</td>
             </tr>
             <tr>
-                <th>FechaExpedicionDocumento</th>
+                <th>Fecha de ExpedicionDocumento</th>
                 <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>LugarExpedicionDocumento</th>
+                <th>Lugar de ExpedicionDocumento</th>
                 <td>{{ persona.lugarExpedicionDocumento }}</td>
             </tr>
             <tr>
-                <th>TipoSangre</th>
+                <th>Tipo de Sangre</th>
                 <td>{{ persona.tipoSangre }}</td>
             </tr>
             <tr>
-                <th>TelefonoFijo</th>
+                <th>Telefono Fijo</th>
                 <td>{{ persona.telefonoFijo }}</td>
             </tr>
             <tr>
-                <th>TelefonoMovil1</th>
+                <th>Telefono Movil 1</th>
                 <td>{{ persona.telefonoMovil1 }}</td>
             </tr>
             <tr>
-                <th>TelefonoMovil2</th>
+                <th>Telefono Movil 2</th>
                 <td>{{ persona.telefonoMovil2 }}</td>
             </tr>
             <tr>
-                <th>CorreoElectronico1</th>
+                <th>Correo Electronico 1</th>
                 <td>{{ persona.correoElectronico1 }}</td>
             </tr>
             <tr>
-                <th>CorreoElectronico2</th>
+                <th>Correo Electronico 2</th>
                 <td>{{ persona.correoElectronico2 }}</td>
+            </tr>
+            <tr>
+                <th>EstadoCivil</th>
+                <td>{{ persona.idEstadoCivil }}</td>
+            </tr>
+            <tr>
+                <th>Genero</th>
+                <td>{{ persona.idGenero }}</td>
             </tr>
             <tr>
                 <th>Activo</th>
@@ -82,9 +86,110 @@
         </tbody>
     </table>
 
-    <a href="{{ path('empleado_index') }}">Volver a la Lista</a>
+    <h1>Formación Media Básica</h1>
+    {% for educacion_basica_media in educacion_basica_medias %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Último Grado Aprobado</th>
+                <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
+            </tr>
+            <tr>
+                <th>Título Obtenido</th>
+                <td>{{ educacion_basica_media.tituloObtenido }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Grado</th>
+                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
 
-    <a href="{{ path('empleado_edit', {'id': persona.id}) }}">edit</a>
+    <h1>Educación Superior</h1>
+    {% for educacion_superior in educacion_superiors %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Graduado</th>
+                <td>{{ educacion_superior.graduado ? 'Si' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Título Obtenido</th>
+                <td>{{ educacion_superior.idTituloAcademico.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Grado</th>
+                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+
+    <h1>Educación Continuada</h1>
+    {% for educacion_continuada in educacion_continuadas %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Título</th>
+                <td>{{ educacion_continuada.idTituloEducacionContinuada }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Terminacion</th>
+                <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Vencimiento</th>
+                <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+
+    <h1>Contratos</h1>
+    {% for contrato in contratos %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Objeto</th>
+                <td>{{ contrato.objeto }}</td>
+            </tr>
+            <tr>
+                <th>Obra O Labor</th>
+                <td>{{ contrato.obraOLabor }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Inicio</th>
+                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Fin</th>
+                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Salario Base</th>
+                <td>{{ contrato.salarioBase }}</td>
+            </tr>
+            <tr>
+                <th>SalarioAuxilio</th>
+                <td>{{ contrato.salarioAuxilio }}</td>
+            </tr>
+            <tr>
+                <th>Dias del Periodo Prueba</th>
+                <td>{{ contrato.diasPeriodoPrueba }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+
+    <div class="row clearfix">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ path('empleado_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la Lista</a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ path('empleado_edit', {'id': persona.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+        </div>
+    </div>
 
     {{ include('persona/_delete_form.html.twig') }}
 {% endblock %}

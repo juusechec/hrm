@@ -1,17 +1,17 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}RelacionPersonaEntidad index{% endblock %}
+{% block title %}Relacion Persona Entidad {% endblock %}
 
 {% block body %}
-    <h1>RelacionPersonaEntidad index</h1>
+    <h1>Relacion Persona Entidad</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>FechaInicio</th>
-                <th>FechaFin</th>
-                <th>actions</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha Finaliación</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +21,8 @@
                 <td>{{ relacion_persona_entidad.fechaInicio ? relacion_persona_entidad.fechaInicio|date('Y-m-d') : '' }}</td>
                 <td>{{ relacion_persona_entidad.fechaFin ? relacion_persona_entidad.fechaFin|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('relacion_persona_entidad_show', {'id': relacion_persona_entidad.id}) }}">show</a>
-                    <a href="{{ path('relacion_persona_entidad_edit', {'id': relacion_persona_entidad.id}) }}">edit</a>
+                    <a href="{{ path('relacion_persona_entidad_show', {'id': relacion_persona_entidad.id}) }}">Ver</a>
+                    <a href="{{ path('relacion_persona_entidad_edit', {'id': relacion_persona_entidad.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('relacion_persona_entidad_new') }}">Create new</a>
+    <a href="{{ path('relacion_persona_entidad_new') }}">Nuevo</a>
 {% endblock %}

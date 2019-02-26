@@ -1,20 +1,21 @@
+
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Entidad index{% endblock %}
+{% block title %}Entidad {% endblock %}
 
 {% block body %}
-    <h1>Entidad index</h1>
+    <h1>Entidad</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Abreviacion</th>
+                <th>Descripción</th>
+                <th>Abreviación</th>
                 <th>Orden</th>
                 <th>Activo</th>
-                <th>actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +28,8 @@
                 <td>{{ entidad.orden }}</td>
                 <td>{{ entidad.activo ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('entidad_show', {'id': entidad.id}) }}">show</a>
-                    <a href="{{ path('entidad_edit', {'id': entidad.id}) }}">edit</a>
+                    <a href="{{ path('entidad_show', {'id': entidad.id}) }}">Ver</a>
+                    <a href="{{ path('entidad_edit', {'id': entidad.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +40,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('entidad_new') }}">Create new</a>
+    <a href="{{ path('entidad_new') }}">Nuevo</a>
 {% endblock %}

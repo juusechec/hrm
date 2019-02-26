@@ -1,9 +1,9 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ProrrogaContrato{% endblock %}
+{% block title %}Prorroga de Contrato{% endblock %}
 
 {% block body %}
-    <h1>ProrrogaContrato</h1>
+    <h1>Prorroga de Contrato</h1>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,11 @@
                 <td>{{ prorroga_contrato.id }}</td>
             </tr>
             <tr>
-                <th>FechaInicio</th>
+                <th>Fecha de Inicio</th>
                 <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>FechaFin</th>
+                <th>Fin de la Prorroga</th>
                 <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
@@ -24,7 +24,7 @@
 
     <a href="{{ path('prorroga_contrato_index') }}">Volver a la Lista</a>
 
-    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">edit</a>
+    <a href="{{ path('prorroga_contrato_edit', {'id': prorroga_contrato.id}) }}">Editar</a>
 
     {{ include('prorroga_contrato/_delete_form.html.twig') }}
 {% endblock %}
