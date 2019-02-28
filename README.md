@@ -49,6 +49,13 @@ nombre_tabla_nombre_tabla_referenciada_nombre_campo_fk para foraing key
 constraints de relaciones uno a uno, muchos a muchos y uno a muchos
 los campos de las tablas paramétricas
 
+# Actualización de nombres SQL
+Llave primaria: nombre_tabla_pk
+Llave foranea: nombre_tabla_referenciada_fk
+    | Match: Match Full
+    | On Delete: Set Null
+    | On Update: Cascade
+
 # Docker
 ```sh
 cp .env-example .env

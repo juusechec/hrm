@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Persona;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PersonaType extends AbstractType
@@ -16,9 +17,7 @@ class PersonaType extends AbstractType
             ->add('otroNombre')
             ->add('primerApellido')
             ->add('segundoApellido')
-            ->add('fechaNacimiento', null, [
-                'years' => range(date('Y'), date('Y')-100)
-            ])
+            ->add('fechaNacimiento', BirthdayType::class)
             ->add('lugarNacimiento')
             ->add('tipoDocumento')
             ->add('numeroDocumento')

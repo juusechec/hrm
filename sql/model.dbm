@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.1-beta" last-position="1147,197" last-zoom="0.9"
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="405,1588" last-zoom="1.05"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database">
 </database>
@@ -1545,6 +1545,69 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 </table>
+
+<table name="auxilio_contrato">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1260" y="2100"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[ID de la tabla de auxilios]]></comment>
+	</column>
+	<column name="fecha">
+		<type name="date" length="0"/>
+		<comment><![CDATA[Fecha en que se da el auxilio]]></comment>
+	</column>
+	<constraint name="auxilio_contrato_pk" type="pk-constr" table="public.auxilio_contrato">
+		<columns names="id" ref-type="src-columns"/>
+		<comment><![CDATA[PK auxilios contrato]]></comment>
+	</constraint>
+</table>
+
+<table name="tipo_auxilio_contrato">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="660" y="2140"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="abreviacion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="orden">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="tipo_auxilio_contrato_pk" type="pk-constr" table="public.tipo_auxilio_contrato">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_auxilio_contrato_has_many_auxilio_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#352bb4"
+	 src-table="public.tipo_auxilio_contrato"
+	 dst-table="public.auxilio_contrato"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="contrato_has_many_auxilio_contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#c16c8f"
+	 src-table="public.contrato"
+	 dst-table="public.auxilio_contrato"
+	 src-required="false" dst-required="false"/>
 
 <constraint name="relacion_personas_id_persona1_fk" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.persona" table="public.relacion_personas">
