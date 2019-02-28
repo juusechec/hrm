@@ -113,4 +113,6 @@ php bin/console make:crud TituloEducacionContinuada
 php bin/console make:crud EducacionSuperior
 php bin/console make:crud Entidad
 php bin/console make:crud TipoRelacionPersonaEntidad
+php bin/console make:crud AuxilioContrato
+php bin/console make:crud TipoAuxilioContrato
 ```

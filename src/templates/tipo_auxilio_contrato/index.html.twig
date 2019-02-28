@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoAuxilioContrato index{% endblock %}
+
+{% block body %}
+    <h1>TipoAuxilioContrato index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Abreviacion</th>
+                <th>Orden</th>
+                <th>Activo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_auxilio_contrato in tipo_auxilio_contratos %}
+            <tr>
+                <td>{{ tipo_auxilio_contrato.id }}</td>
+                <td>{{ tipo_auxilio_contrato.nombre }}</td>
+                <td>{{ tipo_auxilio_contrato.descripcion }}</td>
+                <td>{{ tipo_auxilio_contrato.abreviacion }}</td>
+                <td>{{ tipo_auxilio_contrato.orden }}</td>
+                <td>{{ tipo_auxilio_contrato.activo ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tipo_auxilio_contrato_show', {'id': tipo_auxilio_contrato.id}) }}">show</a>
+                    <a href="{{ path('tipo_auxilio_contrato_edit', {'id': tipo_auxilio_contrato.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_auxilio_contrato_new') }}">Create new</a>
+{% endblock %}
