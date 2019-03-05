@@ -75,7 +75,7 @@ class Otrosi
      */
     public function __toString()
     {
-        return (string)$this->getId();
+        return $this->getFechaInicio()->format('d-m-Y') . ' / ' . $this->getIdConceptoOtrosi()->__toString();
     }
     
 }
