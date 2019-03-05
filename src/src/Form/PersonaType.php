@@ -20,7 +20,15 @@ class PersonaType extends AbstractType
             ->add('segundoApellido')
             ->add('fechaNacimiento', BirthdayType::class)
             ->add('lugarNacimiento')
-            ->add('tipoDocumento')
+            ->add('tipoDocumento',ChoiceType::class,[
+                    'choices'=>[
+                        'CC'=>'CC',
+                        'TI'=>'TI',
+                        'CE'=>'CE',
+                        'RC'=>'RC',
+                        'Nit'=>'Nit',
+                    ]
+            ])
             ->add('numeroDocumento')
             ->add('fechaExpedicionDocumento', null, [
                 'years' => range(date('Y'), date('Y')-100)
