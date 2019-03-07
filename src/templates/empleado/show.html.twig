@@ -102,6 +102,50 @@
                 </div>
             </div>
             <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingVivienda">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseVivienda" aria-expanded="false"
+                            aria-controls="collapseVivienda">
+                            Vivienda
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseVivienda" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingVivienda">
+                    <div class="panel-body">
+                        {% for vivienda in viviendas %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Direccion</th>
+                                    <td>{{ vivienda.direccion }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Barrio</th>
+                                    <td>{{ vivienda.barrio }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Estrato</th>
+                                    <td>{{ vivienda.estrato }}</td>
+                                </tr>
+                                <tr>
+                                    <th>País</th>
+                                    <td>{{ vivienda.pais }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Departamento</th>
+                                    <td>{{ vivienda.departamento }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Municipio</th>
+                                    <td>{{ vivienda.municipio }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
                 <div class="panel-heading" role="tab" id="headingTwo_1">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseTwo_1" aria-expanded="false"
