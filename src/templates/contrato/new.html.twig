@@ -7,5 +7,7 @@
 
     {{ include('contrato/_form.html.twig') }}
 
+    {% if not persona %}
     <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
+    {% endif %}
 {% endblock %}

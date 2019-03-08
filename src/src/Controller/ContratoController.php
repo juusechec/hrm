@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Contrato;
+use App\Entity\Persona;
 use App\Form\ContratoType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Utils\JsChannel;
 
 /**
  * @Route("/contrato")
@@ -35,19 +37,34 @@ class ContratoController extends AbstractController
     {
         $contrato = new Contrato();
         $form = $this->createForm(ContratoType::class, $contrato);
-        $form->handleRequest($request);
 
+        $idPersona = $request->query->get('id_persona');
+        if ($idPersona != null) {
+            $persona = $this->getDoctrine()
+                ->getRepository(Persona::class)
+                ->find($idPersona);
+            $contrato->setIdPersona($persona);
+            $form->add('idPersona', null, array(
+                'data' => $persona
+            ));
+        }
+
+        $form->handleRequest($request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contrato);
             $entityManager->flush();
-
+            if ($idPersona != null) {
+                return JsChannel::reloadAndClose();
+            }
             return $this->redirectToRoute('contrato_index');
         }
 
         return $this->render('contrato/new.html.twig', [
             'contrato' => $contrato,
             'form' => $form->createView(),
+            'persona' => $idPersona
         ]);
     }
 

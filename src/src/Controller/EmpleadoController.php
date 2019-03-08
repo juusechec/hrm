@@ -59,7 +59,7 @@ class EmpleadoController extends AbstractController
         // var_dump($personas); die;
         
         return $this->render('empleado/index.html.twig', [
-            'personas' => $empleados,
+            'empleados' => $empleados,
         ]);
     }
 
@@ -96,7 +96,7 @@ class EmpleadoController extends AbstractController
             ->findBy(
                 array('idPersona' =>array($persona->getId()))  
             );
-        
+
         $educacion_basica_medias = $this->getDoctrine()
             ->getRepository(EducacionBasicaMedia::class)
             ->findBy(

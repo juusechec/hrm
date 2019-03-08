@@ -8211,3 +8211,12 @@ html.ie11 .dropdown-menu ul.menu li a {
 
 html.ie11 .bs-searchbox .form-control {
   width: 90%; }
+
+.plus-button {
+  float: right;
+  margin-top: -42px;
+}
+
+.plus-button a {
+  color: #fff;
+}
