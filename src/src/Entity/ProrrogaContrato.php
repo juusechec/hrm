@@ -72,7 +72,7 @@ class ProrrogaContrato
      */
     public function __toString()
     {
-        return (string)$this->getId();
+        return $this->getFechaInicio()->format('d-m-Y') . '/' . $this->getFechaFin()->format('d-m-Y');
     }
     
 }

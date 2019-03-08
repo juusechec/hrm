@@ -129,7 +129,7 @@ class TipoEntidad
      */
     public function __toString()
     {
-        return (string)$this->getId();
+        return $this->getNombre();
     }
     
 }
