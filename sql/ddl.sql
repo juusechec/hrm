@@ -181,8 +181,7 @@ CREATE TABLE public.contrato(
 	obra_o_labor text,
 	fecha_inicio date,
 	fecha_fin date,
-	salario_base bigint,
-	salario_auxilio bigint,
+	ingreso bigint,
 	dias_periodo_prueba integer,
 	id_persona integer,
 	id_tipo_contrato integer,
@@ -205,9 +204,7 @@ COMMENT ON COLUMN public.contrato.fecha_inicio IS 'fecha en la que se inicia el 
 -- ddl-end --
 COMMENT ON COLUMN public.contrato.fecha_fin IS 'fecha en la que finaliza el contrato';
 -- ddl-end --
-COMMENT ON COLUMN public.contrato.salario_base IS 'salario base a devengar el contratante';
--- ddl-end --
-COMMENT ON COLUMN public.contrato.salario_auxilio IS 'salario que se asigna';
+COMMENT ON COLUMN public.contrato.ingreso IS 'salario base a devengar el contratante';
 -- ddl-end --
 COMMENT ON COLUMN public.contrato.dias_periodo_prueba IS 'valor entero de los días que se da un periodo de prueba al contratante';
 -- ddl-end --
