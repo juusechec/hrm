@@ -8,7 +8,7 @@ use App\Entity\EducacionSuperior;
 use App\Entity\EducacionContinuada;
 use App\Entity\Contrato;
 use App\Entity\Vivienda;
-use App\Form\PersonaType;
+use App\Form\EmpleadoType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,7 +69,7 @@ class EmpleadoController extends AbstractController
     public function new(Request $request): Response
     {
         $persona = new Persona();
-        $form = $this->createForm(PersonaType::class, $persona);
+        $form = $this->createForm(EmpleadoType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -77,7 +77,7 @@ class EmpleadoController extends AbstractController
             $entityManager->persist($persona);
             $entityManager->flush();
 
-            return $this->redirectToRoute('persona_index');
+            return $this->redirectToRoute('empleado_index');
         }
 
         return $this->render('empleado/new.html.twig', [
@@ -136,7 +136,7 @@ class EmpleadoController extends AbstractController
      */
     public function edit(Request $request, Persona $persona): Response
     {
-        $form = $this->createForm(PersonaType::class, $persona);
+        $form = $this->createForm(EmpleadoType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

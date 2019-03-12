@@ -275,12 +275,8 @@
                                     <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Salario Base</th>
-                                    <td>{{ contrato.salarioBase }}</td>
-                                </tr>
-                                <tr>
-                                    <th>SalarioAuxilio</th>
-                                    <td>{{ contrato.salarioAuxilio }}</td>
+                                    <th>Ingreso</th>
+                                    <td>{{ contrato.ingreso }}</td>
                                 </tr>
                                 <tr>
                                     <th>Dias del Periodo Prueba</th>
@@ -296,14 +292,15 @@
     </div>
 </div>
 
-    <div class="row clearfix">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="{{ path('empleado_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la Lista</a>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="{{ path('empleado_edit', {'id': persona.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
-        </div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('empleado_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la Lista</a>
     </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('empleado_edit', {'id': persona.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    {{ include('persona/_delete_form.html.twig') }}
+{{ include('empleado/_delete_form.html.twig') }}
+<br>
 {% endblock %}

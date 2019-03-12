@@ -3,56 +3,56 @@
 {% block title %}Lista de Empleados{% endblock %}
 
 {% block body %}
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        Lista de Empleados
-                        <small>Personas que cumplen con la clasificación de ser empleados</small>
-                    </h2>
-                </div>
-                <div class="body table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre Completo</th>
-                                <th>Documento</th>
-                                <th>Edad</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for empleado in empleados %}
-                            <tr>
-                                <td>{{ empleado.id }}</td>
-                                <td>{{ empleado.primerNombre ~ ' ' ~ empleado.otroNombre ~ ' ' ~ empleado.primerApellido ~ ' ' ~ empleado.segundoApellido }}</td>
-                                <td>{{ empleado.tipoDocumento ~ ' ' ~ empleado.numeroDocumento }}</td>
-                                <td>{{ ('now'|date('Y') - empleado.fechaNacimiento|date('Y') - 1) + ('now'|date('2010-m-d')|date('U') - empleado.fechaNacimiento|date('2010-m-d')|date('U') >= 0 ? 1 : 0) }}</td>
-                                <td>
-                                    <a href="{{ path('empleado_show', {'id': empleado.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
-                                        <i class="material-icons">view_headline</i>
-                                    </a>
-                                    <a href="{{ path('empleado_edit', {'id': empleado.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
-                                        <i class="material-icons">mode_edit</i>
-                                    </a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Lista de Empleados
+                    <small>Personas que cumplen con la clasificación de ser empleados</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre Completo</th>
+                            <th>Documento</th>
+                            <th>Edad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for empleado in empleados %}
+                        <tr>
+                            <td>{{ empleado.id }}</td>
+                            <td>{{ empleado.primerNombre ~ ' ' ~ empleado.otroNombre ~ ' ' ~ empleado.primerApellido ~ ' ' ~ empleado.segundoApellido }}</td>
+                            <td>{{ empleado.tipoDocumento ~ ' ' ~ empleado.numeroDocumento }}</td>
+                            <td>{{ ('now'|date('Y') - empleado.fechaNacimiento|date('Y') - 1) + ('now'|date('2010-m-d')|date('U') - empleado.fechaNacimiento|date('2010-m-d')|date('U') >= 0 ? 1 : 0) }}</td>
+                            <td>
+                                <a href="{{ path('empleado_show', {'id': empleado.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">view_headline</i>
+                                </a>
+                                <a href="{{ path('empleado_edit', {'id': empleado.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">mode_edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <div class="row clearfix">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="{{ path('empleado_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
-        </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('empleado_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
     </div>
+</div>
 {% endblock %}
