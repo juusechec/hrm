@@ -22,9 +22,9 @@ class TituloAcademicoType extends AbstractType
                     'Tecnologica ESpecializada' => 'Tecnologica Especializada',
                     'Universitaria'=>'Universitaria',
                     'Especialización'=>'Especialización',
-                    'Maestria/Magister'=>'Ms',
+                    'Maestria/Magister'=>'Maestria/Magister',
                     'Doctorado '=>'Doctorado',
-                    ],
+                    ]
             ])
             ->add('descripcion')
             
