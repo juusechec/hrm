@@ -217,9 +217,11 @@ $.AdminBSB.search = {
 
         //ESC key on pressed
         $searchBar.find('input[type="text"]').on('keyup', function (e) {
-            if (e.keyCode == 27) {
+            if (e.keyCode == 27 || e.keyCode === 13) {
                 _this.hideSearchBar();
             }
+            // console.log('texto:', e.target.value);
+            _this.filterMenu(e.target.value);
         });
     },
     showSearchBar: function () {
@@ -229,6 +231,24 @@ $.AdminBSB.search = {
     hideSearchBar: function () {
         $searchBar.removeClass('open');
         $searchBar.find('input[type="text"]').val('');
+    },
+    filterMenu: function(searchText) {
+        var lis = $('#menu-principal>li');
+        if (searchText === '') {
+            lis.css('display', 'block');
+            return;
+        }
+        function normalize(text) {
+            return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+        lis.each(function(i, li){
+            if (normalize(li.textContent).search(normalize(searchText)) > -1){
+                // console.log('li', li);
+                li.style.display = 'block';
+            } else {
+                li.style.display = 'none';
+            }
+        });
     }
 }
 //==========================================================================================================================

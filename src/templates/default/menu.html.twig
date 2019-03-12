@@ -1,6 +1,6 @@
 <!-- https://gurayyarar.github.io/AdminBSBMaterialDesign/pages/examples/profile.html -->
 <div class="menu">
-    <ul class="list">
+    <ul id="menu-principal" class="list">
         <li class="header">Menú Principal</li>
         <li{% if app.request.get('_route') == 'homepage' %} class="active"{% endif %}>
             <a href="{{ path('homepage') }}">

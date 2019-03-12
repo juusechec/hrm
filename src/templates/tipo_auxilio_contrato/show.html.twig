@@ -1,0 +1,42 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}TipoAuxilioContrato{% endblock %}
+
+{% block body %}
+    <h1>TipoAuxilioContrato</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tipo_auxilio_contrato.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ tipo_auxilio_contrato.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ tipo_auxilio_contrato.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Abreviacion</th>
+                <td>{{ tipo_auxilio_contrato.abreviacion }}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ tipo_auxilio_contrato.orden }}</td>
+            </tr>
+            <tr>
+                <th>Activo</th>
+                <td>{{ tipo_auxilio_contrato.activo ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tipo_auxilio_contrato_index') }}">back to list</a>
+
+    <a href="{{ path('tipo_auxilio_contrato_edit', {'id': tipo_auxilio_contrato.id}) }}">edit</a>
+
+    {{ include('tipo_auxilio_contrato/_delete_form.html.twig') }}
+{% endblock %}

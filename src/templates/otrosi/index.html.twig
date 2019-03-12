@@ -17,7 +17,7 @@
         {% for otrosi in otrosis %}
             <tr>
                 <td>{{ otrosi.id }}</td>
-                <td>{{ otrosi.fechaInicio ? otrosi.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ otrosi.fechaInicio ? otrosi.fechaInicio|date('d-m-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('otrosi_show', {'id': otrosi.id}) }}">Ver</a>
                     <a href="{{ path('otrosi_edit', {'id': otrosi.id}) }}">Editar</a>

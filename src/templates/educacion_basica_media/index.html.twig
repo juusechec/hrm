@@ -21,7 +21,7 @@
                 <td>{{ educacion_basica_media.id }}</td>
                 <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
                 <td>{{ educacion_basica_media.tituloObtenido }}</td>
-                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('educacion_basica_media_show', {'id': educacion_basica_media.id}) }}">Ver</a>
                     <a href="{{ path('educacion_basica_media_edit', {'id': educacion_basica_media.id}) }}">Editar</a>

@@ -53,16 +53,9 @@ class Contrato
     /**
      * @var int|null
      *
-     * @ORM\Column(name="salario_base", type="bigint", nullable=true, options={"comment"="salario base a devengar el contratante"})
+     * @ORM\Column(name="ingreso", type="bigint", nullable=true, options={"comment"="salario base a devengar el contratante"})
      */
-    private $salarioBase;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="salario_auxilio", type="bigint", nullable=true, options={"comment"="salario que se asigna"})
-     */
-    private $salarioAuxilio;
+    private $ingreso;
 
     /**
      * @var int|null
@@ -174,26 +167,14 @@ class Contrato
         return $this;
     }
 
-    public function getSalarioBase(): ?int
+    public function getIngreso(): ?int
     {
-        return $this->salarioBase;
+        return $this->ingreso;
     }
 
-    public function setSalarioBase(?int $salarioBase): self
+    public function setIngreso(?int $ingreso): self
     {
-        $this->salarioBase = $salarioBase;
-
-        return $this;
-    }
-
-    public function getSalarioAuxilio(): ?int
-    {
-        return $this->salarioAuxilio;
-    }
-
-    public function setSalarioAuxilio(?int $salarioAuxilio): self
-    {
-        $this->salarioAuxilio = $salarioAuxilio;
+        $this->ingreso = $ingreso;
 
         return $this;
     }

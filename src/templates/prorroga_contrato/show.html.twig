@@ -13,11 +13,11 @@
             </tr>
             <tr>
                 <th>Fecha de Inicio</th>
-                <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ prorroga_contrato.fechaInicio ? prorroga_contrato.fechaInicio|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Fin de la Prorroga</th>
-                <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>{{ prorroga_contrato.fechaFin ? prorroga_contrato.fechaFin|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>

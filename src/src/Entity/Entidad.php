@@ -151,7 +151,12 @@ class Entidad
      */
     public function __toString()
     {
-        return (string)$this->getId();
+        if ($this->getIdTipoEntidad() == null){
+        return $this->getNombre();
+        }
+        else {
+            return $this->getNombre() . '/' . $this->getIdTipoEntidad()->__toString();
+        }
     }
     
 }

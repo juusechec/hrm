@@ -1,0 +1,13 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}Edit TipoAuxilioContrato{% endblock %}
+
+{% block body %}
+    <h1>Edit TipoAuxilioContrato</h1>
+
+    {{ include('tipo_auxilio_contrato/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('tipo_auxilio_contrato_index') }}">back to list</a>
+
+    {{ include('tipo_auxilio_contrato/_delete_form.html.twig') }}
+{% endblock %}

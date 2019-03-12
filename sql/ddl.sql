@@ -181,8 +181,7 @@ CREATE TABLE public.contrato(
 	obra_o_labor text,
 	fecha_inicio date,
 	fecha_fin date,
-	salario_base bigint,
-	salario_auxilio bigint,
+	ingreso bigint,
 	dias_periodo_prueba integer,
 	id_persona integer,
 	id_tipo_contrato integer,
@@ -205,9 +204,7 @@ COMMENT ON COLUMN public.contrato.fecha_inicio IS 'fecha en la que se inicia el 
 -- ddl-end --
 COMMENT ON COLUMN public.contrato.fecha_fin IS 'fecha en la que finaliza el contrato';
 -- ddl-end --
-COMMENT ON COLUMN public.contrato.salario_base IS 'salario base a devengar el contratante';
--- ddl-end --
-COMMENT ON COLUMN public.contrato.salario_auxilio IS 'salario que se asigna';
+COMMENT ON COLUMN public.contrato.ingreso IS 'salario base a devengar el contratante';
 -- ddl-end --
 COMMENT ON COLUMN public.contrato.dias_periodo_prueba IS 'valor entero de los días que se da un periodo de prueba al contratante';
 -- ddl-end --
@@ -1086,6 +1083,56 @@ COMMENT ON TABLE public.tipo_relacion_persona_entidad IS 'Tipo de relación por 
 ALTER TABLE public.tipo_relacion_persona_entidad OWNER TO postgres;
 -- ddl-end --
 
+-- object: public.auxilio_contrato | type: TABLE --
+-- DROP TABLE IF EXISTS public.auxilio_contrato CASCADE;
+CREATE TABLE public.auxilio_contrato(
+	id serial NOT NULL,
+	fecha date,
+	id_tipo_auxilio_contrato integer,
+	id_contrato integer,
+	CONSTRAINT auxilio_contrato_pk PRIMARY KEY (id)
+
+);
+-- ddl-end --
+COMMENT ON COLUMN public.auxilio_contrato.id IS 'ID de la tabla de auxilios';
+-- ddl-end --
+COMMENT ON COLUMN public.auxilio_contrato.fecha IS 'Fecha en que se da el auxilio';
+-- ddl-end --
+COMMENT ON CONSTRAINT auxilio_contrato_pk ON public.auxilio_contrato  IS 'PK auxilios contrato';
+-- ddl-end --
+ALTER TABLE public.auxilio_contrato OWNER TO postgres;
+-- ddl-end --
+
+-- object: public.tipo_auxilio_contrato | type: TABLE --
+-- DROP TABLE IF EXISTS public.tipo_auxilio_contrato CASCADE;
+CREATE TABLE public.tipo_auxilio_contrato(
+	id serial NOT NULL,
+	nombre text,
+	descripcion text,
+	abreviacion text,
+	orden integer,
+	activo boolean,
+	CONSTRAINT tipo_auxilio_contrato_pk PRIMARY KEY (id)
+
+);
+-- ddl-end --
+ALTER TABLE public.tipo_auxilio_contrato OWNER TO postgres;
+-- ddl-end --
+
+-- object: tipo_auxilio_contrato_fk | type: CONSTRAINT --
+-- ALTER TABLE public.auxilio_contrato DROP CONSTRAINT IF EXISTS tipo_auxilio_contrato_fk CASCADE;
+ALTER TABLE public.auxilio_contrato ADD CONSTRAINT tipo_auxilio_contrato_fk FOREIGN KEY (id_tipo_auxilio_contrato)
+REFERENCES public.tipo_auxilio_contrato (id) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: contrato_fk | type: CONSTRAINT --
+-- ALTER TABLE public.auxilio_contrato DROP CONSTRAINT IF EXISTS contrato_fk CASCADE;
+ALTER TABLE public.auxilio_contrato ADD CONSTRAINT contrato_fk FOREIGN KEY (id_contrato)
+REFERENCES public.contrato (id) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+-- ddl-end --
+
 -- object: relacion_personas_id_persona1_fk | type: CONSTRAINT --
 -- ALTER TABLE public.relacion_personas DROP CONSTRAINT IF EXISTS relacion_personas_id_persona1_fk CASCADE;
 ALTER TABLE public.relacion_personas ADD CONSTRAINT relacion_personas_id_persona1_fk FOREIGN KEY (id_persona1)
@@ -1100,11 +1147,11 @@ REFERENCES public.persona (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
--- object: tipo_relacion_persona_entidad_fk | type: CONSTRAINT --
--- ALTER TABLE public.relacion_persona_entidad DROP CONSTRAINT IF EXISTS tipo_relacion_persona_entidad_fk CASCADE;
-ALTER TABLE public.relacion_persona_entidad ADD CONSTRAINT tipo_relacion_persona_entidad_fk FOREIGN KEY (id_tipo_relacion_persona_entidad)
+-- object: tipo_relacion_persona_entidad__fk | type: CONSTRAINT --
+-- ALTER TABLE public.relacion_persona_entidad DROP CONSTRAINT IF EXISTS tipo_relacion_persona_entidad__fk CASCADE;
+ALTER TABLE public.relacion_persona_entidad ADD CONSTRAINT tipo_relacion_persona_entidad__fk FOREIGN KEY (id_tipo_relacion_persona_entidad)
 REFERENCES public.tipo_relacion_persona_entidad (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE NO ACTION;
+ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
 

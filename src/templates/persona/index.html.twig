@@ -37,11 +37,11 @@
                 <td>{{ persona.otroNombre }}</td>
                 <td>{{ persona.primerApellido }}</td>
                 <td>{{ persona.segundoApellido }}</td>
-                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('d-m-Y') : '' }}</td>
                 <td>{{ persona.lugarNacimiento }}</td>
                 <td>{{ persona.tipoDocumento }}</td>
                 <td>{{ persona.numeroDocumento }}</td>
-                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('d-m-Y') : '' }}</td>
                 <td>{{ persona.lugarExpedicionDocumento }}</td>
                 <td>{{ persona.tipoSangre }}</td>
                 <td>{{ persona.telefonoFijo }}</td>

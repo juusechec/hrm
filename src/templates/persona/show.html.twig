@@ -29,7 +29,11 @@
             </tr>
             <tr>
                 <th>Fecha Nacimiento</th>
-                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ ('now'|date('Y') - persona.fechaNacimiento|date('Y') - 1) + ('now'|date('2010-m-d')|date('U') - persona.fechaNacimiento|date('2010-m-d')|date('U') >= 0 ? 1 : 0) }}</td>
             </tr>
             <tr>
                 <th>Lugar Nacimiento</th>
@@ -45,7 +49,7 @@
             </tr>
             <tr>
                 <th>Fecha Expedicion Documento</th>
-                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
+                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Lugar Expedicion Documento</th>

@@ -1,0 +1,11 @@
+{% extends 'hrm.html.twig' %}
+
+{% block title %}New AuxilioContrato{% endblock %}
+
+{% block body %}
+    <h1>Create new AuxilioContrato</h1>
+
+    {{ include('auxilio_contrato/_form.html.twig') }}
+
+    <a href="{{ path('auxilio_contrato_index') }}">back to list</a>
+{% endblock %}

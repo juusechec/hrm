@@ -12,14 +12,15 @@ class ContratoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('idTipoContrato')
             ->add('objeto')
             ->add('obraOLabor')
             ->add('fechaInicio')
             ->add('fechaFin')
-            ->add('salarioBase')
-            ->add('salarioAuxilio')
+            ->add('ingreso', null, [
+                'attr' => array('min' => 0)
+            ])
             ->add('diasPeriodoPrueba')
-            ->add('idTipoContrato')
             ->add('idProrrogaContrato')
             ->add('idCargo')
             ->add('idPersona')

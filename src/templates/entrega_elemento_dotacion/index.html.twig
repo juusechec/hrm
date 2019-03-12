@@ -17,7 +17,7 @@
         {% for entrega_elemento_dotacion in entrega_elemento_dotacions %}
             <tr>
                 <td>{{ entrega_elemento_dotacion.id }}</td>
-                <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('Y-m-d') : '' }}</td>
+                <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('d-m-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('entrega_elemento_dotacion_show', {'id': entrega_elemento_dotacion.id}) }}">Ver</a>
                     <a href="{{ path('entrega_elemento_dotacion_edit', {'id': entrega_elemento_dotacion.id}) }}">Editar</a>

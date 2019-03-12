@@ -7,11 +7,13 @@ use App\Entity\EducacionBasicaMedia;
 use App\Entity\EducacionSuperior;
 use App\Entity\EducacionContinuada;
 use App\Entity\Contrato;
+use App\Entity\Vivienda;
 use App\Form\PersonaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @Route("/empleado")
@@ -22,13 +24,42 @@ class EmpleadoController extends AbstractController
      * @Route("/", name="empleado_index", methods={"GET"})
      */
     public function index(): Response
-    {
-        $personas = $this->getDoctrine()
-            ->getRepository(Persona::class)
-            ->findAll();
+    {   
+        // $personas = $this->getDoctrine()
+        // ->getRepository(Persona::class)
+        // ->createQueryBuilder('persona')
+        // ->select('persona')
+        // ->join('persona', 'contrato.id_persona')
+        // ->getQuery()
+        // ->getResult();
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $empleados = $qb->select(array('p'))
+            ->from(Persona::class, 'p')
+            ->join(Contrato::class, 'c', Join::WITH, 'p.id=c.idPersona')
+            // ->where('p.id = c.idPersona')
+            // ->andWhere('e.user = :userName')
+            // ->setParameter('userName', 'scott')
+            // ->orderBy('e.created', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        // $em = $this->getDoctrine()->getManager(); // ...or getEntityManager() prior to Symfony 2.1
+        // $connection = $em->getConnection();
+        // $statement = $connection->prepare(
+        //     "SELECT p.*
+        //     FROM public.persona AS p
+        //     INNER JOIN public.contrato AS c
+        //     ON p.id= c.id_persona
+        //     "
+        // );
+        // // $statement->bindValue('id', 123);
+        // $statement->execute();
+        // $personas = $statement->fetchAll();
+        // var_dump($personas); die;
         
         return $this->render('empleado/index.html.twig', [
-            'personas' => $personas,
+            'empleados' => $empleados,
         ]);
     }
 
@@ -60,36 +91,43 @@ class EmpleadoController extends AbstractController
      */
     public function show(Persona $persona): Response
     {
+        $viviendas = $this->getDoctrine()
+            ->getRepository(Vivienda::class)
+            ->findBy(
+                array('idPersona' =>array($persona->getId()))  
+            );
+
         $educacion_basica_medias = $this->getDoctrine()
-        ->getRepository(EducacionBasicaMedia::class)
-        ->findBy(
-            array('idPersona' =>array($persona->getId()))  
-        );
+            ->getRepository(EducacionBasicaMedia::class)
+            ->findBy(
+                array('idPersona' =>array($persona->getId()))  
+            );
 
         $educacion_superiors = $this->getDoctrine()
-        ->getRepository(EducacionSuperior::class)
-        ->findBy(
-            array('idPersona' =>array($persona->getId()))  
-        );
+            ->getRepository(EducacionSuperior::class)
+            ->findBy(
+                array('idPersona' =>array($persona->getId()))  
+            );
 
         $educacion_continuadas = $this->getDoctrine()
-        ->getRepository(EducacionContinuada::class)
-        ->findBy(
-            array('idPersona' =>array($persona->getId()))  
-        );
+            ->getRepository(EducacionContinuada::class)
+            ->findBy(
+                array('idPersona' =>array($persona->getId()))  
+            );
 
         $contratos = $this->getDoctrine()
-        ->getRepository(Contrato::class)
-        ->findBy(
-            array('idPersona' =>array($persona->getId()))  
-        );
+            ->getRepository(Contrato::class)
+            ->findBy(
+                array('idPersona' =>array($persona->getId()))  
+            );
 
         return $this->render('empleado/show.html.twig', [
             'persona' => $persona,
             'educacion_basica_medias' => $educacion_basica_medias,
             'educacion_superiors' => $educacion_superiors,
             'educacion_continuadas' => $educacion_continuadas,
-            'contratos' => $contratos
+            'contratos' => $contratos,
+            'viviendas' => $viviendas
         ]);
     }
 

@@ -3,184 +3,298 @@
 {% block title %}Persona{% endblock %}
 
 {% block body %}
-    <h1>Datos Básicos</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>PrimerNombre</th>
-                <td>{{ persona.primerNombre }}</td>
-            </tr>
-            <tr>
-                <th>Otro Nombre</th>
-                <td>{{ persona.otroNombre }}</td>
-            </tr>
-            <tr>
-                <th>Primer Apellido</th>
-                <td>{{ persona.primerApellido }}</td>
-            </tr>
-            <tr>
-                <th>Segundo Apellido</th>
-                <td>{{ persona.segundoApellido }}</td>
-            </tr>
-            <tr>
-                <th>Fecha de Nacimiento</th>
-                <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Lugar de Nacimiento</th>
-                <td>{{ persona.lugarNacimiento }}</td>
-            </tr>
-            <tr>
-                <th>Tipo de Documento</th>
-                <td>{{ persona.tipoDocumento }}</td>
-            </tr>
-            <tr>
-                <th>Numero de Documento</th>
-                <td>{{ persona.numeroDocumento }}</td>
-            </tr>
-            <tr>
-                <th>Fecha de ExpedicionDocumento</th>
-                <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Lugar de ExpedicionDocumento</th>
-                <td>{{ persona.lugarExpedicionDocumento }}</td>
-            </tr>
-            <tr>
-                <th>Tipo de Sangre</th>
-                <td>{{ persona.tipoSangre }}</td>
-            </tr>
-            <tr>
-                <th>Telefono Fijo</th>
-                <td>{{ persona.telefonoFijo }}</td>
-            </tr>
-            <tr>
-                <th>Telefono Movil 1</th>
-                <td>{{ persona.telefonoMovil1 }}</td>
-            </tr>
-            <tr>
-                <th>Telefono Movil 2</th>
-                <td>{{ persona.telefonoMovil2 }}</td>
-            </tr>
-            <tr>
-                <th>Correo Electronico 1</th>
-                <td>{{ persona.correoElectronico1 }}</td>
-            </tr>
-            <tr>
-                <th>Correo Electronico 2</th>
-                <td>{{ persona.correoElectronico2 }}</td>
-            </tr>
-            <tr>
-                <th>EstadoCivil</th>
-                <td>{{ persona.idEstadoCivil }}</td>
-            </tr>
-            <tr>
-                <th>Genero</th>
-                <td>{{ persona.idGenero }}</td>
-            </tr>
-            <tr>
-                <th>Activo</th>
-                <td>{{ persona.activo ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h1>Formación Media Básica</h1>
-    {% for educacion_basica_media in educacion_basica_medias %}
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Último Grado Aprobado</th>
-                <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
-            </tr>
-            <tr>
-                <th>Título Obtenido</th>
-                <td>{{ educacion_basica_media.tituloObtenido }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Grado</th>
-                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-    {% endfor %}
-
-    <h1>Educación Superior</h1>
-    {% for educacion_superior in educacion_superiors %}
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Graduado</th>
-                <td>{{ educacion_superior.graduado ? 'Si' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Título Obtenido</th>
-                <td>{{ educacion_superior.idTituloAcademico.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Grado</th>
-                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-    {% endfor %}
-
-    <h1>Educación Continuada</h1>
-    {% for educacion_continuada in educacion_continuadas %}
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Título</th>
-                <td>{{ educacion_continuada.idTituloEducacionContinuada }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Terminacion</th>
-                <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Vencimiento</th>
-                <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-    {% endfor %}
-
-    <h1>Contratos</h1>
-    {% for contrato in contratos %}
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Objeto</th>
-                <td>{{ contrato.objeto }}</td>
-            </tr>
-            <tr>
-                <th>Obra O Labor</th>
-                <td>{{ contrato.obraOLabor }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Inicio</th>
-                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Fin</th>
-                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Salario Base</th>
-                <td>{{ contrato.salarioBase }}</td>
-            </tr>
-            <tr>
-                <th>SalarioAuxilio</th>
-                <td>{{ contrato.salarioAuxilio }}</td>
-            </tr>
-            <tr>
-                <th>Dias del Periodo Prueba</th>
-                <td>{{ contrato.diasPeriodoPrueba }}</td>
-            </tr>
-        </tbody>
-    </table>
-    {% endfor %}
+<div class="row clearfix">
+    <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+        <b>Datos del Empleado</b>
+        <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingOne_1">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="true" aria-controls="collapseOne_1">
+                            Datos Detallados
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne_1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_1">
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>PrimerNombre</th>
+                                    <td>{{ persona.primerNombre }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Otro Nombre</th>
+                                    <td>{{ persona.otroNombre }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Primer Apellido</th>
+                                    <td>{{ persona.primerApellido }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Segundo Apellido</th>
+                                    <td>{{ persona.segundoApellido }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha de Nacimiento</th>
+                                    <td>{{ persona.fechaNacimiento ? persona.fechaNacimiento|date('d-m-Y') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lugar de Nacimiento</th>
+                                    <td>{{ persona.lugarNacimiento }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tipo de Documento</th>
+                                    <td>{{ persona.tipoDocumento }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Numero de Documento</th>
+                                    <td>{{ persona.numeroDocumento }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha de ExpedicionDocumento</th>
+                                    <td>{{ persona.fechaExpedicionDocumento ? persona.fechaExpedicionDocumento|date('d-m-Y') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lugar de ExpedicionDocumento</th>
+                                    <td>{{ persona.lugarExpedicionDocumento }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tipo de Sangre</th>
+                                    <td>{{ persona.tipoSangre }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono Fijo</th>
+                                    <td>{{ persona.telefonoFijo }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono Movil 1</th>
+                                    <td>{{ persona.telefonoMovil1 }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono Movil 2</th>
+                                    <td>{{ persona.telefonoMovil2 }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Correo Electronico 1</th>
+                                    <td>{{ persona.correoElectronico1 }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Correo Electronico 2</th>
+                                    <td>{{ persona.correoElectronico2 }}</td>
+                                </tr>
+                                <tr>
+                                    <th>EstadoCivil</th>
+                                    <td>{{ persona.idEstadoCivil }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Genero</th>
+                                    <td>{{ persona.idGenero }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Activo</th>
+                                    <td>{{ persona.activo ? 'Yes' : 'No' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingVivienda">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseVivienda" aria-expanded="false"
+                            aria-controls="collapseVivienda">
+                            Vivienda
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseVivienda" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingVivienda">
+                    <div class="panel-body">
+                        {% for vivienda in viviendas %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Direccion</th>
+                                    <td>{{ vivienda.direccion }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Barrio</th>
+                                    <td>{{ vivienda.barrio }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Estrato</th>
+                                    <td>{{ vivienda.estrato }}</td>
+                                </tr>
+                                <tr>
+                                    <th>País</th>
+                                    <td>{{ vivienda.pais }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Departamento</th>
+                                    <td>{{ vivienda.departamento }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Municipio</th>
+                                    <td>{{ vivienda.municipio }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingTwo_1">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseTwo_1" aria-expanded="false"
+                            aria-controls="collapseTwo_1">
+                            Formación Media Básica
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_1">
+                    <div class="panel-body">
+                        {% for educacion_basica_media in educacion_basica_medias %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Último Grado Aprobado</th>
+                                    <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Título Obtenido</th>
+                                    <td>{{ educacion_basica_media.tituloObtenido }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha Grado</th>
+                                    <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingThree_1">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseThree_1" aria-expanded="false"
+                            aria-controls="collapseThree_1">
+                            Educación Superior
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree_1">
+                    <div class="panel-body">
+                        {% for educacion_superior in educacion_superiors %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Graduado</th>
+                                    <td>{{ educacion_superior.graduado ? 'Si' : 'No' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Título Obtenido</th>
+                                    <td>{{ educacion_superior.idTituloAcademico.nombre }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha Grado</th>
+                                    <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingFour_1">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseFour_1" aria-expanded="false"
+                            aria-controls="collapseFour_1">
+                            Educación Continuada
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour_1">
+                    <div class="panel-body">
+                        {% for educacion_continuada in educacion_continuadas %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Título</th>
+                                    <td>{{ educacion_continuada.idTituloEducacionContinuada }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha Terminacion</th>
+                                    <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('d-m-Y') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha Vencimiento</th>
+                                    <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('d-m-Y') : '' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingFive_1">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseFive_1" aria-expanded="false"
+                            aria-controls="collapseFive_1">
+                            Contratos
+                        </a>
+                    </h4>
+                    <div class="plus-button">
+                        <a target="_blank" href="{{ path('contrato_new', {'id_persona': persona.id}) }}"><i class="material-icons">add</i></a>
+                    </div>
+                </div>
+                <div id="collapseFive_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive_1">
+                    <div class="panel-body">
+                        {% for contrato in contratos %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Objeto</th>
+                                    <td>{{ contrato.objeto }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Obra O Labor</th>
+                                    <td>{{ contrato.obraOLabor }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha Inicio</th>
+                                    <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fecha Fin</th>
+                                    <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Salario Base</th>
+                                    <td>{{ contrato.salarioBase }}</td>
+                                </tr>
+                                <tr>
+                                    <th>SalarioAuxilio</th>
+                                    <td>{{ contrato.salarioAuxilio }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Dias del Periodo Prueba</th>
+                                    <td>{{ contrato.diasPeriodoPrueba }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="row clearfix">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">

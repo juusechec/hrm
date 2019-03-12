@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Persona;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PersonaType extends AbstractType
@@ -16,16 +18,39 @@ class PersonaType extends AbstractType
             ->add('otroNombre')
             ->add('primerApellido')
             ->add('segundoApellido')
-            ->add('fechaNacimiento')
+            ->add('fechaNacimiento', BirthdayType::class)
             ->add('lugarNacimiento')
-            ->add('tipoDocumento')
+            ->add('tipoDocumento',ChoiceType::class,[
+                    'choices'=>[
+                        'CC'=>'CC',
+                        'TI'=>'TI',
+                        'CE'=>'CE',
+                        'RC'=>'RC',
+                        'Nit'=>'Nit',
+                    ]
+            ])
             ->add('numeroDocumento')
-            ->add('fechaExpedicionDocumento')
+            ->add('fechaExpedicionDocumento', null, [
+                'years' => range(date('Y'), date('Y')-100)
+            ])
             ->add('lugarExpedicionDocumento')
-            ->add('tipoSangre')
+            ->add('tipoSangre', ChoiceType::class, [
+                'choices'  => [
+                    'O+' => 'O+',
+                    'O-' => 'O-',
+                    'A+' => 'A+',
+                    'A-'=>'A-',
+                    'B+'=>'B+',
+                    'B-'=>'B-',
+                    'AB+'=>'AB+',
+                    'AB-'=>'AB-'
+                ],
+            ])
             ->add('telefonoFijo')
             ->add('telefonoMovil1')
-            ->add('telefonoMovil2')
+            ->add('telefonoMovil2', null, [
+                'label' => 'Segundo teléfono (no obligatorio)'
+            ])
             ->add('correoElectronico1')
             ->add('correoElectronico2')
             ->add('activo')

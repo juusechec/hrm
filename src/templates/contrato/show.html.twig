@@ -21,19 +21,15 @@
             </tr>
             <tr>
                 <th>Fecha Inicio</th>
-                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('Y-m-d') : '' }}</td>
+                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Fecha Fin</th>
-                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('Y-m-d') : '' }}</td>
+                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
-                <th>Salario Base</th>
-                <td>{{ contrato.salarioBase }}</td>
-            </tr>
-            <tr>
-                <th>SalarioAuxilio</th>
-                <td>{{ contrato.salarioAuxilio }}</td>
+                <th>Ingreso</th>
+                <td>{{ contrato.ingreso }}</td>
             </tr>
             <tr>
                 <th>Dias del Periodo Prueba</th>

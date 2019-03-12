@@ -24,9 +24,9 @@
                 <td>{{ educacion_superior.id }}</td>
                 <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
                 <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
-                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('Y-m-d') : '' }}</td>
-                <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('Y-m-d') : '' }}</td>
-                <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('Y-m-d') : '' }}</td>
+                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
+                <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('d-m-Y') : '' }}</td>
+                <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>
                 <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
                 <td>
                     <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}">Ver</a>
