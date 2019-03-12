@@ -20,7 +20,8 @@ class ContratoType extends AbstractType
             ->add('ingreso', null, [
                 'attr' => array('min' => 0)
             ])
-            ->add('diasPeriodoPrueba')
+            ->add('diasPeriodoPrueba', null, [
+                'attr' => array('min' => 0)
             ->add('idProrrogaContrato')
             ->add('idCargo')
             ->add('idPersona')

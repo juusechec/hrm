@@ -6,6 +6,7 @@ use App\Entity\TituloAcademico;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TituloAcademicoType extends AbstractType
 {
@@ -14,8 +15,19 @@ class TituloAcademicoType extends AbstractType
         $builder
             ->add('nombre')
             ->add('codigoSnies')
-            ->add('modalidadAcademica')
+            ->add('modalidadAcademica', ChoiceType::class, [
+                'choices'  => [
+                    'Tecnica' => 'Tecnica',
+                    'Tecnologica' => 'Tecnologica',
+                    'Tecnologica ESpecializada' => 'Tecnologica Especializada',
+                    'Universitaria'=>'Universitaria',
+                    'Especialización'=>'Especialización',
+                    'Maestria/Magister'=>'Ms',
+                    'Doctorado '=>'Doctorado',
+                    ],
+            ])
             ->add('descripcion')
+            
             ->add('abreviacion')
             ->add('orden')
             ->add('activo')
