@@ -17,10 +17,9 @@ class ContratoType extends AbstractType
             ->add('obraOLabor')
             ->add('fechaInicio')
             ->add('fechaFin')
-            ->add('salarioBase', null, [
+            ->add('ingreso', null, [
                 'attr' => array('min' => 0)
             ])
-            ->add('salarioAuxilio')
             ->add('diasPeriodoPrueba')
             ->add('idProrrogaContrato')
             ->add('idCargo')

@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.1-beta" last-position="405,1588" last-zoom="1.05"
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="743,1551" last-zoom="1.05"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database">
 </database>
@@ -276,13 +276,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="date" length="1"/>
 		<comment><![CDATA[fecha en la que finaliza el contrato]]></comment>
 	</column>
-	<column name="salario_base">
+	<column name="ingreso">
 		<type name="bigint" length="0"/>
 		<comment><![CDATA[salario base a devengar el contratante]]></comment>
-	</column>
-	<column name="salario_auxilio">
-		<type name="bigint" length="0"/>
-		<comment><![CDATA[salario que se asigna]]></comment>
 	</column>
 	<column name="dias_periodo_prueba">
 		<type name="integer" length="1"/>
@@ -293,11 +289,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="id_cargo" index="10"/>
-		<object name="id_otrosi" index="11"/>
-		<object name="id_persona" index="8"/>
-		<object name="id_prorroga_contrato" index="12"/>
-		<object name="id_tipo_contrato" index="9"/>
+		<object name="id_cargo" index="9"/>
+		<object name="id_otrosi" index="10"/>
+		<object name="id_persona" index="7"/>
+		<object name="id_prorroga_contrato" index="11"/>
+		<object name="id_tipo_contrato" index="8"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
