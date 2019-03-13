@@ -8,6 +8,13 @@
                 <span>Home</span>
             </a>
         </li>
+        <li {% if app.request.get('_route') == 'auxilio_contrato_index' %} class="active"{% endif %}>
+            <a href="{{ path('auxilio_contrato_index') }}">
+                
+                <i class="material-icons">local_activity</i>
+                <span>Auxilio del Contrato</span>
+            </a>
+        </li>
         <li {% if app.request.get('_route') == 'cargo_index' %} class="active"{% endif %}>
             <a href="{{ path('cargo_index') }}">
                 <i class="material-icons">work</i>
