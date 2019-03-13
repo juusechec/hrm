@@ -14,7 +14,9 @@ class TituloEducacionContinuadaType extends AbstractType
         $builder
             ->add('nombre')
             ->add('descripcion')
-            ->add('horas')
+            ->add('horas', null, [
+                'attr' => array('min' => 0)
+            ])
             ->add('abreviacion')
             ->add('orden')
             ->add('activo')

@@ -13,14 +13,22 @@ class ContratoType extends AbstractType
     {
         $builder
             ->add('idTipoContrato')
-            ->add('objeto')
-            ->add('obraOLabor')
+            ->add('objeto', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ] 
+            ])
+            ->add('obraOLabor', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ] 
+            ])
             ->add('fechaInicio')
             ->add('fechaFin')
             ->add('ingreso', null, [
                 'attr' => array('min' => 0)
             ])
-            ->add('diasPeriodoPrueba')
+            ->add('diasPeriodoPrueba', null, [
+                'attr' => array('min' => 0)
+            ])
             ->add('idProrrogaContrato')
             ->add('idCargo')
             ->add('idPersona')
