@@ -72,6 +72,8 @@ class EmpleadoController extends AbstractController
         $form = $this->createForm(EmpleadoType::class, $persona);
         $form->handleRequest($request);
 
+        // var_dump($request);die;
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($persona);

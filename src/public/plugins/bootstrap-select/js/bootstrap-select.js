@@ -898,6 +898,7 @@
             'overflow': 'hidden',
             'min-height': minHeight + headerHeight + searchHeight + actionsHeight + doneButtonHeight + 'px'
           });
+          menuPadding = menuPadding + 30; // patch add by juusechec
           $menuInner.css({
             'max-height': menuHeight - headerHeight - searchHeight - actionsHeight - doneButtonHeight - menuPadding + 'px',
             'overflow-y': 'auto',
