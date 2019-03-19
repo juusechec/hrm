@@ -8,7 +8,11 @@
                 <span>Home</span>
             </a>
         </li>
-        <li class="submenu">
+        {% set submenu_class = '' %}
+        {% if app.request.get('_route') in ['educacion_basica_media_index', 'educacion_superior_index', 'educacion_continuada_index', 'titulo_educacion_continuada_index'] %}
+            {% set submenu_class = 'active' %}
+        {% endif %}
+        <li class="{{ submenu_class }}">
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">school</i>
                 <span>Educación</span>
