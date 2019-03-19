@@ -65,7 +65,7 @@ class EmpleadoController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="empleado_new", methods={"GET","POST"})
+     * @Route("/new2", name="empleado_new2", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -93,21 +93,18 @@ class EmpleadoController extends AbstractController
 
 
     /**
-     * @Route("/new2", name="empleado_new2", methods={"GET","POST"})
+     * @Route("/new", name="empleado_new", methods={"GET","POST"})
      */
     public function new2(Request $request): Response
     {
         $factory = new EmpleadoFactory();
 
-        // dummy code - this is here just so that the Task has some tags
-        // otherwise, this isn't an interesting example
         $persona1 = new Persona();
         $persona1->setPrimerNombre('Jorge');
         $factory->getFamiliares()->add($persona1);
         $persona2 = new Persona();
         $persona2->setPrimerNombre('Alejandro');
         $factory->getFamiliares()->add($persona2);
-        // end dummy code
 
         $contrato = new Contrato();
         $contrato->setObjeto("hola, soy un objeto");
@@ -117,8 +114,10 @@ class EmpleadoController extends AbstractController
 
         $form->handleRequest($request);
 
+        dd($factory);
+
         if ($form->isSubmitted() && $form->isValid()) {
-            dd('jajajaj');
+            dd($form->getData());
         }
 
         return $this->render('empleado/new.html.twig', [

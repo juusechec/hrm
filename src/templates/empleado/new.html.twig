@@ -24,7 +24,7 @@
                     </li>
                     <li role="presentation">
                         <a href="#profile_with_icon_title" data-toggle="tab">
-                            <i class="material-icons">face</i> PROFILE
+                            <i class="material-icons">people</i> Familiares
                         </a>
                     </li>
                     <li role="presentation">
@@ -53,12 +53,12 @@
                     <div role="tabpanel" class="tab-pane fade" id="settings_with_icon_title">
                     </div>
                 </div>
-                {{ form_end(form, {'render_rest': false}) }}
                 <div class="row clearfix">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <button class="btn btn-block btn-lg btn-primary waves-effect">{{ button_label|default('Siguiente') }}</button>
+                        <button class="btn btn-block btn-lg btn-primary waves-effect">{{ button_label|default('Guardar') }}</button>
                     </div>
                 </div>
+                {{ form_end(form, {'render_rest': false}) }}
             </div>
         </div>
     </div>

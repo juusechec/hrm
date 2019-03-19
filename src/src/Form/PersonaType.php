@@ -22,37 +22,44 @@ class PersonaType extends AbstractType
         $builder
             ->add('primerNombre', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('otroNombre', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('primerApellido', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('segundoApellido', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('fechaNacimiento', BirthdayType::class)
             ->add('lugarNacimiento', ChoiceType::class, [
                 'choices' => $lugares,
-                'attr' => [ 'data-live-search' => 'true' ]
+                'attr' => [ 'data-live-search' => 'true' ],
+                'required' => false
             ])
             ->add('tipoDocumento',ChoiceType::class,[
-                    'choices'=>[
-                        'CC'=>'CC',
-                        'TI'=>'TI',
-                        'CE'=>'CE',
-                        'RC'=>'RC',
-                        'Nit'=>'Nit',
-                    ]
+                'choices'=>[
+                    'CC'=>'CC',
+                    'TI'=>'TI',
+                    'CE'=>'CE',
+                    'RC'=>'RC',
+                    'Nit'=>'Nit',
+                ],
+                'required' => false
             ])
             ->add('numeroDocumento', NumberType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('fechaExpedicionDocumento', null, [
                 'years' => range(date('Y'), date('Y')-100)
@@ -72,29 +79,37 @@ class PersonaType extends AbstractType
                     'AB+'=>'AB+',
                     'AB-'=>'AB-'
                 ],
+                'required' => false
             ])
             ->add('telefonoFijo', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('telefonoMovil1', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('telefonoMovil2', TextType::class, [
-                'label' => 'Segundo teléfono (no obligatorio)'
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ],
+                'label' => 'Segundo teléfono (no obligatorio)',
+                'required' => false
             ])
             ->add('correoElectronico1', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
             ->add('correoElectronico2', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ]
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
             ])
+            ->add('idGenero')
             ->add('idEstadoCivil')
             ->add('idProcesoGestionIntegral')
-            ->add('idGenero')
             ->add('activo')
         ;
     }
