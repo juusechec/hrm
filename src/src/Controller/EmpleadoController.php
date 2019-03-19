@@ -7,8 +7,11 @@ use App\Entity\EducacionBasicaMedia;
 use App\Entity\EducacionSuperior;
 use App\Entity\EducacionContinuada;
 use App\Entity\Contrato;
+use App\Entity\Task;
 use App\Entity\Vivienda;
 use App\Form\EmpleadoType;
+use App\Form\PersonaType;
+use App\Form\TaskType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,24 +72,79 @@ class EmpleadoController extends AbstractController
     public function new(Request $request): Response
     {
         $persona = new Persona();
-        $form = $this->createForm(EmpleadoType::class, $persona);
-        $form->handleRequest($request);
+        $formPersona = $this->createForm(EmpleadoType::class, $persona);
+//        $form->handleRequest($request);
+//        dd($form);
 
-        // var_dump($request);die;
+        if ($formPersona->isSubmitted() && $formPersona->isValid()) {
+            // var_dump($request);die;
+            $dataPersona = $formPersona->getData();
+            dd($dataPersona);
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($persona);
+//            $entityManager->flush();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($persona);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('empleado_index');
+            return $this->redirectToRoute('empleado_new_id');
         }
 
         return $this->render('empleado/new.html.twig', [
-            'persona' => $persona,
+//            'persona' => $persona,
+            'formPersona' => $formPersona->createView(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/new2", name="empleado_new2", methods={"GET","POST"})
+     */
+    public function new_id(Request $request): Response
+    {
+        $task = new Task();
+
+        // dummy code - this is here just so that the Task has some tags
+        // otherwise, this isn't an interesting example
+        $persona1 = new Persona();
+        $persona1->setPrimerNombre('Jorge');
+        $task->getPersonas()->add($persona1);
+        $persona2 = new Persona();
+        $persona2->setPrimerNombre('Alejandro');
+        $task->getPersonas()->add($persona2);
+        // end dummy code
+
+        $contrato = new Contrato();
+        $contrato->setObjeto("hola, soy un objeto");
+        $task->setContrato($contrato);
+
+        $form = $this->createForm(TaskType::class, $task);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            dd('jajajaj');
+        }
+
+        return $this->render('empleado/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+//    /**
+//     * @Route("/new/{id}", name="empleado_new_id", methods={"GET","POST"})
+//     */
+//    public function new_id(Persona $persona): Response
+//    {
+////        $persona = new Persona();
+//        $formPersona = $this->createForm(EmpleadoType::class, $persona);
+//        if ($formPersona->isSubmitted() && $formPersona->isValid()) {
+//            $dataPersona = $formPersona->getData();
+//            dd($dataPersona);
+//            return $this->redirectToRoute('empleado_index');
+//        }
+//
+//        return $this->render('empleado/new.html.twig', [
+//            'formPersona' => $formPersona->createView(),
+//        ]);
+//    }
 
     /**
      * @Route("/{id}", name="empleado_show", methods={"GET"})
