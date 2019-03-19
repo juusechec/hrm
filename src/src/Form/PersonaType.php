@@ -4,9 +4,11 @@ namespace App\Form;
 
 use App\Entity\Persona;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PersonaType extends AbstractType
@@ -14,10 +16,22 @@ class PersonaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('primerNombre')
-            ->add('otroNombre')
-            ->add('primerApellido')
-            ->add('segundoApellido')
+            ->add('primerNombre', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
+            ->add('otroNombre', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
+            ->add('primerApellido', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
+            ->add('segundoApellido', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
             ->add('fechaNacimiento', BirthdayType::class)
             ->add('lugarNacimiento')
             ->add('tipoDocumento',ChoiceType::class,[
@@ -29,7 +43,10 @@ class PersonaType extends AbstractType
                         'Nit'=>'Nit',
                     ]
             ])
-            ->add('numeroDocumento')
+            ->add('numeroDocumento', NumberType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
             ->add('fechaExpedicionDocumento', null, [
                 'years' => range(date('Y'), date('Y')-100)
             ])
@@ -46,17 +63,29 @@ class PersonaType extends AbstractType
                     'AB-'=>'AB-'
                 ],
             ])
-            ->add('telefonoFijo')
-            ->add('telefonoMovil1')
-            ->add('telefonoMovil2', null, [
+            ->add('telefonoFijo', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
+            ->add('telefonoMovil1', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
+            ->add('telefonoMovil2', TextType::class, [
                 'label' => 'Segundo teléfono (no obligatorio)'
             ])
-            ->add('correoElectronico1')
-            ->add('correoElectronico2')
-            ->add('activo')
+            ->add('correoElectronico1', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
+            ->add('correoElectronico2', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ]
+            ])
             ->add('idEstadoCivil')
             ->add('idProcesoGestionIntegral')
             ->add('idGenero')
+            ->add('activo')
         ;
     }
 

@@ -7,11 +7,9 @@ use App\Entity\EducacionBasicaMedia;
 use App\Entity\EducacionSuperior;
 use App\Entity\EducacionContinuada;
 use App\Entity\Contrato;
-use App\Entity\Task;
+use App\Entity\EmpleadoFactory;
 use App\Entity\Vivienda;
-use App\Form\EmpleadoType;
-use App\Form\PersonaType;
-use App\Form\TaskType;
+use App\Form\EmpleadoFactoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -72,7 +70,7 @@ class EmpleadoController extends AbstractController
     public function new(Request $request): Response
     {
         $persona = new Persona();
-        $formPersona = $this->createForm(EmpleadoType::class, $persona);
+        $formPersona = $this->createForm(EmpleadoTaskType::class, $persona);
 //        $form->handleRequest($request);
 //        dd($form);
 
@@ -97,25 +95,25 @@ class EmpleadoController extends AbstractController
     /**
      * @Route("/new2", name="empleado_new2", methods={"GET","POST"})
      */
-    public function new_id(Request $request): Response
+    public function new2(Request $request): Response
     {
-        $task = new Task();
+        $factory = new EmpleadoFactory();
 
         // dummy code - this is here just so that the Task has some tags
         // otherwise, this isn't an interesting example
         $persona1 = new Persona();
         $persona1->setPrimerNombre('Jorge');
-        $task->getPersonas()->add($persona1);
+        $factory->getFamiliares()->add($persona1);
         $persona2 = new Persona();
         $persona2->setPrimerNombre('Alejandro');
-        $task->getPersonas()->add($persona2);
+        $factory->getFamiliares()->add($persona2);
         // end dummy code
 
         $contrato = new Contrato();
         $contrato->setObjeto("hola, soy un objeto");
-        $task->setContrato($contrato);
+        $factory->setContrato($contrato);
 
-        $form = $this->createForm(TaskType::class, $task);
+        $form = $this->createForm(EmpleadoFactoryType::class, $factory);
 
         $form->handleRequest($request);
 
@@ -196,7 +194,7 @@ class EmpleadoController extends AbstractController
      */
     public function edit(Request $request, Persona $persona): Response
     {
-        $form = $this->createForm(EmpleadoType::class, $persona);
+        $form = $this->createForm(EmpleadoTaskType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

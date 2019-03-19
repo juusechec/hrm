@@ -40,34 +40,23 @@
                 </ul>
 
                 <!-- Tab panes -->
+                {{ form_start(form) }}
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
-                        {#{{ include('empleado/_form.html.twig') }}#}
-
-                        {{ form_start(form) }}
-                        {# render the task's only field: description #}
-                        {{ form_row(form.description) }}
-
-                        <h3>Tags</h3>
-                        <ul class="tags">
-                            {# iterate over each existing tag and render its only field: name #}
-                            {% for tag in form.personas %}
-                                <li>{{ form_row(tag.primerNombre) }}</li>
-                            {% endfor %}
-                        </ul>
-                        {{ form_row(form.contrato.objeto) }}
-                        {{ form_row(form.contrato.obraOLabor) }}
-
-                        {{ form_end(form, {'render_rest': false}) }}
-
-
+                        {{ include('empleado/_persona_form.html.twig') }}
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
-                        {#{{ include('empleado/_form.html.twig') }}#}
+                        {{ include('empleado/_familiares_form.html.twig') }}
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="settings_with_icon_title">
+                    </div>
+                </div>
+                {{ form_end(form, {'render_rest': false}) }}
+                <div class="row clearfix">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <button class="btn btn-block btn-lg btn-primary waves-effect">{{ button_label|default('Siguiente') }}</button>
                     </div>
                 </div>
             </div>

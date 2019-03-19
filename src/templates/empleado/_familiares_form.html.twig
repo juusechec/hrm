@@ -1,0 +1,18 @@
+<h3>Familiares</h3>
+<div class="familiares">
+    {# iterate over each existing tag and render its only field: name #}
+    {% for persona in form.familiares %}
+            <div>{{ form_row(form.persona.primerNombre) }}</div>
+            <div>{{ form_row(form.persona.otroNombre) }}</div>
+            <div>{{ form_row(form.persona.primerNombre) }}</div>
+            <div>{{ form_row(form.persona.otroNombre) }}</div>
+            <div>{{ form_row(form.persona.primerApellido) }}</div>
+            <div>{{ form_row(form.persona.segundoApellido) }}</div>
+            <div>{{ form_row(form.persona.fechaNacimiento) }}</div>
+            <div>{{ form_row(form.persona.lugarNacimiento) }}</div>
+            <div>{{ form_row(form.persona.tipoDocumento) }}</div>
+            <div>{{ form_row(form.persona.numeroDocumento) }}</div>
+            <div>{{ form_row(form.persona.fechaExpedicionDocumento) }}</div>
+            <div>{{ form_row(form.persona.lugarExpedicionDocumento) }}</div>
+    {% endfor %}
+</div>
