@@ -892,13 +892,12 @@
           } else {
             minHeight = 0;
           }
-
+          searchHeight = searchHeight + 30; // patch add by juusechec
           $menu.css({
             'max-height': menuHeight + 'px',
             'overflow': 'hidden',
             'min-height': minHeight + headerHeight + searchHeight + actionsHeight + doneButtonHeight + 'px'
           });
-          menuPadding = menuPadding + 30; // patch add by juusechec
           $menuInner.css({
             'max-height': menuHeight - headerHeight - searchHeight - actionsHeight - doneButtonHeight - menuPadding + 'px',
             'overflow-y': 'auto',

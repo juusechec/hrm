@@ -9,12 +9,16 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Tests\Fixtures\ChoiceSubType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PersonaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $lugares = json_decode(file_get_contents(__DIR__.'/../../public/json/lugares.json'), true);
+
         $builder
             ->add('primerNombre', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
@@ -33,7 +37,10 @@ class PersonaType extends AbstractType
                 'label_attr' => [ 'class' => 'form-label' ]
             ])
             ->add('fechaNacimiento', BirthdayType::class)
-            ->add('lugarNacimiento')
+            ->add('lugarNacimiento', ChoiceType::class, [
+                'choices' => $lugares,
+                'attr' => [ 'data-live-search' => 'true' ]
+            ])
             ->add('tipoDocumento',ChoiceType::class,[
                     'choices'=>[
                         'CC'=>'CC',
@@ -50,7 +57,10 @@ class PersonaType extends AbstractType
             ->add('fechaExpedicionDocumento', null, [
                 'years' => range(date('Y'), date('Y')-100)
             ])
-            ->add('lugarExpedicionDocumento')
+            ->add('lugarExpedicionDocumento', ChoiceType::class, [
+                'choices' => $lugares,
+                'attr' => [ 'data-live-search' => 'true' ]
+            ])
             ->add('tipoSangre', ChoiceType::class, [
                 'choices'  => [
                     'O+' => 'O+',
