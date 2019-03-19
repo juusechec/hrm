@@ -8,9 +8,40 @@
                 <span>Home</span>
             </a>
         </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="menu-toggle">
+                <i class="material-icons">school</i>
+                <span>Educación</span>
+            </a>
+            <ul class="ml-menu">
+                <li {% if app.request.get('_route') == 'educacion_basica_media_index' %} class="active"{% endif %}>
+                    <a href="{{ path('educacion_basica_media_index') }}">
+                        <i class="material-icons">event_seat</i>
+                        <span>Nivel de Escolaridad</span>
+                    </a>
+                </li>
+                <li {% if app.request.get('_route') == 'educacion_superior_index' %} class="active"{% endif %}>
+                    <a href="{{ path('educacion_superior_index') }}">
+                        <i class="material-icons">gavel </i>
+                        <span>Educación Superior</span>
+                    </a>
+                </li>
+                <li {% if app.request.get('_route') == 'educacion_continuada_index' %} class="active"{% endif %}>
+                    <a href="{{ path('educacion_continuada_index') }}">
+                        <i class="material-icons">all_out</i>
+                        <span>Educación Continuada</span>
+                    </a>
+                </li>
+                <li {% if app.request.get('_route') == 'titulo_educacion_continuada_index' %} class="active"{% endif %}>
+                    <a href="{{ path('titulo_educacion_continuada_index') }}">
+                        <i class="material-icons">local_library</i>
+                        <span>Titulo Educación Continuada</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li {% if app.request.get('_route') == 'auxilio_contrato_index' %} class="active"{% endif %}>
             <a href="{{ path('auxilio_contrato_index') }}">
-                
                 <i class="material-icons">local_activity</i>
                 <span>Auxilio del Contrato</span>
             </a>
@@ -43,24 +74,6 @@
             <a href="{{ path('cuenta_bancaria_index') }}">
                 <i class="material-icons">attach_money</i>
                 <span>Cuenta Bancaria</span>
-            </a>
-        </li>
-        <li {% if app.request.get('_route') == 'educacion_basica_media_index' %} class="active"{% endif %}>
-            <a href="{{ path('educacion_basica_media_index') }}">
-                <i class="material-icons">event_seat</i>
-                <span>Nivel de Escolaridad</span>
-            </a>
-        </li>
-        <li {% if app.request.get('_route') == 'educacion_continuada_index' %} class="active"{% endif %}>
-            <a href="{{ path('educacion_continuada_index') }}">
-                <i class="material-icons">all_out</i>
-                <span>Educación Continuada</span>
-            </a>
-        </li>
-        <li {% if app.request.get('_route') == 'educacion_superior_index' %} class="active"{% endif %}>
-            <a href="{{ path('educacion_superior_index') }}">
-                <i class="material-icons">gavel </i>
-                <span>Educación Superior</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'elemento_dotacion_index' %} class="active"{% endif %}>
@@ -205,12 +218,6 @@
             <a href="{{ path('titulo_academico_index') }}">
                 <i class="material-icons">school</i>
                 <span>Titulo Academico</span>
-            </a>
-        </li>
-        <li {% if app.request.get('_route') == 'titulo_educacion_continuada_index' %} class="active"{% endif %}>
-            <a href="{{ path('titulo_educacion_continuada_index') }}">
-                <i class="material-icons">local_library</i>
-                <span>Titulo Educación Continuada</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'Vivienda_index' %} class="active"{% endif %}>
