@@ -892,7 +892,7 @@
           } else {
             minHeight = 0;
           }
-
+          searchHeight = searchHeight + 30; // patch add by juusechec
           $menu.css({
             'max-height': menuHeight + 'px',
             'overflow': 'hidden',

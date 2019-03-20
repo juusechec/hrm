@@ -7,8 +7,9 @@ use App\Entity\EducacionBasicaMedia;
 use App\Entity\EducacionSuperior;
 use App\Entity\EducacionContinuada;
 use App\Entity\Contrato;
+use App\Entity\EmpleadoFactory;
 use App\Entity\Vivienda;
-use App\Form\EmpleadoType;
+use App\Form\EmpleadoFactoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,27 +65,83 @@ class EmpleadoController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="empleado_new", methods={"GET","POST"})
+     * @Route("/new2", name="empleado_new2", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
         $persona = new Persona();
-        $form = $this->createForm(EmpleadoType::class, $persona);
-        $form->handleRequest($request);
+        $formPersona = $this->createForm(EmpleadoTaskType::class, $persona);
+//        $form->handleRequest($request);
+//        dd($form);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($persona);
-            $entityManager->flush();
+        if ($formPersona->isSubmitted() && $formPersona->isValid()) {
+            // var_dump($request);die;
+            $dataPersona = $formPersona->getData();
+            dd($dataPersona);
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($persona);
+//            $entityManager->flush();
 
-            return $this->redirectToRoute('empleado_index');
+            return $this->redirectToRoute('empleado_new_id');
         }
 
         return $this->render('empleado/new.html.twig', [
-            'persona' => $persona,
+//            'persona' => $persona,
+            'formPersona' => $formPersona->createView(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/new", name="empleado_new", methods={"GET","POST"})
+     */
+    public function new2(Request $request): Response
+    {
+        $factory = new EmpleadoFactory();
+
+        $persona1 = new Persona();
+        $persona1->setPrimerNombre('Jorge');
+        $factory->getFamiliares()->add($persona1);
+        $persona2 = new Persona();
+        $persona2->setPrimerNombre('Alejandro');
+        $factory->getFamiliares()->add($persona2);
+
+        $contrato = new Contrato();
+        $contrato->setObjeto("hola, soy un objeto");
+        $factory->setContrato($contrato);
+
+        $form = $this->createForm(EmpleadoFactoryType::class, $factory);
+
+        $form->handleRequest($request);
+
+        dd($factory);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            dd($form->getData());
+        }
+
+        return $this->render('empleado/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+//    /**
+//     * @Route("/new/{id}", name="empleado_new_id", methods={"GET","POST"})
+//     */
+//    public function new_id(Persona $persona): Response
+//    {
+////        $persona = new Persona();
+//        $formPersona = $this->createForm(EmpleadoType::class, $persona);
+//        if ($formPersona->isSubmitted() && $formPersona->isValid()) {
+//            $dataPersona = $formPersona->getData();
+//            dd($dataPersona);
+//            return $this->redirectToRoute('empleado_index');
+//        }
+//
+//        return $this->render('empleado/new.html.twig', [
+//            'formPersona' => $formPersona->createView(),
+//        ]);
+//    }
 
     /**
      * @Route("/{id}", name="empleado_show", methods={"GET"})
@@ -136,7 +193,7 @@ class EmpleadoController extends AbstractController
      */
     public function edit(Request $request, Persona $persona): Response
     {
-        $form = $this->createForm(EmpleadoType::class, $persona);
+        $form = $this->createForm(EmpleadoTaskType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

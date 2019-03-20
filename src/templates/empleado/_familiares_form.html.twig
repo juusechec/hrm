@@ -1,0 +1,20 @@
+<h3>Familiares</h3>
+<div class="familiares">
+    {#{{ dump(form.familiares | keys) }}#}
+        {#{{ dump(form.familiares | length) }}#}
+    {% for persona in form.familiares %}
+            <h2>Familiar {{ loop.index }}</h2>
+            {{ form_row(persona.primerNombre) }}
+            {{ form_row(persona.otroNombre) }}
+            {{ form_row(persona.primerNombre) }}
+            {{ form_row(persona.otroNombre) }}
+            {{ form_row(persona.primerApellido) }}
+            {{ form_row(persona.segundoApellido) }}
+            {{ form_row(persona.fechaNacimiento) }}
+            {{ form_row(persona.lugarNacimiento) }}
+            {{ form_row(persona.tipoDocumento) }}
+            {{ form_row(persona.numeroDocumento) }}
+            {{ form_row(persona.fechaExpedicionDocumento) }}
+            {{ form_row(persona.lugarExpedicionDocumento) }}
+    {% endfor %}
+</div>

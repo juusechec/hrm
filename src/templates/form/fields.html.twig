@@ -1,11 +1,19 @@
 {# templates/form/fields.html.twig #}
 {% block form_row %}
 {% spaceless %}
+    {# {{ dump(_context|keys) }} #}
+    {# {{ dump(block_prefixes) }} #}
     <div class="form-group form-float">
         <div class="form-line">
-            {{ form_label(form) }}
-            {{ form_errors(form) }}
-            {{ form_widget(form) }}
+            {% if block_prefixes[1] in ['date', 'choice'] %}
+                {{ form_errors(form) }}
+                {{ form_label(form) }}
+                {{ form_widget(form) }}           
+            {% else %}
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+                {{ form_label(form) }}
+            {% endif %}
         </div>
     </div>
 {% endspaceless %}
