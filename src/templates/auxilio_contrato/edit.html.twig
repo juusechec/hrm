@@ -3,11 +3,21 @@
 {% block title %}Edit AuxilioContrato{% endblock %}
 
 {% block body %}
-    <h1>Edit AuxilioContrato</h1>
+<div class="card">
+    <div class="header">
+        <h2>Edit AuxilioContrato </h2>
+    </div>
+    <div class="body">
+        {{ include('auxilio_contrato/_form.html.twig', {'button_label': 'Actualizar'}) }}
+     </div>
+</div>
 
-    {{ include('auxilio_contrato/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('auxilio_contrato_index') }}">back to list</a>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('auxilio_contrato_index') }}"class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+</div>
 
     {{ include('auxilio_contrato/_delete_form.html.twig') }}
+    <br>
 {% endblock %}
