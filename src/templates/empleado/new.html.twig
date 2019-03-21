@@ -27,16 +27,16 @@
                             <i class="material-icons">people</i> Familiares
                         </a>
                     </li>
-                    <li role="presentation">
-                        <a href="#messages_with_icon_title" data-toggle="tab">
-                            <i class="material-icons">email</i> MESSAGES
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#settings_with_icon_title" data-toggle="tab">
-                            <i class="material-icons">settings</i> SETTINGS
-                        </a>
-                    </li>
+                    {#<li role="presentation">#}
+                        {#<a href="#messages_with_icon_title" data-toggle="tab">#}
+                            {#<i class="material-icons">email</i> MESSAGES#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li role="presentation">#}
+                        {#<a href="#settings_with_icon_title" data-toggle="tab">#}
+                            {#<i class="material-icons">settings</i> SETTINGS#}
+                        {#</a>#}
+                    {#</li>#}
                 </ul>
 
                 <!-- Tab panes -->
@@ -58,6 +58,7 @@
                         <button class="btn btn-block btn-lg btn-primary waves-effect">{{ button_label|default('Guardar') }}</button>
                     </div>
                 </div>
+                {{ form_row(form._token) }}
                 {{ form_end(form, {'render_rest': false}) }}
             </div>
         </div>

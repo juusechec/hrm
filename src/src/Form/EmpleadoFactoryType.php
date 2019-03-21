@@ -21,7 +21,10 @@ class EmpleadoFactoryType extends AbstractType
             'entry_options' => ['label' => false],
         ]);
 
-        $builder->add('contrato', ContratoType::class);
+        $builder->add('relacionFamiliares', CollectionType::class, [
+            'entry_type' => RelacionPersonasType::class,
+            'entry_options' => ['label' => false],
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

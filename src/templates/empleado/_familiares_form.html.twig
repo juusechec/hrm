@@ -3,7 +3,9 @@
     {#{{ dump(form.familiares | keys) }}#}
         {#{{ dump(form.familiares | length) }}#}
     {% for persona in form.familiares %}
+            {% set indice = loop.index %}
             <h2>Familiar {{ loop.index }}</h2>
+            {{ form_row(form.relacionFamiliares[indice-1].idTipoRelacionPersonas) }}
             {{ form_row(persona.primerNombre) }}
             {{ form_row(persona.otroNombre) }}
             {{ form_row(persona.primerNombre) }}

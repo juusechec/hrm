@@ -11,12 +11,13 @@ class EmpleadoFactory
 
     protected $familiares;
 
-    protected $contrato;
+    protected $relacionFamiliares;
 
     public function __construct()
     {
-        $this->familiares = new ArrayCollection();
         $this->persona = new Persona();
+        $this->familiares = new ArrayCollection();
+        $this->relacionFamiliares = new ArrayCollection();
     }
 
     public function getPersona()
@@ -29,19 +30,14 @@ class EmpleadoFactory
         $this->persona = $persona;
     }
 
-    public function getContrato()
-    {
-        return $this->contrato;
-    }
-
-    public function setContrato($contrato)
-    {
-        $this->contrato = $contrato;
-    }
-
     public function getFamiliares()
     {
         return $this->familiares;
+    }
+
+    public function getRelacionFamiliares()
+    {
+        return $this->relacionFamiliares;
     }
 
 }
