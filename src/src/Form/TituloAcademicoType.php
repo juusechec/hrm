@@ -19,7 +19,7 @@ class TituloAcademicoType extends AbstractType
                 'choices'  => [
                     'Tecnica' => 'Tecnica',
                     'Tecnologica' => 'Tecnologica',
-                    'Tecnologica ESpecializada' => 'Tecnologica Especializada',
+                    'Tecnologica Especializada' => 'Tecnologica Especializada',
                     'Universitaria'=>'Universitaria',
                     'Especialización'=>'Especialización',
                     'Maestria/Magister'=>'Maestria/Magister',
