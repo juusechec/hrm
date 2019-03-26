@@ -20,19 +20,19 @@ function changeVisibilityOfFields(valor) {
     console.log('valor', valor);
     if (valor === '1') { // Obra o Labor
         showField('contrato_objeto');
-        showField('contrato_obraOLabor');
+        hideField('contrato_obraOLabor');
         hideField('contrato_calcularFechaFin');
         hideField('contrato_restaFechas');
         hideField('contrato_idOtrosi');
     } else if (valor === '2') { // Indefinido
         hideField('contrato_objeto');
-        showField('contrato_obraOLabor');
+        hideField('contrato_obraOLabor');
         hideField('contrato_calcularFechaFin');
         hideField('contrato_restaFechas');
         hideField('contrato_idOtrosi');
     } else if (valor === '3') { // Fijo
         hideField('contrato_objeto');
-        showField('contrato_obraOLabor');
+        hideField('contrato_obraOLabor');
         showField('contrato_calcularFechaFin');
         showField('contrato_restaFechas');
         hideField('contrato_idOtrosi');
