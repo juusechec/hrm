@@ -3,9 +3,19 @@
 {% block title %}Nuevo Concepto Examen Medico{% endblock %}
 
 {% block body %}
-    <h1>Crear nuevo Concepto Examen Medico</h1>
+<div class="card">
+    <div class="header">
+        <h2>Crear nuevo Concepto Examen Medico</h2>
+    </div>
+    <div class="body">
+        {{ include('concepto_examen_medico/_form.html.twig') }}
+    </div>
+</div>
 
-    {{ include('concepto_examen_medico/_form.html.twig') }}
-
-    <a href="{{ path('concepto_examen_medico_index') }}">Volver a la lista</a>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('concepto_examen_medico_index') }}"class="btn btn-block btn-lg btn-success waves-effect">Volver a la Lista</a>
+    </div>
+</div>
+<br>
 {% endblock %}
