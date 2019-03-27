@@ -1,15 +1,16 @@
 {% extends 'hrm.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
 
 {% block title %}Editar Auxilio Contrato{% endblock %}
 
 {% block body %}
 <div class="card">
     <div class="header">
-        <h2>Editar Auxilio Contrato </h2>
+        <h2>Editar Auxilio Contrato</h2>
     </div>
     <div class="body">
         {{ include('auxilio_contrato/_form.html.twig', {'button_label': 'Actualizar'}) }}
-     </div>
+    </div>
 </div>
 
 <div class="row clearfix">
@@ -17,7 +18,6 @@
         <a href="{{ path('auxilio_contrato_index') }}"class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
     </div>
 </div>
-
-    {{ include('auxilio_contrato/_delete_form.html.twig') }}
-    <br>
+{{ include('auxilio_contrato/_delete_form.html.twig') }}
+<br>
 {% endblock %}
