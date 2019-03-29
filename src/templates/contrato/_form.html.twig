@@ -1,4 +1,8 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Guardar') }}</button>
+     <div class="row clearfix">
+        <div class="col-lg-3 col-lg-offset-9 col-md-3 col-md-offset-9 col-sm-6 col-sm-offset-6 col-xs-12">
+            <button class="btn btn-block btn-lg btn-danger waves-effect">Eliminar</button>
+        </div>
+    </div>
 {{ form_end(form) }}

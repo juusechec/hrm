@@ -3,41 +3,55 @@
 {% block title %}Concepto Otro Si{% endblock %}
 
 {% block body %}
-    <h1>Concepto Otro Si</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Abreviación</th>
-                <th>Orden</th>
-                <th>Activo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for concepto_otrosi in concepto_otrosis %}
-            <tr>
-                <td>{{ concepto_otrosi.id }}</td>
-                <td>{{ concepto_otrosi.nombre }}</td>
-                <td>{{ concepto_otrosi.descripcion }}</td>
-                <td>{{ concepto_otrosi.abreviacion }}</td>
-                <td>{{ concepto_otrosi.orden }}</td>
-                <td>{{ concepto_otrosi.activo ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('concepto_otrosi_show', {'id': concepto_otrosi.id}) }}">Ver</a>
-                    <a href="{{ path('concepto_otrosi_edit', {'id': concepto_otrosi.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">¡Oops! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('concepto_otrosi_new') }}">Crear Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Concepto Otro Si<small>Ayuda economica para que las persoans cumplan a bien su contrato </small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Abreviación</th>
+                            <th>Orden</th>
+                            <th>Activo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for concepto_otrosi in concepto_otrosis %}
+                        <tr>
+                            <td>{{ concepto_otrosi.id }}</td>
+                            <td>{{ concepto_otrosi.nombre }}</td>
+                            <td>{{ concepto_otrosi.descripcion }}</td>
+                            <td>{{ concepto_otrosi.abreviacion }}</td>
+                            <td>{{ concepto_otrosi.orden }}</td>
+                            <td>{{ concepto_otrosi.activo ? 'Yes' : 'No' }}</td>
+                            <td>
+                                <a href="{{ path('concepto_otrosi_show', {'id': concepto_otrosi.id}) }}">Ver</a>
+                                <a href="{{ path('concepto_otrosi_edit', {'id': concepto_otrosi.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">¡Oops! no encontramos nada</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('concepto_otrosi_new') }}">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}
