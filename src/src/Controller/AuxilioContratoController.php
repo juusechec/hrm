@@ -33,6 +33,14 @@ class AuxilioContratoController extends AbstractController
      */
     public function new(Request $request): Response
     {
+//        $request->setLocale('es_CO.utf8');
+//        setlocale(LC_ALL,'es_CO');
+//        setlocale(LC_ALL, 'es_CO.utf8') or die('Locale not installed');
+//        $date = "24/11/2014";
+//        $date = \DateTime::createFromFormat("d/m/Y", $string);
+//        echo iconv('ISO-8859-2', 'UTF-8', strftime("%A, %d de %B de %Y", strtotime($date)));
+//        setlocale(LC_ALL, "es_CO", 'Spanish_Spain', 'Spanish');
+//        echo iconv('ISO-8859-2', 'UTF-8', strftime("%A, %d de %B de %Y", strtotime($date)));
         $auxilioContrato = new AuxilioContrato();
         $form = $this->createForm(AuxilioContratoType::class, $auxilioContrato);
         $form->handleRequest($request);

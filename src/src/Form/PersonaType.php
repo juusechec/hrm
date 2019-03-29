@@ -47,7 +47,7 @@ class PersonaType extends AbstractType
                 'required' => false
             ])
             ->add('tipoDocumento',ChoiceType::class,[
-                'choices'=>[
+                'choices' => [
                     'CC'=>'CC',
                     'TI'=>'TI',
                     'CE'=>'CE',
