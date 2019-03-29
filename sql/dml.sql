@@ -100,3 +100,7 @@ null,
 null,
 true
 );
+
+SELECT pg_get_serial_sequence('public.tipo_contrato', 'id');
+SELECT currval(pg_get_serial_sequence('public.tipo_contrato', 'id'));
+ALTER SEQUENCE tipo_contrato_id_seq RESTART WITH 7;
