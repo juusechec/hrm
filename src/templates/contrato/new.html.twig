@@ -4,11 +4,20 @@
 {% block title %}Nuevo Contrato{% endblock %}
 
 {% block body %}
-    <h1>Nuevo  Contrato</h1>
+ <div class="card">
+    <div class="header">
+        <h2>Nuevo  Contrato</h2>
+    </div>
+    <div class="body">
+        {{ include('contrato/_form.html.twig') }}</div>
+</div>
 
-    {{ include('contrato/_form.html.twig') }}
-
-    {% if not persona %}
-    <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
-    {% endif %}
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        {% if not persona %}
+            <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
+        {% endif %}
+    </div>
+</div>
+<br>
 {% endblock %}

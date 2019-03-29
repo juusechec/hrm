@@ -3,44 +3,54 @@
 {% block title %}Contrato{% endblock %}
 
 {% block body %}
-    <h1>Contrato</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contrato.id }}</td>
-            </tr>
-            <tr>
-                <th>Objeto</th>
-                <td>{{ contrato.objeto }}</td>
-            </tr>
-            <tr>
-                <th>Obra O Labor</th>
-                <td>{{ contrato.obraOLabor }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Inicio</th>
-                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Fin</th>
-                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Ingreso</th>
-                <td>{{ contrato.ingreso }}</td>
-            </tr>
-            <tr>
-                <th>Dias del Periodo Prueba</th>
-                <td>{{ contrato.diasPeriodoPrueba }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
-
-    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">Editar</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Contrato</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ contrato.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Objeto</th>
+                            <td>{{ contrato.objeto }}</td>
+                        </tr>
+                        <tr>
+                            <th>Obra O Labor</th>
+                            <td>{{ contrato.obraOLabor }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha Inicio</th>
+                            <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha Fin</th>
+                            <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ingreso</th>
+                            <td>{{ contrato.ingreso }}</td>
+                        </tr>
+                        <tr>
+                            <th>Dias del Periodo Prueba</th>
+                            <td>{{ contrato.diasPeriodoPrueba }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
+        <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">Editar</a></div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
     {{ include('contrato/_delete_form.html.twig') }}
 {% endblock %}

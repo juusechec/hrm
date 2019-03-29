@@ -3,43 +3,56 @@
 {% block title %}Listado de Contratos {% endblock %}
 
 {% block body %}
-    <h1>Listado de Contratos</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Objeto</th>
-                <th>Obra o Labor</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
-                <th>Ingreso</th>
-                <th>Dias del Periodo Prueba</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contrato in contratos %}
-            <tr>
-                <td>{{ contrato.id }}</td>
-                <td>{{ contrato.objeto }}</td>
-                <td>{{ contrato.obraOLabor }}</td>
-                <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
-                <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
-                <td>{{ contrato.ingreso }}</td>
-                <td>{{ contrato.diasPeriodoPrueba }}</td>
-                <td>
-                    <a href="{{ path('contrato_show', {'id': contrato.id}) }}">Ver </a>
-                    <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">¡Oops! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('contrato_new') }}">Crear Nuevo</a>
+ <div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Listado de Contratos <small>Ayuda economica para que las persoans cumplan a bien su contrato </small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Objeto</th>
+                            <th>Obra o Labor</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Ingreso</th>
+                            <th>Dias del Periodo Prueba</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for contrato in contratos %}
+                        <tr>
+                            <td>{{ contrato.id }}</td>
+                            <td>{{ contrato.objeto }}</td>
+                            <td>{{ contrato.obraOLabor }}</td>
+                            <td>{{ contrato.fechaInicio ? contrato.fechaInicio|date('d-m-Y') : '' }}</td>
+                            <td>{{ contrato.fechaFin ? contrato.fechaFin|date('d-m-Y') : '' }}</td>
+                            <td>{{ contrato.ingreso }}</td>
+                            <td>{{ contrato.diasPeriodoPrueba }}</td>
+                            <td>
+                                <a href="{{ path('contrato_show', {'id': contrato.id}) }}">Ver </a>
+                                <a href="{{ path('contrato_edit', {'id': contrato.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="9">¡Oops! no encontramos nada</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('contrato_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

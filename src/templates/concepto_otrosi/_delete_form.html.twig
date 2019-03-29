@@ -1,5 +1,9 @@
 <form method="post" action="{{ path('concepto_otrosi_delete', {'id': concepto_otrosi.id}) }}" onsubmit="return confirm('¿Estas seguro que desear borrar este Item?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ concepto_otrosi.id) }}">
-    <button class="btn">Borrar</button>
+    <div class="row clearfix">
+        <div class="col-lg-3 col-lg-offset-9 col-md-3 col-md-offset-9 col-sm-6 col-sm-offset-6 col-xs-12">
+            <button class="btn btn-block btn-lg btn-danger waves-effect">Borrar</button>
+        </div>
+    </div>
 </form>
