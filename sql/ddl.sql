@@ -684,8 +684,8 @@ CREATE TABLE public.tipo_vivienda(
 	nombre text,
 	descripcion text,
 	abreviacion text,
-	activo boolean,
 	orden integer,
+	activo boolean,
 	CONSTRAINT tipo_vivienda_pk PRIMARY KEY (id)
 
 );
@@ -1094,6 +1094,8 @@ CREATE TABLE public.auxilio_contrato(
 
 );
 -- ddl-end --
+COMMENT ON TABLE public.auxilio_contrato IS 'Auxilios monetarios que se dan como complemento del salario.';
+-- ddl-end --
 COMMENT ON COLUMN public.auxilio_contrato.id IS 'ID de la tabla de auxilios';
 -- ddl-end --
 COMMENT ON COLUMN public.auxilio_contrato.fecha IS 'Fecha en que se da el auxilio';
@@ -1115,6 +1117,8 @@ CREATE TABLE public.tipo_auxilio_contrato(
 	CONSTRAINT tipo_auxilio_contrato_pk PRIMARY KEY (id)
 
 );
+-- ddl-end --
+COMMENT ON TABLE public.tipo_auxilio_contrato IS 'Tipo de auxilios del contrato.';
 -- ddl-end --
 ALTER TABLE public.tipo_auxilio_contrato OWNER TO postgres;
 -- ddl-end --
