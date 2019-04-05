@@ -46,7 +46,7 @@ class PersonaType extends AbstractType
                 'attr' => [ 'data-live-search' => 'true' ],
                 'required' => false
             ])
-            ->add('tipoDocumento',ChoiceType::class,[
+            ->add('tipoDocumento', ChoiceType::class,[
                 'choices' => [
                     'CC'=>'CC',
                     'TI'=>'TI',

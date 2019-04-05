@@ -1,6 +1,6 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Educacion Superior {% endblock %}
+{% block title %}Educación Superior{% endblock %}
 
 {% block body %}
 <div class="row clearfix">
@@ -8,8 +8,8 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    Educacion Superior
-                    <small>Registre aquí titulos técnicos, tecnológicos o pregrados, postgrados, maestrías y doctorados.</small>
+                    Educación Superior
+                    <small>Registre aquí títulos técnicos, tecnológicos o pregrados, postgrados, maestrías y doctorados.</small>
                 </h2>
             </div>
             <div class="body table-responsive">
@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ educacion_superior.id }}</td>
                             <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
-                            <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
+                            <td>{{ educacion_superior.graduado ? 'Sí' : 'No' }}</td>
                             <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
                             <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('d-m-Y') : '' }}</td>
                             <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>

@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('cuenta_bancaria_delete', {'id': cuenta_bancarium.id}) }}" onsubmit="return confirm('¿Está seguro que desea eliminar este ítem?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cuenta_bancarium.id) }}">
-    <button class="btn">Borrar</button>
+    <button class="btn">Eliminar</button>
 </form>
