@@ -18,21 +18,25 @@ function sendReloadMessage() {
 function showSelect(id) {
     $('label[for="' + id + '"]').show();
     $('#' + id).selectpicker('show');
+    $('label[for="' + id + '"]').parent().show();
 }
 
 function hideSelect(id) {
     $('label[for="' + id + '"]').hide();
     $('#' + id).selectpicker('hide');
+    $('label[for="' + id + '"]').parent().hide();
 }
 
 function showInput(id) {
     $('label[for="' + id + '"]').show();
     $('#' + id).show();
+    $('#' + id).parent().show();
 }
 
 function hideInput(id) {
     $('label[for="' + id + '"]').hide();
     $('#' + id).hide();
+    $('#' + id).parent().hide();
 }
 
 function getTagName(id) {

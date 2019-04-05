@@ -28,7 +28,11 @@ class ConceptoOtrosiType extends AbstractType
                 'label_attr' => [ 'class' => 'form-label' ],
                 'required' => false
             ])
-            ->add('orden')
+            ->add('orden', null, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
+            ])
             ->add('activo')
         ;
     }

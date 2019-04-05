@@ -3,14 +3,13 @@
 {% block title %}Auxilio Contrato{% endblock %}
 
 {% block body %}
-
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
                 <h2>
                     Auxilio Contrato
-                    <small>Ayuda economica para que las persoans cumplan a bien su contrato </small>
+                    <small>Ayuda economica para que las persoans cumplan a bien su contrato</small>
                 </h2>
             </div>
             <div class="body table-responsive">
@@ -28,10 +27,10 @@
                             <td>{{ auxilio_contrato.id }}</td>
                             <td>{{ auxilio_contrato.fecha ? auxilio_contrato.fecha|date('Y-m-d') : '' }}</td>
                             <td>
-                                <a href="{{ path('auxilio_contrato_show', {'id': auxilio_contrato.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                <a href="{{ path('auxilio_contrato_show', {'id': auxilio_contrato.id}) }}" title="Ver" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">view_headline</i>
                                 </a>
-                                <a href="{{ path('auxilio_contrato_edit', {'id': auxilio_contrato.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                <a href="{{ path('auxilio_contrato_edit', {'id': auxilio_contrato.id}) }}" title="Editar" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">mode_edit</i>
                                 </a>
                             </td>

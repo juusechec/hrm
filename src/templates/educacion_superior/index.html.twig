@@ -37,10 +37,10 @@
                             <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>
                             <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
                             <td>
-                                <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}" title="Ver" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">view_headline</i>
                                 </a>
-                                <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}" title="Editar" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">mode_edit</i>
                                 </a>
                             </td>
@@ -58,7 +58,7 @@
 </div>
 <div class="row clearfix">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <a href="{{ path('educacion_superior_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Nuevo</a>
+        <a href="{{ path('educacion_superior_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear nuevo</a>
     </div>
 </div>
 {% endblock %}

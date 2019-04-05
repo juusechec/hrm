@@ -42,6 +42,12 @@
                         <span>Titulo Educación Continuada</span>
                     </a>
                 </li>
+                <li {% if app.request.get('_route') == 'titulo_academico_index' %} class="active"{% endif %}>
+                    <a href="{{ path('titulo_academico_index') }}">
+                        <i class="material-icons">school</i>
+                        <span>Título Academico</span>
+                    </a>
+                </li>
             </ul>
         </li>
         <li {% if app.request.get('_route') == 'auxilio_contrato_index' %} class="active"{% endif %}>
@@ -216,12 +222,6 @@
             <a href="{{ path('tipo_vivienda_index') }}">
                 <i class="material-icons"> compare</i>
                 <span>Tipo de Vivienda</span>
-            </a>
-        </li>
-        <li {% if app.request.get('_route') == 'titulo_academico_index' %} class="active"{% endif %}>
-            <a href="{{ path('titulo_academico_index') }}">
-                <i class="material-icons">school</i>
-                <span>Titulo Academico</span>
             </a>
         </li>
         <li {% if app.request.get('_route') == 'Vivienda_index' %} class="active"{% endif %}>

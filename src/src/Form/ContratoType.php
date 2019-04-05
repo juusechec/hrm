@@ -21,7 +21,7 @@ class ContratoType extends AbstractType
             ])
             ->add('obraOLabor', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ] 
+                'label_attr' => [ 'class' => 'form-label' ]
             ])
             ->add('fechaInicio')
             ->add('calcularFechaFin', ChoiceType::class, [
@@ -42,10 +42,18 @@ class ContratoType extends AbstractType
             ])
             ->add('fechaFin')
             ->add('ingreso', null, [
-                'attr' => array('min' => 0)
+                'attr' => [
+                    'min' => 0,
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [ 'class' => 'form-label' ]
             ])
             ->add('diasPeriodoPrueba', null, [
-                'attr' => array('min' => 0)
+                'attr' => [
+                    'min' => 0,
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [ 'class' => 'form-label' ]
             ])
             ->add('idProrrogaContrato')
             ->add('idCargo')
