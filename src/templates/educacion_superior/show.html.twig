@@ -3,44 +3,58 @@
 {% block title %}Educacion Superior{% endblock %}
 
 {% block body %}
-    <h1>Educacion Superior</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Educación Superior</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ educacion_superior.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numero de Semestres Aprobados</th>
+                            <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
+                        </tr>
+                        <tr>
+                            <th>Graduado</th>
+                            <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de Grado</th>
+                            <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de Expedicion de la Tarjeta Profesional</th>
+                            <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de Vencimiento de la Tarjeta Profesional</th>
+                            <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numero Tarjeta Profesional</th>
+                            <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_superior_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la Lista</a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ educacion_superior.id }}</td>
-            </tr>
-            <tr>
-                <th>Numero de Semestres Aprobados</th>
-                <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
-            </tr>
-            <tr>
-                <th>Graduado</th>
-                <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha de Grado</th>
-                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha de Expedicion de la Tarjeta Profesional</th>
-                <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha de Vencimiento de la Tarjeta Profesional</th>
-                <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Numero Tarjeta Profesional</th>
-                <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('educacion_superior_index') }}">Volver a la Lista</a>
-
-    <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">Editar</a>
-
-    {{ include('educacion_superior/_delete_form.html.twig') }}
+{{ include('educacion_superior/_delete_form.html.twig') }}
+<br>
 {% endblock %}

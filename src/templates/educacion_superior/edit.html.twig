@@ -1,13 +1,22 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Editar Educacion Superior{% endblock %}
+{% block title %}Editar Educación Superior{% endblock %}
 
 {% block body %}
-    <h1>Editar Educacion Superior</h1>
+<div class="card">
+    <div class="header">
+        <h2>Editar Educación Superior</h2>
+    </div>
+    <div class="body">
+        {{ include('educacion_superior/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    </div>
+</div>
 
-    {{ include('educacion_superior/_form.html.twig', {'button_label': 'Actualizar'}) }}
-
-    <a href="{{ path('educacion_superior_index') }}">Volver a la Lista</a>
-
-    {{ include('educacion_superior/_delete_form.html.twig') }}
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_superior_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+</div>
+{{ include('educacion_superior/_delete_form.html.twig') }}
+<br>
 {% endblock %}

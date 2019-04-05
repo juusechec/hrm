@@ -3,43 +3,62 @@
 {% block title %}Educacion Superior {% endblock %}
 
 {% block body %}
-    <h1>Educacion Superior</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Numero Semestre Aprobados</th>
-                <th>Graduado</th>
-                <th>Fecha del Grado</th>
-                <th>Fecha de Expedicion de la Tarjeta Profesional</th>
-                <th>Fecha de Vencimiento Tarjeta Profesional</th>
-                <th>Numero de Tarjeta Profesional</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for educacion_superior in educacion_superiors %}
-            <tr>
-                <td>{{ educacion_superior.id }}</td>
-                <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
-                <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
-                <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
-                <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('d-m-Y') : '' }}</td>
-                <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>
-                <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
-                <td>
-                    <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}">Ver</a>
-                    <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">¡Oops! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('educacion_superior_new') }}">Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Educacion Superior
+                    <small>Registre aquí titulos técnicos, tecnológicos o pregrados, postgrados, maestrías y doctorados.</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Numero Semestre Aprobados</th>
+                            <th>Graduado</th>
+                            <th>Fecha del Grado</th>
+                            <th>Fecha de Expedicion de la Tarjeta Profesional</th>
+                            <th>Fecha de Vencimiento Tarjeta Profesional</th>
+                            <th>Numero de Tarjeta Profesional</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for educacion_superior in educacion_superiors %}
+                        <tr>
+                            <td>{{ educacion_superior.id }}</td>
+                            <td>{{ educacion_superior.numeroSemestreAprobados }}</td>
+                            <td>{{ educacion_superior.graduado ? 'Yes' : 'No' }}</td>
+                            <td>{{ educacion_superior.fechaGrado ? educacion_superior.fechaGrado|date('d-m-Y') : '' }}</td>
+                            <td>{{ educacion_superior.fechaExpedicionTarjetaProfesional ? educacion_superior.fechaExpedicionTarjetaProfesional|date('d-m-Y') : '' }}</td>
+                            <td>{{ educacion_superior.fechaVencimientoTarjetaProfesional ? educacion_superior.fechaVencimientoTarjetaProfesional|date('d-m-Y') : '' }}</td>
+                            <td>{{ educacion_superior.numeroTarjetaProfesional }}</td>
+                            <td>
+                                <a href="{{ path('educacion_superior_show', {'id': educacion_superior.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">view_headline</i>
+                                </a>
+                                <a href="{{ path('educacion_superior_edit', {'id': educacion_superior.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">mode_edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">¡Oops! no encontramos nada</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_superior_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Nuevo</a>
+    </div>
+</div>
 {% endblock %}

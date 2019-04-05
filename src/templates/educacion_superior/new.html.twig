@@ -1,11 +1,22 @@
 {% extends 'hrm.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
 
-{% block title %}Nuevo Educacion Superior{% endblock %}
+{% block title %}Nuevo Educación Superior{% endblock %}
 
 {% block body %}
-    <h1>Nuevo  Educacion Superior</h1>
+<div class="card">
+    <div class="header">
+        <h2>Nuevo Educación Superior</h2>
+    </div>
+    <div class="body">
+        {{ include('educacion_superior/_form.html.twig') }}
+    </div>
+</div>
 
-    {{ include('educacion_superior/_form.html.twig') }}
-
-    <a href="{{ path('educacion_superior_index') }}">Volver a la Lista</a>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_superior_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la Lista</a>
+    </div>
+</div>
+<br>
 {% endblock %}
