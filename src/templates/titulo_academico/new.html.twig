@@ -1,11 +1,22 @@
 {% extends 'hrm.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
 
-{% block title %}Nuevo Titulo Academico{% endblock %}
+{% block title %}Nuevo Título Académico{% endblock %}
 
 {% block body %}
-    <h1>Nuevo  Titulo Academico</h1>
+<div class="card">
+    <div class="header">
+        <h2>Nuevo Título Académico</h2>
+    </div>
+    <div class="body">
+        {{ include('titulo_academico/_form.html.twig') }}
+    </div>
+</div>
 
-    {{ include('titulo_academico/_form.html.twig') }}
-
-    <a href="{{ path('titulo_academico_index') }}">Volver a la Lista</a>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('titulo_academico_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+</div>
+<br>
 {% endblock %}

@@ -31,10 +31,10 @@
                             <td>{{ empleado.tipoDocumento ~ ' ' ~ empleado.numeroDocumento }}</td>
                             <td>{{ ('now'|date('Y') - empleado.fechaNacimiento|date('Y') - 1) + ('now'|date('2010-m-d')|date('U') - empleado.fechaNacimiento|date('2010-m-d')|date('U') >= 0 ? 1 : 0) }}</td>
                             <td>
-                                <a href="{{ path('empleado_show', {'id': empleado.id}) }}" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                <a href="{{ path('empleado_show', {'id': empleado.id}) }}" title="Ver" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">view_headline</i>
                                 </a>
-                                <a href="{{ path('empleado_edit', {'id': empleado.id}) }}" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                <a href="{{ path('empleado_edit', {'id': empleado.id}) }}" title="Editar" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">mode_edit</i>
                                 </a>
                             </td>
