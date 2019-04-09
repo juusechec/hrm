@@ -1,42 +1,56 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Elemento de Dotacion{% endblock %}
+{% block title %}Elemento de Dotación{% endblock %}
 
 {% block body %}
-    <h1>Elemento de Dotacion</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Elemento de Dotación</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ elemento_dotacion.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ elemento_dotacion.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Descripción</th>
+                            <td>{{ elemento_dotacion.descripcion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Abreviación</th>
+                            <td>{{ elemento_dotacion.abreviacion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Orden</th>
+                            <td>{{ elemento_dotacion.orden }}</td>
+                        </tr>
+                        <tr>
+                            <th>Activo</th>
+                            <td>{{ elemento_dotacion.activo ? 'Sí' : 'No' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('elemento_dotacion_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ elemento_dotacion.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ elemento_dotacion.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Descripción</th>
-                <td>{{ elemento_dotacion.descripcion }}</td>
-            </tr>
-            <tr>
-                <th>Abreviación</th>
-                <td>{{ elemento_dotacion.abreviacion }}</td>
-            </tr>
-            <tr>
-                <th>Orden</th>
-                <td>{{ elemento_dotacion.orden }}</td>
-            </tr>
-            <tr>
-                <th>Activo</th>
-                <td>{{ elemento_dotacion.activo ? 'Sí' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('elemento_dotacion_index') }}">Volver a la lista</a>
-
-    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">Editar</a>
-
-    {{ include('elemento_dotacion/_delete_form.html.twig') }}
+{{ include('elemento_dotacion/_delete_form.html.twig') }}
+<br>
 {% endblock %}
