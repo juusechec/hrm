@@ -13,15 +13,15 @@ class EducacionSuperiorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numeroSemestreAprobados', null, [
-                'attr' => [ 'class' => 'form-control' ],
-                'label_attr' => [ 'class' => 'form-label' ],
-                'required' => false
-            ])
+            ->add('numeroSemestreAprobados')
             ->add('graduado')
             ->add('fechaGrado')
-            ->add('fechaExpedicionTarjetaProfesional')
-            ->add('fechaVencimientoTarjetaProfesional')
+            ->add('fechaExpedicionTarjetaProfesional', null, [
+                'years' => range(date('Y'), date('Y')-100)
+            ])
+            ->add('fechaVencimientoTarjetaProfesional', null, [
+                'years' => range(date('Y'), date('Y')+100)
+            ])
             ->add('numeroTarjetaProfesional', TextType::class, [
                 'attr' => [ 'class' => 'form-control' ],
                 'label_attr' => [ 'class' => 'form-label' ],
