@@ -9,15 +9,15 @@
         <h2>Editar Educacion Continuada</h2>
     </div>
     <div class="body">
-        {{ include('educacion_continuada/_form.html.twig', {'button_label': 'Actualizar'}) }}
-</div>
+         {{ include('educacion_continuada/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    </div>
 </div>
 
 <div class="row clearfix">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <a href="{{ path('educacion_continuada_index') }}"class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+        <a href="{{ path('educacion_continuada_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
     </div>
 </div>
-    {{ include('educacion_continuada/_delete_form.html.twig') }}
-</br>
+{{ include('educacion_continuada/_delete_form.html.twig') }}
+<br>
 {% endblock %}
