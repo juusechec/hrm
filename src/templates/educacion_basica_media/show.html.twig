@@ -3,32 +3,46 @@
 {% block title %}Educacion Basica Media{% endblock %}
 
 {% block body %}
-    <h1>Educacion Basica Media</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Educacion Basica Media</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ educacion_basica_media.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ultimo Grado Aprobado</th>
+                            <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
+                        </tr>
+                        <tr>
+                            <th>Titulo Obtenido</th>
+                            <td>{{ educacion_basica_media.tituloObtenido }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha Grado</th>
+                            <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_basica_media_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_basica_media_edit', {'id': educacion_basica_media.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ educacion_basica_media.id }}</td>
-            </tr>
-            <tr>
-                <th>Ultimo Grado Aprobado</th>
-                <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
-            </tr>
-            <tr>
-                <th>Titulo Obtenido</th>
-                <td>{{ educacion_basica_media.tituloObtenido }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Grado</th>
-                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('educacion_basica_media_index') }}">Volver a la lista</a>
-
-    <a href="{{ path('educacion_basica_media_edit', {'id': educacion_basica_media.id}) }}">Editar</a>
-
-    {{ include('educacion_basica_media/_delete_form.html.twig') }}
+{{ include('educacion_basica_media/_delete_form.html.twig') }}
+<br>
 {% endblock %}
