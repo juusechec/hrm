@@ -16,7 +16,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                           <th>Id</th>
                             <th>Numero Semestre Aprobados</th>
                             <th>Graduado</th>
                             <th>Fecha del Grado</th>
@@ -47,7 +47,7 @@
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="8">¡Oops! no encontramos nada</td>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -58,7 +58,7 @@
 </div>
 <div class="row clearfix">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <a href="{{ path('educacion_superior_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear nuevo</a>
+        <a href="{{ path('educacion_superior_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
     </div>
 </div>
 {% endblock %}
