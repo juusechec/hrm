@@ -3,24 +3,38 @@
 {% block title %}Entrega del Elemento de Dotacion{% endblock %}
 
 {% block body %}
-    <h1>Entrega del Elemento de Dotacion</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Entrega del Elemento de Dotacion</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td>{{ entrega_elemento_dotacion.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha Entrega de Dotacion</th>
+                            <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('d-m-Y') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('entrega_elemento_dotacion_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('entrega_elemento_dotacion_edit', {'id': entrega_elemento_dotacion.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entrega_elemento_dotacion.id }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Entrega de Dotacion</th>
-                <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('d-m-Y') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('entrega_elemento_dotacion_index') }}">Volver a la lista</a>
-
-    <a href="{{ path('entrega_elemento_dotacion_edit', {'id': entrega_elemento_dotacion.id}) }}">Editar</a>
-
-    {{ include('entrega_elemento_dotacion/_delete_form.html.twig') }}
+{{ include('entrega_elemento_dotacion/_delete_form.html.twig') }}
+<br>
 {% endblock %}
