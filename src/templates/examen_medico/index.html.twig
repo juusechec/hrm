@@ -1,37 +1,52 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}ExamenMedico {% endblock %}
+{% block title %}Examen Medico{% endblock %}
 
 {% block body %}
-    <h1>Examen Medico</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fecha</th>
-                <th>Recomendaciones</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for examen_medico in examen_medicos %}
-            <tr>
-                <td>{{ examen_medico.id }}</td>
-                <td>{{ examen_medico.fecha ? examen_medico.fecha|date('d-m-Y') : '' }}</td>
-                <td>{{ examen_medico.recomendaciones }}</td>
-                <td>
-                    <a href="{{ path('examen_medico_show', {'id': examen_medico.id}) }}">Ver</a>
-                    <a href="{{ path('examen_medico_edit', {'id': examen_medico.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">¡Oops! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('examen_medico_new') }}">Crear nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Examen Medico
+                    
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Fecha</th>
+                            <th>Recomendaciones</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for examen_medico in examen_medicos %}
+                        <tr>
+                            <td>{{ examen_medico.id }}</td>
+                            <td>{{ examen_medico.fecha ? examen_medico.fecha|date('d-m-Y') : '' }}</td>
+                            <td>{{ examen_medico.recomendaciones }}</td>
+                            <td>
+                                <a href="{{ path('examen_medico_show', {'id': examen_medico.id}) }}">Ver</a>
+                                <a href="{{ path('examen_medico_edit', {'id': examen_medico.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('examen_medico_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}
