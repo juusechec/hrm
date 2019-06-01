@@ -25,7 +25,7 @@
                 <td>{{ tipo_contrato.descripcion }}</td>
                 <td>{{ tipo_contrato.abreviacion }}</td>
                 <td>{{ tipo_contrato.orden }}</td>
-                <td>{{ tipo_contrato.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_contrato.activo ? 'Sí' : 'No' }}</td>
                 <td>
                     <a href="{{ path('tipo_contrato_show', {'id': tipo_contrato.id}) }}">Ver</a>
                     <a href="{{ path('tipo_contrato_edit', {'id': tipo_contrato.id}) }}">Editar</a>
@@ -33,11 +33,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">!Ups! no encontramos nada</td>
+                <td colspan="7">¡Oops! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_contrato_new') }}">Nuevo</a>
+    <a href="{{ path('tipo_contrato_new') }}">Crear nuevo</a>
 {% endblock %}

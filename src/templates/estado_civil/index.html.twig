@@ -3,41 +3,56 @@
 {% block title %}Estado Civil{% endblock %}
 
 {% block body %}
-    <h1>Estado Civil</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Abreviación</th>
-                <th>Orden</th>
-                <th>Activo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for estado_civil in estado_civils %}
-            <tr>
-                <td>{{ estado_civil.id }}</td>
-                <td>{{ estado_civil.nombre }}</td>
-                <td>{{ estado_civil.descripcion }}</td>
-                <td>{{ estado_civil.abreviacion }}</td>
-                <td>{{ estado_civil.orden }}</td>
-                <td>{{ estado_civil.activo ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('estado_civil_show', {'id': estado_civil.id}) }}">Ver</a>
-                    <a href="{{ path('estado_civil_edit', {'id': estado_civil.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">!Ups! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('estado_civil_new') }}">Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Estado Civil
+                    <small>Registre todos los títulos posibles</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Abreviación</th>
+                            <th>Orden</th>
+                            <th>Activo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                   {% for estado_civil in estado_civils %}
+                        <tr>
+                            <td>{{ estado_civil.id }}</td>
+                            <td>{{ estado_civil.nombre }}</td>
+                            <td>{{ estado_civil.descripcion }}</td>
+                            <td>{{ estado_civil.abreviacion }}</td>
+                            <td>{{ estado_civil.orden }}</td>
+                            <td>{{ estado_civil.activo ? 'Sí' : 'No' }}</td>
+                            <td>
+                                <a href="{{ path('estado_civil_show', {'id': estado_civil.id}) }}">Ver</a>
+                                <a href="{{ path('estado_civil_edit', {'id': estado_civil.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('estado_civil_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

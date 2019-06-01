@@ -1,35 +1,54 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}AuxilioContrato index{% endblock %}
+{% block title %}Auxilio Contrato{% endblock %}
 
 {% block body %}
-    <h1>AuxilioContrato index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fecha</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for auxilio_contrato in auxilio_contratos %}
-            <tr>
-                <td>{{ auxilio_contrato.id }}</td>
-                <td>{{ auxilio_contrato.fecha ? auxilio_contrato.fecha|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('auxilio_contrato_show', {'id': auxilio_contrato.id}) }}">show</a>
-                    <a href="{{ path('auxilio_contrato_edit', {'id': auxilio_contrato.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('auxilio_contrato_new') }}">Create new</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Auxilio Contrato
+                    <small>Ayuda economica para que las persoans cumplan a bien su contrato</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for auxilio_contrato in auxilio_contratos %}            
+                        <tr>
+                            <td>{{ auxilio_contrato.id }}</td>
+                            <td>{{ auxilio_contrato.fecha ? auxilio_contrato.fecha|date('Y-m-d') : '' }}</td>
+                            <td>
+                                <a href="{{ path('auxilio_contrato_show', {'id': auxilio_contrato.id}) }}" title="Ver" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">view_headline</i>
+                                </a>
+                                <a href="{{ path('auxilio_contrato_edit', {'id': auxilio_contrato.id}) }}" title="Editar" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">mode_edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('auxilio_contrato_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

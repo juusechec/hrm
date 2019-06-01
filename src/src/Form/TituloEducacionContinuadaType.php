@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\TituloEducacionContinuada;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,11 +13,29 @@ class TituloEducacionContinuadaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre')
-            ->add('descripcion')
-            ->add('horas')
-            ->add('abreviacion')
-            ->add('orden')
+            ->add('nombre', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
+            ])
+            ->add('descripcion', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
+            ])
+            ->add('horas', null, [
+                'attr' => [ 'min' => 0 ]
+            ])
+            ->add('abreviacion', TextType::class, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
+            ])
+            ->add('orden', null, [
+                'attr' => [ 'class' => 'form-control' ],
+                'label_attr' => [ 'class' => 'form-label' ],
+                'required' => false
+            ])
             ->add('activo')
         ;
     }

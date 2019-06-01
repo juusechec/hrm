@@ -27,7 +27,7 @@
                 <td>{{ tipo_vacuna.patologia }}</td>
                 <td>{{ tipo_vacuna.abreviacion }}</td>
                 <td>{{ tipo_vacuna.orden }}</td>
-                <td>{{ tipo_vacuna.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_vacuna.activo ? 'Sí' : 'No' }}</td>
                 <td>
                     <a href="{{ path('tipo_vacuna_show', {'id': tipo_vacuna.id}) }}">Ver</a>
                     <a href="{{ path('tipo_vacuna_edit', {'id': tipo_vacuna.id}) }}">Editar</a>
@@ -35,11 +35,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">!Ups! no encontramos nada</td>
+                <td colspan="8">¡Oops! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_vacuna_new') }}">Nuevo</a>
+    <a href="{{ path('tipo_vacuna_new') }}">Crear nuevo</a>
 {% endblock %}

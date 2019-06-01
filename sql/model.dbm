@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.1-beta" last-position="743,1551" last-zoom="1.05"
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="380,1513" last-zoom="1.05"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database">
 </database>
@@ -958,11 +958,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="abreviacion">
 		<type name="text" length="0"/>
 	</column>
-	<column name="activo">
-		<type name="boolean" length="0"/>
-	</column>
 	<column name="orden">
 		<type name="integer" length="0"/>
+	</column>
+	<column name="activo">
+		<type name="boolean" length="0"/>
 	</column>
 	<constraint name="tipo_vivienda_pk" type="pk-constr" table="public.tipo_vivienda">
 		<columns names="id" ref-type="src-columns"/>
@@ -1545,6 +1545,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="auxilio_contrato">
 	<schema name="public"/>
 	<role name="postgres"/>
+	<comment><![CDATA[Auxilios monetarios que se dan como complemento del salario.]]></comment>
 	<position x="1260" y="2100"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="0"/>
@@ -1558,11 +1559,22 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="id" ref-type="src-columns"/>
 		<comment><![CDATA[PK auxilios contrato]]></comment>
 	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_contrato" index="3"/>
+		<object name="id_tipo_auxilio_contrato" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="contrato_fk" index="2"/>
+		<object name="tipo_auxilio_contrato_fk" index="1"/>
+	</customidxs>
 </table>
 
 <table name="tipo_auxilio_contrato">
 	<schema name="public"/>
 	<role name="postgres"/>
+	<comment><![CDATA[Tipo de auxilios del contrato.]]></comment>
 	<position x="660" y="2140"/>
 	<column name="id" not-null="true">
 		<type name="serial" length="0"/>

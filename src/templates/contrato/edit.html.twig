@@ -3,11 +3,21 @@
 {% block title %}Editar Contrato{% endblock %}
 
 {% block body %}
-    <h1>Editar Contrato</h1>
-
+<div class="card">
+    <div class="header">
+        <h2>Editar Contrato</h2>
+    </div>
+    <div class="body">
     {{ include('contrato/_form.html.twig',{'button_label': 'Actualizar'}) }}
+</div>
+</div>
 
-    <a href="{{ path('contrato_index') }}">Volver a la Lista</a>
-
-    {{ include('contrato/_delete_form.html.twig') }}
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('contrato_index') }}"class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+</div>
+{{ include('contrato/_delete_form.html.twig') }}
+</br>
 {% endblock %}
+ttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://usergttp://userg

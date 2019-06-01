@@ -1,11 +1,22 @@
 {% extends 'hrm.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
 
 {% block title %}Nueva Cuenta Bancaria{% endblock %}
 
 {% block body %}
-    <h1>Nueva Cuenta Bancaria</h1>
+<div class="card">
+    <div class="header">
+        <h2>Nueva Cuenta Bancaria</h2>
+    </div>
+    <div class="body">
+        {{ include('cuenta_bancaria/_form.html.twig') }}
+    </div>
+</div>
 
-    {{ include('cuenta_bancaria/_form.html.twig') }}
-
-    <a href="{{ path('cuenta_bancaria_index') }}">Volver a la Lista</a>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('cuenta_bancaria_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+</div>
+<br>
 {% endblock %}

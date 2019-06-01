@@ -1,0 +1,14 @@
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+    $('#empleadoTabs a').click(function (e) {
+        e.preventDefault()
+        // $(this).tab('show');
+        console.log('click', this);
+        // $('#empleadoTabs > li').removeClass('disabled');
+        // return false;
+    });
+    // $('#empleadoTabs > li').addClass('disabled');
+});
+</script>
+{% endblock %}

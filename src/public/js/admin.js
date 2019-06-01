@@ -216,9 +216,16 @@ $.AdminBSB.search = {
         });
 
         //ESC key on pressed
+        // add by juusechec
+        var $body = $('body');
+        var $overlay = $('.overlay');
         $searchBar.find('input[type="text"]').on('keyup', function (e) {
+            $body.addClass('overlay-open');
+            $overlay.fadeIn();
             if (e.keyCode == 27 || e.keyCode === 13) {
                 _this.hideSearchBar();
+                $body.removeClass('overlay-open');
+                $overlay.fadeOut();
             }
             // console.log('texto:', e.target.value);
             _this.filterMenu(e.target.value);

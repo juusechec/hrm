@@ -25,7 +25,7 @@
                 <td>{{ tipo_examen_medico.descripcion }}</td>
                 <td>{{ tipo_examen_medico.abreviacion }}</td>
                 <td>{{ tipo_examen_medico.orden }}</td>
-                <td>{{ tipo_examen_medico.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_examen_medico.activo ? 'Sí' : 'No' }}</td>
                 <td>
                     <a href="{{ path('tipo_examen_medico_show', {'id': tipo_examen_medico.id}) }}">Ver</a>
                     <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">Editar</a>
@@ -33,11 +33,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">!Ups! no encontramos nada</td>
+                <td colspan="7">¡Oops! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_examen_medico_new') }}">Nuevo</a>
+    <a href="{{ path('tipo_examen_medico_new') }}">Crear nuevo</a>
 {% endblock %}

@@ -25,7 +25,7 @@
                 <td>{{ proceso_gestion_integral.descripcion }}</td>
                 <td>{{ proceso_gestion_integral.abreviacion }}</td>
                 <td>{{ proceso_gestion_integral.orden }}</td>
-                <td>{{ proceso_gestion_integral.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ proceso_gestion_integral.activo ? 'Sí' : 'No' }}</td>
                 <td>
                     <a href="{{ path('proceso_gestion_integral_show', {'id': proceso_gestion_integral.id}) }}">Ver</a>
                     <a href="{{ path('proceso_gestion_integral_edit', {'id': proceso_gestion_integral.id}) }}">Editar</a>
@@ -33,11 +33,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">!Ups! no encontramos nada</td>
+                <td colspan="7">¡Oops! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('proceso_gestion_integral_new') }}">Nuevo</a>
+    <a href="{{ path('proceso_gestion_integral_new') }}">Crear nuevo</a>
 {% endblock %}

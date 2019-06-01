@@ -33,12 +33,12 @@
             </tr>
             <tr>
                 <th>Activo</th>
-                <td>{{ tipo_vacuna.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_vacuna.activo ? 'Sí' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_vacuna_index') }}">Volver a la Lista</a>
+    <a href="{{ path('tipo_vacuna_index') }}">Volver a la lista</a>
 
     <a href="{{ path('tipo_vacuna_edit', {'id': tipo_vacuna.id}) }}">Editar</a>
 

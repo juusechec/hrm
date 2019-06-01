@@ -3,6 +3,7 @@
 echo 'Ejecutando: populate_database.sh'
 
 SQL_INSIDE_DB=/sql/ddl.sql
+SQL_INSIDE_DB2=/sql/dml.sql
 
 # rationale: set a default sudo
 if [ -z "$SUDO" ]; then
@@ -24,7 +25,8 @@ then
   echo 'La base de datos ya está creada. Nada que hacer.'
 else
 tmp_file_inside_db=/tmp/sql_inside_db.sql
-cp "$SQL_INSIDE_DB" "$tmp_file_inside_db"
+cat "$SQL_INSIDE_DB" >> "$tmp_file_inside_db"
+cat "$SQL_INSIDE_DB2" >> "$tmp_file_inside_db"
 $SUDO chown postgres:postgres "$tmp_file_inside_db"
 $SUDO su postgres -c "
 cd /tmp

@@ -25,7 +25,7 @@
                 <td>{{ tipo_relacion_persona.descripcion }}</td>
                 <td>{{ tipo_relacion_persona.abreviacion }}</td>
                 <td>{{ tipo_relacion_persona.orden }}</td>
-                <td>{{ tipo_relacion_persona.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_relacion_persona.activo ? 'Sí' : 'No' }}</td>
                 <td>
                     <a href="{{ path('tipo_relacion_personas_show', {'id': tipo_relacion_persona.id}) }}">Ver</a>
                     <a href="{{ path('tipo_relacion_personas_edit', {'id': tipo_relacion_persona.id}) }}">Editar</a>
@@ -33,11 +33,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">!Ups! no encontramos nada</td>
+                <td colspan="7">¡Oops! no encontramos nada</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_relacion_personas_new') }}">Nuevo</a>
+    <a href="{{ path('tipo_relacion_personas_new') }}">Crear nuevo</a>
 {% endblock %}

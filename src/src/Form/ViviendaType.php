@@ -14,7 +14,9 @@ class ViviendaType extends AbstractType
         $builder
             ->add('direccion')
             ->add('barrio')
-            ->add('estrato')
+            ->add('estrato', null, [
+                'attr' => array('min' => 0)
+            ])
             ->add('pais')
             ->add('departamento')
             ->add('municipio')

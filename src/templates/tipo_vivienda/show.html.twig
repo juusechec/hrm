@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Activo</th>
-                <td>{{ tipo_vivienda.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_vivienda.activo ? 'Sí' : 'No' }}</td>
             </tr>
             <tr>
                 <th>Orden</th>
@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_vivienda_index') }}">Volver a la Lista</a>
+    <a href="{{ path('tipo_vivienda_index') }}">Volver a la lista</a>
 
     <a href="{{ path('tipo_vivienda_edit', {'id': tipo_vivienda.id}) }}">Editar</a>
 

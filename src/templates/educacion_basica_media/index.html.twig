@@ -1,39 +1,53 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Educacion Basica Media {% endblock %}
+{% block title %}Nivel de Escolaridad{% endblock %}
 
 {% block body %}
-    <h1>Educacion Basica Media</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Ultimo Grado Aprobado</th>
-                <th>Titulo Obtenido</th>
-                <th>Fecha Grado</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for educacion_basica_media in educacion_basica_media %}
-            <tr>
-                <td>{{ educacion_basica_media.id }}</td>
-                <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
-                <td>{{ educacion_basica_media.tituloObtenido }}</td>
-                <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
-                <td>
-                    <a href="{{ path('educacion_basica_media_show', {'id': educacion_basica_media.id}) }}">Ver</a>
-                    <a href="{{ path('educacion_basica_media_edit', {'id': educacion_basica_media.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">!Ups! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('educacion_basica_media_new') }}">Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Nivel de Escolaridad
+                    <small>Registre hasta que año aprobo en la etapa de escolaridad</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Ultimo Grado Aprobado</th>
+                            <th>Titulo Obtenido</th>
+                            <th>Fecha Grado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for educacion_basica_media in educacion_basica_media %}
+                        <tr>
+                            <td>{{ educacion_basica_media.id }}</td>
+                            <td>{{ educacion_basica_media.ultimoGradoAprobado }}</td>
+                            <td>{{ educacion_basica_media.tituloObtenido }}</td>
+                            <td>{{ educacion_basica_media.fechaGrado ? educacion_basica_media.fechaGrado|date('d-m-Y') : '' }}</td>
+                            <td>
+                                <a href="{{ path('educacion_basica_media_show', {'id': educacion_basica_media.id}) }}">Ver</a>
+                                <a href="{{ path('educacion_basica_media_edit', {'id': educacion_basica_media.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_basica_media_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

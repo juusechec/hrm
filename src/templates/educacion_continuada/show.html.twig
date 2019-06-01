@@ -3,28 +3,42 @@
 {% block title %}Educacion Continuada{% endblock %}
 
 {% block body %}
-    <h1>Educacion Continuada</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Educacion Continuada</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ educacion_continuada.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha Terminacion</th>
+                            <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha Vencimiento</th>
+                            <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('d-m-Y') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_continuada_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('educacion_continuada_edit', {'id': educacion_continuada.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ educacion_continuada.id }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Terminacion</th>
-                <td>{{ educacion_continuada.fechaTerminacion ? educacion_continuada.fechaTerminacion|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Fecha Vencimiento</th>
-                <td>{{ educacion_continuada.fechaVencimiento ? educacion_continuada.fechaVencimiento|date('d-m-Y') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('educacion_continuada_index') }}">Volver a la Lista</a>
-
-    <a href="{{ path('educacion_continuada_edit', {'id': educacion_continuada.id}) }}">Editar</a>
-
-    {{ include('educacion_continuada/_delete_form.html.twig') }}
+{{ include('educacion_continuada/_delete_form.html.twig') }}
+<br>
 {% endblock %}

@@ -1,43 +1,62 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Elemento de Dotacion {% endblock %}
+{% block title %}Elemento de Dotación{% endblock %}
 
 {% block body %}
-    <h1>Elemento de Dotacion</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Abreviación</th>
-                <th>Orden</th>
-                <th>Activo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for elemento_dotacion in elemento_dotacions %}
-            <tr>
-                <td>{{ elemento_dotacion.id }}</td>
-                <td>{{ elemento_dotacion.nombre }}</td>
-                <td>{{ elemento_dotacion.descripcion }}</td>
-                <td>{{ elemento_dotacion.abreviacion }}</td>
-                <td>{{ elemento_dotacion.orden }}</td>
-                <td>{{ elemento_dotacion.activo ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('elemento_dotacion_show', {'id': elemento_dotacion.id}) }}">Ver</a>
-                    <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">!Ups! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('elemento_dotacion_new') }}">Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Elemento de Dotación
+                    <small>Registre todos los elementos de dotacións</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Abreviación</th>
+                            <th>Orden</th>
+                            <th>Activo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for elemento_dotacion in elemento_dotacions %}
+                        <tr>
+                            <td>{{ elemento_dotacion.id }}</td>
+                            <td>{{ elemento_dotacion.nombre }}</td>
+                            <td>{{ elemento_dotacion.descripcion }}</td>
+                            <td>{{ elemento_dotacion.abreviacion }}</td>
+                            <td>{{ elemento_dotacion.orden }}</td>
+                            <td>{{ elemento_dotacion.activo ? 'Sí' : 'No' }}</td>
+                            <td>
+                                <a href="{{ path('elemento_dotacion_show', {'id': elemento_dotacion.id}) }}" title="Ver" class="btn bg-light-green btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">view_headline</i>
+                                </a>
+                                <a href="{{ path('elemento_dotacion_edit', {'id': elemento_dotacion.id}) }}" title="Editar" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">mode_edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">¡Oops! no encontramos nada</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('elemento_dotacion_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

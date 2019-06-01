@@ -1,26 +1,40 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}AuxilioContrato{% endblock %}
+{% block title %}Auxilio Contrato{% endblock %}
 
 {% block body %}
-    <h1>AuxilioContrato</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>Auxilio Contrato</h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ auxilio_contrato.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td>{{ auxilio_contrato.fecha ? auxilio_contrato.fecha|date('Y-m-d') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('auxilio_contrato_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('auxilio_contrato_edit', {'id': auxilio_contrato.id}) }}" class="btn btn-block btn-lg btn-primary waves-effect">Editar</a>
+    </div>
+</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ auxilio_contrato.id }}</td>
-            </tr>
-            <tr>
-                <th>Fecha</th>
-                <td>{{ auxilio_contrato.fecha ? auxilio_contrato.fecha|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('auxilio_contrato_index') }}">back to list</a>
-
-    <a href="{{ path('auxilio_contrato_edit', {'id': auxilio_contrato.id}) }}">edit</a>
-
-    {{ include('auxilio_contrato/_delete_form.html.twig') }}
+{{ include('auxilio_contrato/_delete_form.html.twig') }}
+<br>
 {% endblock %}

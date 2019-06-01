@@ -1,13 +1,23 @@
 {% extends 'hrm.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
 
-{% block title %}Editar Elemento de Dotacion{% endblock %}
+{% block title %}Editar Elemento de Dotación{% endblock %}
 
 {% block body %}
-    <h1>Editar Elemento de Dotacion</h1>
+<div class="card">
+    <div class="header">
+        <h2>Editar Elemento de Dotación</h2>
+    </div>
+    <div class="body">
+        {{ include('elemento_dotacion/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    </div>
+</div>
 
-    {{ include('elemento_dotacion/_form.html.twig', {'button_label': 'Actualizar'}) }}
-
-    <a href="{{ path('elemento_dotacion_index') }}">Volver a la Lista</a>
-
-    {{ include('elemento_dotacion/_delete_form.html.twig') }}
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('elemento_dotacion_index') }}" class="btn btn-block btn-lg btn-success waves-effect">Volver a la lista</a>
+    </div>
+</div>
+{{ include('elemento_dotacion/_delete_form.html.twig') }}
+<br>
 {% endblock %}

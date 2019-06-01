@@ -1,35 +1,49 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Listado de Otro Si{% endblock %}
+{% block title %}Otro SI{% endblock %}
 
 {% block body %}
-    <h1>Listado de Otro Si</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fecha de Inicio</th>
-                <th>Accion</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for otrosi in otrosis %}
-            <tr>
-                <td>{{ otrosi.id }}</td>
-                <td>{{ otrosi.fechaInicio ? otrosi.fechaInicio|date('d-m-Y') : '' }}</td>
-                <td>
-                    <a href="{{ path('otrosi_show', {'id': otrosi.id}) }}">Ver</a>
-                    <a href="{{ path('otrosi_edit', {'id': otrosi.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">!Ups! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('otrosi_new') }}">Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Otro SI
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for otrosi in otrosis %}
+                        <tr>
+                            <td>{{ otrosi.id }}</td>
+                            <td>{{ otrosi.fechaInicio ? otrosi.fechaInicio|date('d-m-Y') : '' }}</td>
+                            <td>
+                                <a href="{{ path('otrosi_show', {'id': otrosi.id}) }}">Ver</a>
+                                <a href="{{ path('otrosi_edit', {'id': otrosi.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('otrosi_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

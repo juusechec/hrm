@@ -29,12 +29,12 @@
             </tr>
             <tr>
                 <th>Activo</th>
-                <td>{{ tipo_examen_medico.activo ? 'Yes' : 'No' }}</td>
+                <td>{{ tipo_examen_medico.activo ? 'Sí' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('tipo_examen_medico_index') }}">Volver a la Lista</a>
+    <a href="{{ path('tipo_examen_medico_index') }}">Volver a la lista</a>
 
     <a href="{{ path('tipo_examen_medico_edit', {'id': tipo_examen_medico.id}) }}">Editar</a>
 

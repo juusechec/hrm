@@ -1,35 +1,50 @@
 {% extends 'hrm.html.twig' %}
 
-{% block title %}Entrega del Elemento deDotacion {% endblock %}
+{% block title %}Entrega del Elemento de Dotacion{% endblock %}
 
 {% block body %}
-    <h1>Entrega del Elemento de Dotacion</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fecha de Entrega de la Dotacion</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entrega_elemento_dotacion in entrega_elemento_dotacions %}
-            <tr>
-                <td>{{ entrega_elemento_dotacion.id }}</td>
-                <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('d-m-Y') : '' }}</td>
-                <td>
-                    <a href="{{ path('entrega_elemento_dotacion_show', {'id': entrega_elemento_dotacion.id}) }}">Ver</a>
-                    <a href="{{ path('entrega_elemento_dotacion_edit', {'id': entrega_elemento_dotacion.id}) }}">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">!Ups! no encontramos nada</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('entrega_elemento_dotacion_new') }}">Nuevo</a>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Entrega del Elemento de Dotacion
+                    <small>Registre todos los títulos posibles</small>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha de Entrega de la Dotacion</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for entrega_elemento_dotacion in entrega_elemento_dotacions %}
+                        <tr>
+                            <td>{{ entrega_elemento_dotacion.id }}</td>
+                            <td>{{ entrega_elemento_dotacion.fechaEntregaDotacion ? entrega_elemento_dotacion.fechaEntregaDotacion|date('d-m-Y') : '' }}</td>
+                            <td>
+                                <a href="{{ path('entrega_elemento_dotacion_show', {'id': entrega_elemento_dotacion.id}) }}">Ver</a>
+                                <a href="{{ path('entrega_elemento_dotacion_edit', {'id': entrega_elemento_dotacion.id}) }}">Editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="18">!Oops! no encontramos nada que mostrarte</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a href="{{ path('entrega_elemento_dotacion_new') }}" class="btn btn-block btn-lg btn-primary waves-effect">Crear Nuevo</a>
+    </div>
+</div>
 {% endblock %}

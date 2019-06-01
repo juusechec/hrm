@@ -1,0 +1,60 @@
+{# templates/form/fields.html.twig #}
+{# @link: https://blog.bouzekri.net/2015-02-06-symfony-tips-find-form-theme-override-block-name.html #}
+{# @link: https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/foundation_5_layout.html.twig #}
+{# @link: https://github.com/symfony/symfony/blob/master/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig #}
+{% block form_row %}
+{% spaceless %}
+    {# {{ dump(_context|keys) }} #}
+    {# {{ dump(block_prefixes) }} #}
+    <div class="form-group form-float">
+        <div class="form-line">
+            {% if block_prefixes[1] in ['date', 'choice', 'integer'] %}
+                {{ form_errors(form) }}
+                {{ form_label(form) }}
+                {{ form_widget(form) }}
+            {% else %}
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+                {{ form_label(form) }}
+            {% endif %}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{#{%- block date_widget -%}#}
+    {#{{ dump(_context|keys) }}#}
+    {#{{ dump(form.month) }}#}
+    {#{{ dump(_context.value|json_encode()) }}#}
+    {#{%- if widget == 'single_text' -%}#}
+        {#{{ block('form_widget_simple') }}#}
+    {#{%- else -%}#}
+        {#<div {{ block('widget_container_attributes') }}>#}
+            {#{{- date_pattern|replace({#}
+                {#'{{ year }}':  form_widget(form.year),#}
+                {#'{{ month }}': form_widget(form.month),#}
+                {#'{{ day }}':   form_widget(form.day),#}
+            {#})|raw -}}#}
+        {#</div>#}
+    {#{%- endif -%}#}
+{#{%- endblock date_widget -%}#}
+{#{%- block choice_widget_collapsed -%}#}
+    {#{{ dump(_context|keys) }}#}
+    {#{%- if required and placeholder is none and not placeholder_in_choices and not multiple and (attr.size is not defined or attr.size <= 1) -%}#}
+        {#{% set required = false %}#}
+    {#{%- endif -%}#}
+    {#<select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>#}
+        {#{%- if placeholder is not none -%}#}
+            {#<option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</option>#}
+        {#{%- endif -%}#}
+        {#{%- if preferred_choices|length > 0 -%}#}
+            {#{% set options = preferred_choices %}#}
+            {#{{- block('choice_widget_options') -}}#}
+            {#{%- if choices|length > 0 and separator is not none -%}#}
+                {#<option disabled="disabled">{{ separator }}</option>#}
+            {#{%- endif -%}#}
+        {#{%- endif -%}#}
+        {#{%- set options = choices -%}#}
+        {#{{- block('choice_widget_options') -}}#}
+    {#</select>#}
+{#{%- endblock choice_widget_collapsed -%}#}
